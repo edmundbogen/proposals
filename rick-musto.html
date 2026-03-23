@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HomeSmart Realty Partners — Proposal from Bogen.ai</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    color: #333333;
+    background: #ffffff;
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* — Header Bar — */
+  .header {
+    background: #1a3e5c;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-brand {
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .header-brand strong { font-weight: 600; }
+  .header-date {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* — Content Container — */
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+  }
+
+  /* — Proposal Title Block — */
+  .title-block {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 3px solid #00a8e1;
+  }
+  .title-block h1 {
+    font-size: 28px;
+    font-weight: 300;
+    color: #1a3e5c;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .title-block .subtitle {
+    font-size: 15px;
+    color: #666666;
+    font-weight: 400;
+  }
+  .title-block .prepared-for {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #999999;
+    letter-spacing: 0.04em;
+  }
+
+  /* — Intro Paragraph — */
+  .intro {
+    font-size: 16px;
+    color: #444444;
+    margin-bottom: 48px;
+    line-height: 1.8;
+  }
+  .intro p + p { margin-top: 14px; }
+
+  /* — Section Headers — */
+  .section-header {
+    font-size: 12px;
+    font-weight: 600;
+    color: #00a8e1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  h2.section-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: #1a3e5c;
+    margin-bottom: 16px;
+  }
+
+  /* — The Opportunity — */
+  .opportunity {
+    margin-bottom: 52px;
+  }
+  .opportunity .opp-intro {
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .opp-grid {
+    display: grid;
+    gap: 16px;
+  }
+  .opp-card {
+    background: #f7f9fb;
+    border-radius: 6px;
+    padding: 20px 24px;
+    border-left: 4px solid #e4e8ec;
+  }
+  .opp-card.highlight {
+    border-left-color: #00a8e1;
+    background: #eef8fc;
+  }
+  .opp-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a3e5c;
+    margin-bottom: 4px;
+  }
+  .opp-type {
+    font-size: 12px;
+    color: #999999;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .opp-note {
+    font-size: 13px;
+    color: #777777;
+    line-height: 1.5;
+  }
+  .opp-takeaway {
+    margin-top: 24px;
+    padding: 20px 24px;
+    background: #1a3e5c;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .opp-takeaway strong {
+    color: #00a8e1;
+  }
+
+  /* — Phase Sections — */
+  .phase {
+    margin-bottom: 44px;
+    padding-left: 20px;
+    border-left: 4px solid #00a8e1;
+  }
+  .phase-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #00a8e1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .phase h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #1a3e5c;
+    margin-bottom: 12px;
+  }
+  .phase .why {
+    font-size: 15px;
+    color: #555555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+  .phase ul {
+    list-style: none;
+    padding: 0;
+  }
+  .phase ul li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 15px;
+    color: #444444;
+  }
+  .phase ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 8px;
+    height: 8px;
+    background: #00a8e1;
+    border-radius: 50%;
+  }
+
+  /* — How It Works — */
+  .how-it-works {
+    margin-bottom: 48px;
+    padding: 28px 28px;
+    background: #f7f9fb;
+    border-radius: 6px;
+    border: 1px solid #e4e8ec;
+  }
+  .how-it-works h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3e5c;
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .flow-step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .flow-step:last-child { margin-bottom: 0; }
+  .step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: #00a8e1;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .step-content {
+    flex: 1;
+  }
+  .step-content .step-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a3e5c;
+    margin-bottom: 2px;
+  }
+  .step-content .step-desc {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.5;
+  }
+
+  /* — Future Section — */
+  .future {
+    margin-bottom: 48px;
+    padding: 24px 28px;
+    background: #f7f9fb;
+    border-radius: 6px;
+    border: 1px dashed #d0d8e0;
+  }
+  .future h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1a3e5c;
+    margin-bottom: 10px;
+  }
+  .future p {
+    font-size: 14px;
+    color: #777777;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .future ul {
+    list-style: none;
+    padding: 0;
+  }
+  .future ul li {
+    padding: 4px 0 4px 18px;
+    position: relative;
+    font-size: 14px;
+    color: #888888;
+  }
+  .future ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 6px;
+    height: 6px;
+    background: #c0c8d0;
+    border-radius: 50%;
+  }
+
+  /* — Pricing Section — */
+  .pricing {
+    background: #f7f9fb;
+    border-radius: 6px;
+    padding: 36px 32px;
+    margin: 48px 0;
+  }
+  .pricing h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1a3e5c;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .pricing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 16px 0;
+    border-bottom: 1px solid #e4e8ec;
+  }
+  .pricing-row:last-of-type {
+    border-bottom: none;
+  }
+  .pricing-label {
+    font-size: 15px;
+    color: #444444;
+    flex: 1;
+  }
+  .pricing-label .note {
+    display: block;
+    font-size: 13px;
+    color: #888888;
+    margin-top: 2px;
+  }
+  .pricing-amount {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a3e5c;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .pricing-note {
+    font-size: 14px;
+    color: #777777;
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+
+  /* — Market Context — */
+  .market-context {
+    margin-top: 24px;
+    padding: 20px 24px;
+    background: #eef8fc;
+    border-radius: 6px;
+    border-left: 4px solid #00a8e1;
+  }
+  .market-context p {
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.6;
+  }
+  .market-context strong {
+    color: #1a3e5c;
+  }
+
+  /* — CTA Section — */
+  .cta {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid #e4e8ec;
+  }
+  .cta h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1a3e5c;
+    margin-bottom: 12px;
+  }
+  .cta p {
+    font-size: 15px;
+    color: #444444;
+    line-height: 1.8;
+  }
+  .cta p + p { margin-top: 14px; }
+
+  /* — Footer — */
+  .footer {
+    background: #1a3e5c;
+    padding: 32px 60px;
+    margin-top: 60px;
+    text-align: center;
+  }
+  .footer-text {
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .footer-text a {
+    color: #00a8e1;
+    text-decoration: none;
+  }
+
+  /* — Password Gate — */
+  .password-gate {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #1a3e5c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+  }
+  .password-gate.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .password-box {
+    text-align: center;
+    max-width: 380px;
+    padding: 48px 40px;
+  }
+  .password-box .lock-brand {
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 24px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .password-box .lock-brand strong { font-weight: 600; }
+  .password-box .lock-subtitle {
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+  .password-box input {
+    width: 100%;
+    padding: 14px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.08);
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 0.08em;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .password-box input::placeholder {
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.04em;
+  }
+  .password-box input:focus { border-color: #00a8e1; }
+  .password-box .enter-btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 48px;
+    background: #00a8e1;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .password-box .enter-btn:hover { background: #0090c4; }
+  .password-box .error-msg {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 12px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .password-box .error-msg.visible { opacity: 1; }
+
+  .proposal-content { display: none; }
+  .proposal-content.unlocked { display: block; }
+
+  /* — Print / PDF — */
+  @media print {
+    .password-gate { display: none !important; }
+    .proposal-content { display: block !important; }
+    body { font-size: 14px; }
+    .header, .footer { padding: 24px 40px; }
+    .container { padding: 40px 20px 40px; }
+    .phase { margin-bottom: 28px; }
+    .pricing { padding: 24px 20px; }
+  }
+
+  /* — Responsive — */
+  @media (max-width: 600px) {
+    .header { padding: 28px 24px; }
+    .container { padding: 40px 20px 60px; }
+    .pricing-row { flex-direction: column; gap: 4px; }
+    .pricing-amount { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Password Gate -->
+<div class="password-gate" id="passwordGate">
+  <div class="password-box">
+    <div class="lock-brand"><strong>Bogen</strong>.ai</div>
+    <div class="lock-subtitle">Confidential Proposal</div>
+    <input type="password" id="passwordInput" placeholder="Enter password" autofocus>
+    <br>
+    <button class="enter-btn" id="enterBtn">VIEW PROPOSAL</button>
+    <div class="error-msg" id="errorMsg">Incorrect password. Please try again.</div>
+  </div>
+</div>
+
+<!-- Proposal Content -->
+<div class="proposal-content" id="proposalContent">
+
+<!-- Header -->
+<div class="header">
+  <div class="header-brand"><strong>Bogen</strong>.ai</div>
+  <div class="header-date">Proposal &mdash; March 2026</div>
+</div>
+
+<!-- Content -->
+<div class="container">
+
+  <!-- Title -->
+  <div class="title-block">
+    <h1>HomeSmart Agent Accelerator</h1>
+    <div class="subtitle">A custom coaching and technology partnership to make your agents more productive &mdash; and your brokerage more competitive</div>
+    <div class="prepared-for">Prepared for Rick Musto, HomeSmart Realty Partners &mdash; March 24, 2026</div>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro">
+    <p>Rick &mdash; great conversation yesterday. You said something that stuck with us: you want real, tactical, tangible benefits that make agents more productive. Not theory, not another vendor pitch that sounds great and goes nowhere. Actual tools and coaching that move the needle on listings and closings.</p>
+    <p>That is exactly what we do. We run a community of over 14,000 members across our real estate and AI Facebook groups, and we coach agents on how to use new technologies to generate business. What we are proposing here is a private, white-labeled version of that program &mdash; built exclusively for your agents, branded under your brokerage, and designed to give you a recruiting edge that no other transaction-model shop in your market can match.</p>
+  </div>
+
+  <!-- The Opportunity -->
+  <div class="opportunity">
+    <div class="section-header">The Problem We Solve</div>
+    <h2 class="section-title">Why This Matters for HomeSmart Realty Partners</h2>
+    <p class="opp-intro">Transaction-model brokerages give agents the best economics in the industry. But the knock on them has always been the same: no training, no tools, no support. You already know this &mdash; it is the objection you hear from every recruit. This program eliminates that objection.</p>
+
+    <div class="opp-grid">
+
+      <div class="opp-card">
+        <div class="opp-name">The Agent Adoption Problem</div>
+        <div class="opp-type">Why Past Investments Haven't Stuck</div>
+        <div class="opp-note">You have tried vendors before. The tools were fine. The problem was adoption &mdash; agents did not use them. Our model solves this with monthly accountability sessions, step-by-step implementation, and a coaching wrapper that keeps agents engaged and producing.</div>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-name">The Recruiting Gap</div>
+        <div class="opp-type">Transaction Model vs. Traditional Brokerage</div>
+        <div class="opp-note">Traditional split brokerages sell training and support. Transaction models sell economics. With this program, you sell both &mdash; agents keep the lion's share of their commission AND get a proprietary coaching program with AI-powered tools that their competitors do not have access to.</div>
+      </div>
+
+      <div class="opp-card highlight">
+        <div class="opp-name">The Musto Advantage</div>
+        <div class="opp-type">Your Competitive Edge</div>
+        <div class="opp-note">HomeSmart Corporate just acquired 3,600 agents in your market. When those agents call your phone by mistake, you tell them about personalized coaching, AI-powered listing tools, and a proprietary system they will not find at corporate. That is a conversation no other transaction-model broker in Atlanta or Florida is having.</div>
+      </div>
+
+    </div>
+
+    <div class="opp-takeaway">
+      <strong>The bottom line:</strong> This is not an expense. It is a profit center &mdash; agents contribute to the cost, you collect a split on the value-add, and you recruit with a story that nobody else in the transaction-model space can tell.
+    </div>
+  </div>
+
+  <!-- What We'll Build -->
+  <div class="section-header">The Program</div>
+  <h2 class="section-title" style="margin-bottom: 32px;">What Your Agents Get</h2>
+
+  <!-- Phase 1 — Group Coaching -->
+  <div class="phase">
+    <div class="phase-label">Core &mdash; Monthly Group Coaching</div>
+    <h2>The Musto Mastermind</h2>
+    <p class="why">A private, monthly Zoom session led by Edmund Bogen &mdash; white-labeled under your brand. This is not a generic webinar. Each session is built around the tactical, day-to-day workflows that generate listings and close buyers. You choose the direction. We build and deliver the content.</p>
+    <ul>
+      <li><strong>Seller Side: 3 Tactical Systems</strong> &mdash; AI-powered farming with personalized CMA mailers, targeted follow-up sequences, and listing presentation frameworks that convert</li>
+      <li><strong>Buyer Side: 3 Tactical Systems</strong> &mdash; Lead engagement workflows, AI-assisted property matching, and buyer consultation scripts that establish authority and commitment</li>
+      <li><strong>Monthly live Zoom session</strong> &mdash; 45-60 minutes with your selected agents, step-by-step implementation walkthroughs, live Q&amp;A, and accountability check-ins</li>
+      <li><strong>Custom content on demand</strong> &mdash; if you want a session on a specific topic, we build it fresh. New technologies, market shifts, seasonal strategies &mdash; whatever your agents need most</li>
+      <li><strong>Session recordings and materials</strong> &mdash; every session is recorded and delivered with implementation checklists so agents who miss it can catch up, and new agents can access the full library as they onboard</li>
+    </ul>
+  </div>
+
+  <!-- Phase 2 — AI Tools -->
+  <div class="phase">
+    <div class="phase-label">Included &mdash; AI-Powered Agent Tools</div>
+    <h2>White-Labeled Technology Suite</h2>
+    <p class="why">These are tools we have already built and battle-tested with producing agents. Each one is customized to your brokerage branding and delivered to participating agents as part of the program. They are not off-the-shelf products &mdash; they are proprietary systems your agents will not find anywhere else.</p>
+    <ul>
+      <li><strong>AI CMA Engine</strong> &mdash; agents input a subject property and select comps, and the system generates a professionally designed, personalized CMA ready for print or FedEx delivery. Each CMA is customized with the agent's bio, branding, and a personalized cover letter written by AI for the specific homeowner</li>
+      <li><strong>FedEx Mailer System</strong> &mdash; a coached farming methodology where agents target 10-20 high-value homes in their market and send personalized CMA packages via FedEx priority mail. Who does not open a FedEx envelope? This system has already generated multiple listing appointments for agents using it</li>
+      <li><strong>Digital Business Card</strong> &mdash; a professional, mobile-optimized digital card for each participating agent with contact info, listings, and direct links. Replaces the $15/month tools most agents pay for individually</li>
+      <li><strong>Link Hub Page</strong> &mdash; a custom link-in-bio style page for each agent's social media profiles, dynamically updated with their latest content, listings, and contact information</li>
+    </ul>
+  </div>
+
+  <!-- How It Works -->
+  <div class="how-it-works">
+    <h3>How the Model Works</h3>
+
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">You Select the Agents</div>
+        <div class="step-desc">Start with 10 agents you believe will genuinely participate. Quality over quantity. We can expand as the program proves itself.</div>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">We Deliver Monthly Sessions + Tools</div>
+        <div class="step-desc">One live Zoom per month with tactical content, plus access to the full AI tool suite. You set the agenda priorities. We build and deliver.</div>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">You Run Daily Accountability</div>
+        <div class="step-desc">Between sessions, you are the coach on the ground &mdash; daily and weekly check-ins with your agents using the frameworks and materials we provide.</div>
+      </div>
+    </div>
+
+    <div class="flow-step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Agents Produce, Everyone Wins</div>
+        <div class="step-desc">Agents go from 1-2 deals to 5-10. They pay into the program. You collect a split on the value-add. The program pays for itself and then some.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Future Phase -->
+  <div class="future">
+    <h3>On the Horizon: Growth Add-Ons</h3>
+    <p>Once the core program is running and agents are producing, there are natural next steps we can layer in. These are not included in the initial engagement &mdash; they are here so you can see the full picture of where this can go.</p>
+    <ul>
+      <li>Pay-per-click recruiting campaigns &mdash; targeted ads to attract agents to HomeSmart Realty Partners, managed by our team</li>
+      <li>Custom brokerage website with agent profiles and IDX integration</li>
+      <li>Social media content engine &mdash; automated, branded social posts for participating agents</li>
+      <li>Expanded coaching tracks &mdash; new construction, investment properties, luxury market</li>
+      <li>In-person training events &mdash; half-day or full-day intensive workshops in Atlanta or Florida</li>
+    </ul>
+    <p>We will revisit scope and pricing together as the program matures. No surprises.</p>
+  </div>
+
+  <!-- Pricing -->
+  <div class="pricing">
+    <h2>Investment</h2>
+
+    <div class="pricing-row">
+      <div class="pricing-label">
+        Program Setup
+        <span class="note">One-time: custom branding, tool deployment, agent onboarding materials, CMA engine configuration, digital business cards for initial cohort</span>
+      </div>
+      <div class="pricing-amount">$3,000</div>
+    </div>
+
+    <div class="pricing-row">
+      <div class="pricing-label">
+        Monthly Group Coaching + Tool Access
+        <span class="note">Monthly: one live Zoom session, session recordings and materials, full AI tool suite, ongoing content development, agent support</span>
+      </div>
+      <div class="pricing-amount">$1,500 /mo</div>
+    </div>
+
+    <div class="pricing-row">
+      <div class="pricing-label">
+        Per-Agent Tool Fee
+        <span class="note">Monthly per participating agent: CMA engine access, digital business card, link hub page, session library access</span>
+      </div>
+      <div class="pricing-amount">$50 /agent /mo</div>
+    </div>
+
+    <p class="pricing-note"><strong>How this pays for itself:</strong> With 10 agents at $50/month, agent fees cover $500 of the monthly cost. If agents move to a modest split arrangement on the value-add &mdash; even 95/5 &mdash; one additional closing per agent per year more than covers the entire program. The math works at any reasonable production level.</p>
+
+    <!-- Market Context -->
+    <div class="market-context">
+      <p>For context: comparable group coaching programs from national real estate trainers run <strong>$500&ndash;$2,000 per agent per month</strong>. Platforms like Keeping Current Matters charge per-agent fees with no customization and no live coaching. What we are offering is a fully private, white-labeled program with proprietary AI tools, live coaching, and custom content &mdash; at a fraction of what the big-name programs charge, and with technology they do not have.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Next Step</h2>
+    <p>Let's get this moving. The next step is a short call to finalize the agent roster, confirm your branding preferences, and set the date for the first session. We can have the program live and your first cohort onboarded within two weeks of approval.</p>
+    <p>You said it best: this is not just about coaching &mdash; it is a recruiting edge. Every day that HomeSmart Corporate has 3,600 agents in your market without you having this program is a day you are recruiting without your best card on the table.</p>
+    <p>Let's deal, Rick.</p>
+    <p style="margin-top: 24px; color: #1a3e5c; font-weight: 500;">Edmund Bogen &amp; Eytan Benzeno<br><span style="font-weight: 400; font-size: 14px; color: #888888;">Bogen.ai</span></p>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-text">Bogen.ai &nbsp;&bull;&nbsp; Boca Raton, FL &nbsp;&bull;&nbsp; <a href="mailto:edmund@bogen.ai">edmund@bogen.ai</a></div>
+</div>
+
+</div><!-- end .proposal-content -->
+
+<script>
+(function() {
+  var correctHash = '2a9f3188';
+  function simpleHash(str) {
+    var h = 0;
+    for (var i = 0; i < str.length; i++) {
+      h = ((h << 5) - h) + str.charCodeAt(i);
+      h = h & 0xffffffff;
+    }
+    return (h >>> 0).toString(16).slice(0, 8);
+  }
+
+  function tryUnlock() {
+    var input = document.getElementById('passwordInput').value;
+    if (simpleHash(input) === correctHash) {
+      document.getElementById('passwordGate').classList.add('hidden');
+      document.getElementById('proposalContent').classList.add('unlocked');
+      setTimeout(function() {
+        document.getElementById('passwordGate').style.display = 'none';
+      }, 500);
+    } else {
+      document.getElementById('errorMsg').classList.add('visible');
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('passwordInput').focus();
+      setTimeout(function() {
+        document.getElementById('errorMsg').classList.remove('visible');
+      }, 2500);
+    }
+  }
+
+  document.getElementById('enterBtn').addEventListener('click', tryUnlock);
+  document.getElementById('passwordInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') tryUnlock();
+  });
+})();
+</script>
+
+</body>
+</html>
