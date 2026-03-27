@@ -144,6 +144,71 @@
     margin-top: 12px;
   }
 
+  /* — Before / After — */
+  .before-after {
+    margin-bottom: 52px;
+  }
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 16px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .ba-col {
+    padding: 24px 24px;
+  }
+  .ba-col.before {
+    background: #f7f9fb;
+    border-right: 2px solid #e4e8ec;
+  }
+  .ba-col.after {
+    background: #eef8fc;
+  }
+  .ba-col h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .ba-col.before h4 { color: #999999; }
+  .ba-col.after h4 { color: #00a8e1; }
+  .ba-col ul {
+    list-style: none;
+    padding: 0;
+  }
+  .ba-col ul li {
+    padding: 5px 0 5px 16px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .ba-col.before ul li { color: #888888; }
+  .ba-col.after ul li { color: #444444; }
+  .ba-col ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  .ba-col.before ul li::before { background: #c0c8d0; }
+  .ba-col.after ul li::before { background: #00a8e1; }
+  .ba-summary {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #1a3e5c;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .ba-summary strong { color: #00a8e1; }
+
   /* — Competitive Landscape — */
   .landscape {
     margin-bottom: 52px;
@@ -378,6 +443,52 @@
     margin-top: 8px;
   }
 
+  /* — How It Works — */
+  .how-it-works {
+    margin-bottom: 48px;
+    padding: 24px 28px;
+    background: #f7f9fb;
+    border-radius: 6px;
+    border-left: 4px solid #00a8e1;
+  }
+  .how-it-works h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3e5c;
+    margin-bottom: 12px;
+  }
+  .how-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .how-step {
+    text-align: center;
+    padding: 16px 12px;
+    background: #ffffff;
+    border-radius: 6px;
+  }
+  .how-step .step-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: #00a8e1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .how-step .step-who {
+    font-size: 11px;
+    font-weight: 600;
+    color: #999999;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .how-step .step-desc {
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.4;
+  }
+
   /* — Timeline — */
   .timeline {
     margin-bottom: 52px;
@@ -473,6 +584,28 @@
     border-radius: 50%;
   }
 
+  /* — Why Us — */
+  .why-us {
+    margin-bottom: 32px;
+    padding: 24px 28px;
+    background: #f7f9fb;
+    border-radius: 6px;
+    border-left: 4px solid #1a3e5c;
+  }
+  .why-us h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3e5c;
+    margin-bottom: 12px;
+  }
+  .why-us p {
+    font-size: 15px;
+    color: #444444;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .why-us p:last-child { margin-bottom: 0; }
+
   /* — Pricing Section — */
   .pricing {
     background: #f7f9fb;
@@ -525,12 +658,33 @@
     text-align: right;
     white-space: nowrap;
   }
+  .pricing-amount .standard-rate {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #aaaaaa;
+    text-decoration: line-through;
+  }
   .pricing-note {
     font-size: 14px;
     color: #777777;
     margin-top: 20px;
     line-height: 1.6;
   }
+  .pricing-terms {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #e4e8ec;
+  }
+  .pricing-terms p {
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+  .pricing-terms p:last-child { margin-bottom: 0; }
 
   /* — Market Context — */
   .market-context {
@@ -569,6 +723,27 @@
     line-height: 1.7;
   }
   .guarantee p + p { margin-top: 8px; }
+
+  /* — Pilot — */
+  .pilot {
+    margin: 0 0 48px;
+    padding: 24px 28px;
+    background: #eef8fc;
+    border-radius: 6px;
+    border-left: 4px solid #00a8e1;
+  }
+  .pilot h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3e5c;
+    margin-bottom: 10px;
+  }
+  .pilot p {
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.7;
+  }
+  .pilot p + p { margin-top: 8px; }
 
   /* — CTA Section — */
   .cta {
@@ -710,6 +885,9 @@
     .pricing-amount { text-align: left; }
     .market-stat-grid { grid-template-columns: 1fr; }
     .deliverables-grid { grid-template-columns: 1fr; }
+    .ba-grid { grid-template-columns: 1fr; }
+    .ba-col.before { border-right: none; border-bottom: 2px solid #e4e8ec; }
+    .how-steps { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -776,11 +954,42 @@
     <p>This is a category in formation. The practitioners are multiplying, the budgets are growing, and AI is rewriting the playbook &mdash; but there is no independent, vendor-neutral media platform serving this audience at scale. That's the gap Cloud Value Lab was built to fill.</p>
   </div>
 
+  <!-- Before / After -->
+  <div class="before-after">
+    <div class="section-header">The Shift</div>
+    <h2 class="section-title">Your Week: Before and After</h2>
+    <div class="ba-grid">
+      <div class="ba-col before">
+        <h4>Your week now</h4>
+        <ul>
+          <li>Record and schedule expert interviews</li>
+          <li>Manually transcribe and edit into articles</li>
+          <li>Write social posts for each platform</li>
+          <li>Format and send the newsletter</li>
+          <li>Clip video highlights by hand</li>
+          <li>Track what's working, what's not</li>
+          <li>Manage the website and archive</li>
+        </ul>
+      </div>
+      <div class="ba-col after">
+        <h4>Your week after Phase 2</h4>
+        <ul>
+          <li>Record expert interviews</li>
+          <li>Review final drafts (15 min)</li>
+          <li>Everything else is automated</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ba-summary">
+      <strong>The result:</strong> You go from 15&ndash;20 hours per week of production work to under 2 hours. Your time shifts entirely to relationships, interviews, and strategic decisions &mdash; the things only you can do.
+    </div>
+  </div>
+
   <!-- Competitive Landscape -->
   <div class="landscape">
     <div class="section-header">Your Market</div>
     <h2 class="section-title">Where Cloud Value Lab Stands</h2>
-    <p class="landscape-intro">The FinOps media landscape has a handful of established players &mdash; but a wide-open gap for the kind of independent, vendor-neutral, expert-level platform you're building. Here's what we're seeing:</p>
+    <p class="landscape-intro">The FinOps media landscape has a handful of established players &mdash; but a clear window for the kind of independent, vendor-neutral, expert-level platform you're building. Here's what we're seeing:</p>
 
     <div class="competitor-grid">
 
@@ -792,7 +1001,7 @@
           <div class="stat"><strong>25.8K</strong> LinkedIn</div>
           <div class="stat">Certifications &amp; events</div>
         </div>
-        <div class="competitor-note">Institutional player &mdash; sets standards and runs conferences. Not a content competitor, but they define the ecosystem vocabulary. Their audience is your audience.</div>
+        <div class="competitor-note">Institutional player &mdash; sets standards and runs conferences. Not a content competitor today, but they own the ecosystem vocabulary and could move into media. Their audience is your audience. Speed matters.</div>
       </div>
 
       <div class="competitor-card">
@@ -817,6 +1026,17 @@
         <div class="competitor-note">Massive following but AWS-only. Not multi-cloud FinOps, not a community. His company (Duckbill Group) just raised $7.75M to pivot to software. He's moving away from content &mdash; leaving an even bigger opening.</div>
       </div>
 
+      <div class="competitor-card">
+        <div class="competitor-name">Vendor Content Arms</div>
+        <div class="competitor-type">Indirect Competitors</div>
+        <div class="competitor-stats">
+          <div class="stat">CloudZero, Vantage, Apptio</div>
+          <div class="stat">Well-funded</div>
+          <div class="stat">Free content</div>
+        </div>
+        <div class="competitor-note">FinOps tooling companies producing blogs, podcasts, and benchmarking reports as marketing. Strong SEO presence. But they're vendor-biased by definition &mdash; their content serves their sales pipeline, not the practitioner community. CVL's independence is the differentiator they can never match.</div>
+      </div>
+
       <div class="competitor-card cvl">
         <div class="competitor-name">Cloud Value Lab</div>
         <div class="competitor-type">Your Position Today</div>
@@ -831,7 +1051,7 @@
     </div>
 
     <div class="landscape-takeaway">
-      <strong>The opportunity:</strong> The largest FinOps newsletter has only 6,500 subscribers in a discipline that touches 97 of the Fortune 100. There is no independent, vendor-neutral, practitioner-led media platform in this space. That is exactly the lane Cloud Value Lab can own &mdash; with the right infrastructure behind it.
+      <strong>The window:</strong> The largest FinOps newsletter has only 6,500 subscribers in a discipline that touches 97 of the Fortune 100. There is a 12&ndash;18 month window to become the default independent voice in this space before better-funded players notice. At your current growth rate, you reach 5,000 subscribers in four months and overtake FinOps Weekly in six. The investment isn't in content &mdash; your content is already better. The investment is in velocity.
     </div>
   </div>
 
@@ -840,23 +1060,23 @@
     <div class="section-header">Revenue Potential</div>
     <h2 class="section-title">What This Produces Financially</h2>
     <div class="roi-box">
-      <h3>Newsletter Revenue (Conservative Model)</h3>
+      <h3>Newsletter Revenue (Base Layer)</h3>
       <p>At 5,000 subscribers with 2 sponsors per newsletter at $30&ndash;$75 CPM (standard for premium B2B tech verticals):</p>
       <ul>
         <li>~$300&ndash;$750 per send</li>
         <li>Weekly distribution &rarr; $1,200&ndash;$3,000 per month</li>
         <li>Annualized &rarr; $14,400&ndash;$36,000</li>
       </ul>
-      <h3>Layered Revenue Opportunities</h3>
+      <h3>Where the Real Revenue Lives</h3>
+      <p>Newsletter sponsorship is the base layer &mdash; predictable, growing with subscriber count. But in comparable B2B media platforms, 70%+ of total revenue comes from the layers above it:</p>
       <ul>
-        <li>1&ndash;2 enterprise sponsors &rarr; $15,000&ndash;$50,000 per year each</li>
-        <li>Premium membership tier (pricing TBD at monetization phase)</li>
-        <li>Sponsored reports and events &rarr; $10,000&ndash;$50,000 per initiative</li>
-        <li>Job board and vendor directory listings</li>
+        <li>Enterprise sponsorship packages &rarr; $15,000&ndash;$50,000 per year each</li>
+        <li>Premium membership tier &rarr; scope and pricing defined at monetization phase</li>
+        <li>Sponsored research reports and events &rarr; $10,000&ndash;$50,000 per initiative</li>
+        <li>Job board and vendor directory listings &rarr; recurring passive revenue</li>
       </ul>
-      <p style="margin-top: 8px; font-size: 14px; color: #777777; line-height: 1.6;">Newsletter revenue represents the base layer. The majority of value comes from sponsorships, premium memberships, and events &mdash; which is where comparable platforms generate 70%+ of their total revenue.</p>
       <div class="roi-highlight">
-        <strong>Conclusion:</strong> A properly executed platform reaches <strong>$100K&ndash;$300K+ annually</strong> before reaching true scale. The investment to get there: $4,000 + $1,000/month.
+        <strong>Conclusion:</strong> A properly executed platform reaches <strong>$100K&ndash;$300K+ annually</strong> before reaching true scale. The investment to get there: $4,000 + $2,500/month.
       </div>
     </div>
   </div>
@@ -877,23 +1097,46 @@
       <li>Google Analytics with engagement tracking &mdash; know who's reading, what they care about, and where they drop off</li>
       <li>Site-level SEO architecture &mdash; metadata, cross-linking, sitemap, structured data so search engines find you</li>
       <li>Social media audit &mdash; current presence vs. competitors, platform gaps, and a roadmap to close the distance</li>
-      <li>Content database and archive system &mdash; organized, searchable, tagged library of your expert interviews and articles</li>
+      <li>Content database and archive system &mdash; organized, searchable, tagged library of your existing expert interviews and articles</li>
     </ul>
+    <p class="why" style="margin-top: 16px; margin-bottom: 0;"><strong style="color: #1a3e5c;">Phase 1 deliverable:</strong> A live, SEO-optimized Cloud Value Lab platform with your existing content migrated, indexed, and searchable &mdash; ready for the content engine to run on top of.</p>
   </div>
 
   <!-- Phase 2 -->
   <div class="phase">
     <div class="phase-label">Phase 2 &mdash; Content Engine</div>
     <h2>Automation &amp; Distribution</h2>
-    <p class="why">This is the automation layer that makes your 4&ndash;5 hours a week go toward strategy and relationships &mdash; not production and admin. We build the pipeline that turns an interview transcript into a published, optimized article and distributes it across your channels, without you touching it.</p>
+    <p class="why">This is the automation layer that turns your 15&ndash;20 hours of weekly production work into under 2. We build the pipeline that takes an interview transcript and produces a published, optimized article, social content, video clips, and newsletter edition &mdash; distributed across your channels, with your review before anything goes live.</p>
     <ul>
-      <li>Automated content pipeline &mdash; interview transcript &rarr; edited article &rarr; SEO-optimized &rarr; published</li>
+      <li>Automated content pipeline &mdash; interview transcript &rarr; edited article &rarr; SEO-optimized &rarr; your review &rarr; published</li>
       <li>Video clip extraction &mdash; pull the best 60&ndash;90 second clips from your expert interviews for social media</li>
       <li>Social media publishing engine &mdash; schedule and distribute content across LinkedIn, Twitter, and other platforms</li>
       <li>Email newsletter automation &mdash; regular subscriber communications, new article alerts, digest format</li>
       <li>Ongoing SEO optimization &mdash; every piece of content is optimized before it goes live</li>
       <li>AI-powered administration &mdash; the operation runs with minimal hands-on time from you</li>
     </ul>
+  </div>
+
+  <!-- How It Works -->
+  <div class="how-it-works">
+    <h3>How the Content Pipeline Works</h3>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="step-num">1</span>
+        <span class="step-who">You</span>
+        <span class="step-desc">Record an expert interview or provide raw content input</span>
+      </div>
+      <div class="how-step">
+        <span class="step-num">2</span>
+        <span class="step-who">Bogen.ai</span>
+        <span class="step-desc">AI pipeline produces article, social posts, video clips, and newsletter edition</span>
+      </div>
+      <div class="how-step">
+        <span class="step-num">3</span>
+        <span class="step-who">You</span>
+        <span class="step-desc">15-minute review of final drafts. Approve, and everything publishes automatically</span>
+      </div>
+    </div>
   </div>
 
   <!-- Weekly Deliverables -->
@@ -920,7 +1163,7 @@
         </ul>
       </div>
     </div>
-    <div class="del-result">Result: Consistent output without manual production effort.</div>
+    <div class="del-result">Result: Consistent, expert-reviewed output without manual production effort.</div>
   </div>
 
   <!-- Timeline -->
@@ -933,7 +1176,7 @@
         <ul>
           <li>Platform build (site, analytics, SEO foundation)</li>
           <li>Positioning finalized</li>
-          <li>Content structure defined</li>
+          <li>Content structure and archive migration</li>
         </ul>
       </div>
       <div class="timeline-block">
@@ -979,8 +1222,10 @@
   </div>
 
   <!-- Why Us -->
-  <div style="margin-bottom: 32px; padding: 20px 24px; background: #f7f9fb; border-radius: 6px; border-left: 4px solid #1a3e5c;">
-    <p style="font-size: 15px; color: #444444; line-height: 1.7; margin: 0;"><strong style="color: #1a3e5c;">Why Bogen.ai:</strong> We build and operate this exact AI-driven content infrastructure internally &mdash; for our own publishing, our clients' platforms, and our weekly distribution systems. This is not theoretical. The system we're proposing for CVL is the same system we run every day.</p>
+  <div class="why-us">
+    <h3>Why Bogen.ai</h3>
+    <p>We build and operate this exact AI-driven content infrastructure internally &mdash; for our own publishing, our clients' platforms, and our weekly distribution systems. This is not theoretical. The system we're proposing for CVL is the same system we run every day.</p>
+    <p>Our current publishing operation produces weekly market intelligence packages, long-form articles, social content, and automated email distribution for multiple clients &mdash; all built on the same AI-first pipeline we'll deploy for Cloud Value Lab. We're not selling a concept. We're replicating a working system.</p>
   </div>
 
   <!-- Pricing -->
@@ -990,21 +1235,33 @@
     <div class="pricing-row">
       <div class="pricing-label">
         Phase 1 &mdash; Foundation
-        <span class="note">Platform build, positioning, SEO, analytics, and infrastructure</span>
+        <span class="note">Platform build, positioning, SEO, analytics, content migration, and infrastructure</span>
         <span class="founding">Founding partner pricing</span>
       </div>
-      <div class="pricing-amount">$4,000</div>
+      <div class="pricing-amount">
+        <span class="standard-rate">$8,000</span>
+        $4,000
+      </div>
     </div>
 
     <div class="pricing-row">
       <div class="pricing-label">
         Phase 2 &mdash; Content Engine &amp; Distribution
-        <span class="note">Automation, publishing pipeline, newsletter, SEO, and ongoing optimization</span>
+        <span class="note">Automation, publishing pipeline, newsletter, SEO, video clips, and ongoing optimization</span>
+        <span class="founding">Founding partner pricing &mdash; 6-month commitment</span>
       </div>
-      <div class="pricing-amount">$1,000 /mo</div>
+      <div class="pricing-amount">
+        <span class="standard-rate">$5,000 /mo</span>
+        $2,500 /mo
+      </div>
     </div>
 
-    <p class="pricing-note">This pricing reflects early-stage partnership positioning. As scope expands into monetization systems, events, and advanced infrastructure, pricing will be revisited accordingly. This is a partnership &mdash; we want it to work for both sides long-term.</p>
+    <div class="pricing-terms">
+      <p><strong>Founding partner terms:</strong> This rate is locked for 12 months from the start of Phase 2. After 12 months, pricing reverts to standard rates unless renewed.</p>
+      <p><strong>Commitment:</strong> Phase 2 requires a 6-month initial commitment. After the initial term, continuation is month-to-month.</p>
+    </div>
+
+    <p class="pricing-note">As scope expands into monetization systems, events, and advanced infrastructure, pricing will be revisited accordingly. This is a partnership &mdash; we want it to work for both sides long-term.</p>
 
     <!-- Market Context -->
     <div class="market-context">
@@ -1016,15 +1273,22 @@
   <div class="guarantee">
     <h3>Execution Guarantee</h3>
     <p>If Phase 1 is not completed within 30 days, work continues at no additional cost until delivery is complete.</p>
-    <p>Phase 2 is flexible &mdash; after the first 60 days, continuation is month-to-month.</p>
+    <p>If at any point during the 6-month commitment the weekly output falls below the deliverables outlined above for two consecutive weeks, you may exit the agreement with no penalty.</p>
+  </div>
+
+  <!-- Pilot -->
+  <div class="pilot">
+    <h3>See It Before You Commit</h3>
+    <p>Before any money changes hands, we'll run your pipeline on a real piece of content. Send us one interview transcript, and we'll produce the full output: article, social posts, video clips, and newsletter edition. You'll see exactly what the system produces and how it handles FinOps-level content.</p>
+    <p>If the output meets your standard, we move forward. If not, we part ways with no cost and no hard feelings.</p>
   </div>
 
   <!-- CTA -->
   <div class="cta">
     <h2>Next Step</h2>
-    <p>Let's schedule time this week to review this together, align on priorities, and determine whether to proceed with Phase 1 immediately.</p>
-    <p>The FinOps category is forming in real time, and the first credible, vendor-neutral platform at scale will capture disproportionate attention and sponsorship dollars. The infrastructure gap is currently the only constraint. If we move now, Cloud Value Lab is positioned to define this category.</p>
-    <p>If aligned, we can begin Phase 1 immediately following that call.</p>
+    <p>Let's get on a call this week. We'll walk through this proposal together, answer any questions, and &mdash; if you're ready &mdash; pick a transcript for the pilot piece so you can see the output firsthand.</p>
+    <p>The FinOps category is forming in real time. FinOps tooling vendors are investing in content. The Foundation could move into media. The first credible, vendor-neutral platform at scale will capture disproportionate attention and sponsorship dollars &mdash; and right now, that lane is open. The infrastructure gap is the only thing between Cloud Value Lab and category ownership.</p>
+    <p>If aligned on the call, we begin Phase 1 immediately.</p>
     <p>Looking forward to it, David.</p>
     <p style="margin-top: 24px; color: #1a3e5c; font-weight: 500;">Edmund Bogen &amp; Eytan Benzeno<br><span style="font-weight: 400; font-size: 14px; color: #888888;">Bogen.ai</span></p>
   </div>
