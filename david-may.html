@@ -99,6 +99,51 @@
     margin-bottom: 16px;
   }
 
+  /* — Market Opportunity — */
+  .market-opportunity {
+    margin-bottom: 52px;
+    padding: 28px 28px;
+    background: #f7f9fb;
+    border-radius: 6px;
+    border-left: 4px solid #00a8e1;
+  }
+  .market-opportunity h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1a3e5c;
+    margin-bottom: 16px;
+  }
+  .market-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .market-stat {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 16px 20px;
+    text-align: center;
+  }
+  .market-stat .number {
+    font-size: 22px;
+    font-weight: 700;
+    color: #00a8e1;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .market-stat .label {
+    font-size: 12px;
+    color: #666666;
+    line-height: 1.4;
+  }
+  .market-opportunity p {
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.7;
+    margin-top: 12px;
+  }
+
   /* — Competitive Landscape — */
   .landscape {
     margin-bottom: 52px;
@@ -169,6 +214,62 @@
     color: #00a8e1;
   }
 
+  /* — ROI Framework — */
+  .roi-section {
+    margin-bottom: 52px;
+  }
+  .roi-box {
+    background: #f7f9fb;
+    border-radius: 6px;
+    padding: 28px 28px;
+    margin-top: 16px;
+  }
+  .roi-box h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3e5c;
+    margin-bottom: 12px;
+  }
+  .roi-box p {
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .roi-box ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+  .roi-box ul li {
+    padding: 5px 0 5px 20px;
+    position: relative;
+    font-size: 14px;
+    color: #555555;
+  }
+  .roi-box ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 7px;
+    height: 7px;
+    background: #00a8e1;
+    border-radius: 50%;
+  }
+  .roi-highlight {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #1a3e5c;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .roi-highlight strong {
+    color: #00a8e1;
+  }
+
   /* — Phase Sections — */
   .phase {
     margin-bottom: 44px;
@@ -215,6 +316,121 @@
     background: #00a8e1;
     border-radius: 50%;
   }
+
+  /* — Deliverables — */
+  .deliverables {
+    margin-bottom: 48px;
+    padding: 28px 28px;
+    background: #eef8fc;
+    border-radius: 6px;
+    border: 1px solid #c8e6f0;
+  }
+  .deliverables h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3e5c;
+    margin-bottom: 6px;
+  }
+  .deliverables .del-subtitle {
+    font-size: 13px;
+    color: #777777;
+    margin-bottom: 16px;
+  }
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .del-col h4 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #00a8e1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .del-col ul {
+    list-style: none;
+    padding: 0;
+  }
+  .del-col ul li {
+    padding: 4px 0 4px 16px;
+    position: relative;
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.5;
+  }
+  .del-col ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    background: #00a8e1;
+    border-radius: 50%;
+  }
+  .deliverables .del-result {
+    font-size: 14px;
+    color: #1a3e5c;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+
+  /* — Timeline — */
+  .timeline {
+    margin-bottom: 52px;
+  }
+  .timeline-grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .timeline-block {
+    background: #f7f9fb;
+    border-radius: 6px;
+    padding: 20px 24px;
+    border-left: 4px solid #00a8e1;
+  }
+  .timeline-block .period {
+    font-size: 12px;
+    font-weight: 600;
+    color: #00a8e1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .timeline-block ul {
+    list-style: none;
+    padding: 0;
+  }
+  .timeline-block ul li {
+    padding: 3px 0 3px 16px;
+    position: relative;
+    font-size: 14px;
+    color: #555555;
+  }
+  .timeline-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    background: #00a8e1;
+    border-radius: 50%;
+  }
+  .timeline-outcome {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #1a3e5c;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .timeline-outcome strong { color: #00a8e1; }
 
   /* — Future Section — */
   .future {
@@ -293,6 +509,15 @@
     color: #888888;
     margin-top: 2px;
   }
+  .pricing-label .founding {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #00a8e1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
   .pricing-amount {
     font-size: 18px;
     font-weight: 600;
@@ -323,6 +548,27 @@
   .market-context strong {
     color: #1a3e5c;
   }
+
+  /* — Risk Reversal — */
+  .guarantee {
+    margin: 0 0 48px;
+    padding: 24px 28px;
+    background: #f0faf0;
+    border-radius: 6px;
+    border-left: 4px solid #4caf50;
+  }
+  .guarantee h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2e7d32;
+    margin-bottom: 10px;
+  }
+  .guarantee p {
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.7;
+  }
+  .guarantee p + p { margin-top: 8px; }
 
   /* — CTA Section — */
   .cta {
@@ -462,6 +708,8 @@
     .competitor-stats { flex-direction: column; gap: 6px; }
     .pricing-row { flex-direction: column; gap: 4px; }
     .pricing-amount { text-align: left; }
+    .market-stat-grid { grid-template-columns: 1fr; }
+    .deliverables-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -485,7 +733,7 @@
 <!-- Header -->
 <div class="header">
   <div class="header-brand"><strong>Bogen</strong>.ai</div>
-  <div class="header-date">Proposal &mdash; March 2026</div>
+  <div class="header-date">Proposal &mdash; March 27, 2026</div>
 </div>
 
 <!-- Content -->
@@ -494,14 +742,38 @@
   <!-- Title -->
   <div class="title-block">
     <h1>Cloud Value Lab</h1>
-    <div class="subtitle">A partnership to automate, professionalize, and grow your platform</div>
-    <div class="prepared-for">Prepared for David May &mdash; March 18, 2026</div>
+    <div class="subtitle">A partnership to automate, professionalize, and scale your platform</div>
+    <div class="prepared-for">Prepared for David May</div>
   </div>
 
   <!-- Intro -->
   <div class="intro">
-    <p>David &mdash; great conversation on Tuesday with you and Eytan. Your vision for Cloud Value Lab is clear, the market opportunity is real, and your content is genuinely differentiated. The challenge is straightforward: you need the operation to run without you doing the manual work, especially once your new role starts next month.</p>
+    <p>David &mdash; great conversation recently with you and Eytan. Your vision for Cloud Value Lab is clear, the market opportunity is real, and your content is genuinely differentiated. The constraint is execution: building an operation that runs without requiring your direct involvement as your time becomes more constrained.</p>
     <p>Before putting this together, we did our homework on your space. What we found confirmed what you already know &mdash; but puts some numbers behind it.</p>
+  </div>
+
+  <!-- Market Opportunity -->
+  <div class="market-opportunity">
+    <h3>The Market Right Now</h3>
+    <div class="market-stat-grid">
+      <div class="market-stat">
+        <span class="number">$44.5B</span>
+        <span class="label">in annual cloud waste sitting on the table</span>
+      </div>
+      <div class="market-stat">
+        <span class="number">$15B &rarr; $27B</span>
+        <span class="label">FinOps market by 2030 (12.6% CAGR)</span>
+      </div>
+      <div class="market-stat">
+        <span class="number">35K &rarr; 100K</span>
+        <span class="label">practitioner community within 3 years</span>
+      </div>
+      <div class="market-stat">
+        <span class="number">31% &rarr; 98%</span>
+        <span class="label">AI cost management adoption (2024&ndash;2026)</span>
+      </div>
+    </div>
+    <p>This is a category in formation. The practitioners are multiplying, the budgets are growing, and AI is rewriting the playbook &mdash; but there is no independent, vendor-neutral media platform serving this audience at scale. That's the gap Cloud Value Lab was built to fill.</p>
   </div>
 
   <!-- Competitive Landscape -->
@@ -563,6 +835,31 @@
     </div>
   </div>
 
+  <!-- ROI Framework -->
+  <div class="roi-section">
+    <div class="section-header">Revenue Potential</div>
+    <h2 class="section-title">What This Produces Financially</h2>
+    <div class="roi-box">
+      <h3>Newsletter Revenue (Conservative Model)</h3>
+      <p>At 5,000 subscribers with 2 sponsors per newsletter at $30&ndash;$75 CPM (standard for premium B2B tech verticals):</p>
+      <ul>
+        <li>~$300&ndash;$750 per send</li>
+        <li>Weekly distribution &rarr; $1,200&ndash;$3,000 per month</li>
+        <li>Annualized &rarr; $14,400&ndash;$36,000</li>
+      </ul>
+      <h3>Layered Revenue Opportunities</h3>
+      <ul>
+        <li>1&ndash;2 enterprise sponsors &rarr; $15,000&ndash;$50,000 per year each</li>
+        <li>Premium membership tier (pricing TBD at monetization phase)</li>
+        <li>Sponsored reports and events &rarr; $10,000&ndash;$50,000 per initiative</li>
+        <li>Job board and vendor directory listings</li>
+      </ul>
+      <div class="roi-highlight">
+        <strong>Conclusion:</strong> A properly executed platform reaches <strong>$100K&ndash;$300K+ annually</strong> before reaching true scale. The investment to get there: $4,000 + $1,000/month.
+      </div>
+    </div>
+  </div>
+
   <!-- What We'll Build -->
   <div class="section-header">The Plan</div>
   <h2 class="section-title" style="margin-bottom: 32px;">What We'll Build Together</h2>
@@ -585,17 +882,86 @@
 
   <!-- Phase 2 -->
   <div class="phase">
-    <div class="phase-label">Phase 2 &mdash; Automation</div>
-    <h2>Content Engine &amp; Distribution</h2>
-    <p class="why">This is the automation layer that makes your 4-5 hours a week go toward strategy and relationships &mdash; not production and admin. We build the pipeline that turns an interview transcript into a published, optimized article and distributes it across your channels, without you touching it.</p>
+    <div class="phase-label">Phase 2 &mdash; Content Engine</div>
+    <h2>Automation &amp; Distribution</h2>
+    <p class="why">This is the automation layer that makes your 4&ndash;5 hours a week go toward strategy and relationships &mdash; not production and admin. We build the pipeline that turns an interview transcript into a published, optimized article and distributes it across your channels, without you touching it.</p>
     <ul>
       <li>Automated content pipeline &mdash; interview transcript &rarr; edited article &rarr; SEO-optimized &rarr; published</li>
-      <li>Video clip extraction &mdash; pull the best 60-90 second clips from your expert interviews for social media</li>
+      <li>Video clip extraction &mdash; pull the best 60&ndash;90 second clips from your expert interviews for social media</li>
       <li>Social media publishing engine &mdash; schedule and distribute content across LinkedIn, Twitter, and other platforms</li>
       <li>Email newsletter automation &mdash; regular subscriber communications, new article alerts, digest format</li>
       <li>Ongoing SEO optimization &mdash; every piece of content is optimized before it goes live</li>
       <li>AI-powered administration &mdash; the operation runs with minimal hands-on time from you</li>
     </ul>
+  </div>
+
+  <!-- Weekly Deliverables -->
+  <div class="deliverables">
+    <h3>What Gets Produced Each Week</h3>
+    <div class="del-subtitle">From a single interview or content input:</div>
+    <div class="deliverables-grid">
+      <div class="del-col">
+        <h4>Content Output</h4>
+        <ul>
+          <li>1 fully edited, SEO-optimized long-form article</li>
+          <li>3&ndash;5 short-form posts (LinkedIn, etc.)</li>
+          <li>1&ndash;2 video/audio clips (60&ndash;90 seconds)</li>
+          <li>1 newsletter-ready formatted edition</li>
+        </ul>
+      </div>
+      <div class="del-col">
+        <h4>Operational Output</h4>
+        <ul>
+          <li>Automated distribution across all channels</li>
+          <li>Weekly publishing cadence (1&ndash;2 pieces minimum)</li>
+          <li>Monthly performance report</li>
+          <li>Fully organized, searchable content archive</li>
+        </ul>
+      </div>
+    </div>
+    <div class="del-result">Result: Consistent output without manual production effort.</div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="timeline">
+    <div class="section-header">Execution</div>
+    <h2 class="section-title">First 90 Days</h2>
+    <div class="timeline-grid">
+      <div class="timeline-block">
+        <div class="period">Weeks 1&ndash;2</div>
+        <ul>
+          <li>Platform build (site, analytics, SEO foundation)</li>
+          <li>Positioning finalized</li>
+          <li>Content structure defined</li>
+        </ul>
+      </div>
+      <div class="timeline-block">
+        <div class="period">Weeks 3&ndash;4</div>
+        <ul>
+          <li>CMS + automation layer deployed</li>
+          <li>First content pipeline activated</li>
+          <li>Initial distribution channels connected</li>
+        </ul>
+      </div>
+      <div class="timeline-block">
+        <div class="period">Month 2</div>
+        <ul>
+          <li>Consistent weekly publishing cadence established</li>
+          <li>Content repurposing fully automated</li>
+          <li>Audience growth tracking live</li>
+        </ul>
+      </div>
+      <div class="timeline-block">
+        <div class="period">Month 3</div>
+        <ul>
+          <li>Optimization phase (SEO + engagement improvements)</li>
+          <li>Monetization readiness (sponsorship structure, media kit)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-outcome">
+      <strong>Outcome by Day 90:</strong> A functioning, self-sustaining content and distribution engine &mdash; producing weekly without your hands on the keyboard.
+    </div>
   </div>
 
   <!-- Future Phase -->
@@ -618,7 +984,8 @@
     <div class="pricing-row">
       <div class="pricing-label">
         Phase 1 &mdash; Foundation
-        <span class="note">One-time setup (website, SEO, analytics, competitive analysis, content database)</span>
+        <span class="note">Platform build, positioning, SEO, analytics, and infrastructure</span>
+        <span class="founding">Founding partner pricing</span>
       </div>
       <div class="pricing-amount">$4,000</div>
     </div>
@@ -626,12 +993,12 @@
     <div class="pricing-row">
       <div class="pricing-label">
         Phase 2 &mdash; Content Engine &amp; Distribution
-        <span class="note">Monthly retainer (content pipeline, social publishing, newsletter, SEO, AI admin)</span>
+        <span class="note">Automation, publishing pipeline, newsletter, SEO, and ongoing optimization</span>
       </div>
       <div class="pricing-amount">$1,000 /mo</div>
     </div>
 
-    <p class="pricing-note">If the scope evolves significantly, we revisit the numbers together. This is a partnership &mdash; we want it to work for both sides long-term.</p>
+    <p class="pricing-note">This pricing reflects early-stage partnership positioning. As scope expands into monetization systems, events, and advanced infrastructure, pricing will be revisited accordingly. This is a partnership &mdash; we want it to work for both sides long-term.</p>
 
     <!-- Market Context -->
     <div class="market-context">
@@ -639,10 +1006,18 @@
     </div>
   </div>
 
+  <!-- Execution Guarantee -->
+  <div class="guarantee">
+    <h3>Execution Guarantee</h3>
+    <p>If Phase 1 is not completed within 30 days, work continues at no additional cost until delivery is complete.</p>
+    <p>Phase 2 is flexible &mdash; after the first 60 days, continuation is month-to-month.</p>
+  </div>
+
   <!-- CTA -->
   <div class="cta">
     <h2>Next Step</h2>
-    <p>Let's connect this weekend to walk through this together and decide what makes sense for where Cloud Value Lab is right now. The competitive window is open &mdash; FinOps Weekly is the only real content player in your space, and their model has clear weaknesses you can exploit. The sooner the infrastructure matches your content quality, the faster you own that lane.</p>
+    <p>Let's schedule time this week to review this together, align on priorities, and determine whether to proceed with Phase 1 immediately.</p>
+    <p>The FinOps category is forming in real time, and the first credible, vendor-neutral platform at scale will capture disproportionate attention and sponsorship dollars. The infrastructure gap is currently the only constraint. If we move now, Cloud Value Lab is positioned to define this category.</p>
     <p>Looking forward to it, David.</p>
     <p style="margin-top: 24px; color: #1a3e5c; font-weight: 500;">Edmund Bogen &amp; Eytan Benzeno<br><span style="font-weight: 400; font-size: 14px; color: #888888;">Bogen.ai</span></p>
   </div>
