@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Proposal for Maria Babaev | Bogen.ai</title>
+<meta name="description" content="A 90-day AI consulting and outsourced C-suite engagement prepared for Maria Babaev by Edmund Bogen and Eytan Benzeno.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a3e5c;
+    --navy-deep: #0f2a40;
+    --cyan: #00a8e1;
+    --white: #ffffff;
+    --black: #000000;
+    --gray-50: #f8f9fa;
+    --gray-100: #f4f4f4;
+    --gray-200: #e8e8e8;
+    --gray-400: #9ca3af;
+    --gray-600: #4b5563;
+    --gray-800: #1f2937;
+  }
+
+  /* Light theme (default) */
+  [data-theme="light"] {
+    --bg: #ffffff;
+    --bg-alt: #f4f4f4;
+    --bg-section: #ffffff;
+    --bg-dark: #1a3e5c;
+    --text: #1f2937;
+    --text-muted: #4b5563;
+    --text-on-dark: #ffffff;
+    --border: #e8e8e8;
+    --accent: #00a8e1;
+    --header-bg: #1a3e5c;
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 20px rgba(26, 62, 92, 0.08);
+  }
+
+  /* Dark theme */
+  [data-theme="dark"] {
+    --bg: #0a1929;
+    --bg-alt: #102841;
+    --bg-section: #0f2a40;
+    --bg-dark: #0a1929;
+    --text: #e8e8e8;
+    --text-muted: #9ca3af;
+    --text-on-dark: #ffffff;
+    --border: #1f3a52;
+    --accent: #00a8e1;
+    --header-bg: #0a1929;
+    --card-bg: #102841;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  /* Top navigation bar */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--header-bg);
+    color: var(--text-on-dark);
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--cyan);
+  }
+
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-mark .eb-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--cyan);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-size: 14px;
+  }
+
+  .brand-mark .brand-text {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .brand-mark .brand-text strong {
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .topbar-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .btn {
+    background: var(--cyan);
+    color: var(--white);
+    border: none;
+    padding: 10px 22px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease, transform 0.2s ease;
+    border-radius: 0;
+  }
+
+  .btn:hover {
+    background: #008cbf;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-on-dark);
+    border: 1px solid var(--cyan);
+  }
+
+  .btn-ghost:hover {
+    background: var(--cyan);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--white);
+    padding: 100px 32px 120px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 60px;
+    background: var(--cyan);
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 24px;
+    margin-top: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 strong {
+    font-weight: 600;
+  }
+
+  .hero-sub {
+    font-size: 19px;
+    font-weight: 300;
+    max-width: 720px;
+    margin: 0 auto 40px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+  }
+
+  .hero-meta {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 24px;
+  }
+
+  .hero-meta-item {
+    text-align: left;
+  }
+
+  .hero-meta-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 4px;
+  }
+
+  .hero-meta-value {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Sections */
+  section {
+    padding: 80px 32px;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .container-narrow {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  h2 strong {
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 12px;
+  }
+
+  p {
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+
+  p.lead {
+    font-size: 19px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .accent-bar {
+    width: 4px;
+    height: 60px;
+    background: var(--cyan);
+    margin-bottom: 32px;
+  }
+
+  /* Section variants */
+  .section-alt {
+    background: var(--bg-alt);
+  }
+
+  .section-dark {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+  }
+
+  .section-dark h2,
+  .section-dark h3,
+  .section-dark p {
+    color: var(--text-on-dark);
+  }
+
+  .section-dark p {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Where you are today - mirror box */
+  .mirror-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .mirror-card {
+    background: var(--card-bg);
+    padding: 28px;
+    border-left: 3px solid var(--cyan);
+    box-shadow: var(--card-shadow);
+  }
+
+  .mirror-card h4 {
+    margin-bottom: 8px;
+  }
+
+  .mirror-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  /* Phase blocks (the 90-day engagement) */
+  .phase {
+    background: var(--card-bg);
+    margin-bottom: 24px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+  }
+
+  .phase-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .phase-header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .phase-number {
+    background: var(--cyan);
+    color: var(--white);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .phase-title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .phase-subtitle {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-top: 4px;
+  }
+
+  .phase-price {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .phase-body {
+    padding: 32px;
+  }
+
+  .phase-body ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .phase-body li {
+    padding: 14px 0 14px 32px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .phase-body li:last-child {
+    border-bottom: none;
+  }
+
+  .phase-body li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 16px;
+    height: 2px;
+    background: var(--cyan);
+  }
+
+  .phase-deliverable {
+    margin-top: 24px;
+    padding: 20px;
+    background: var(--bg-alt);
+    border-left: 3px solid var(--cyan);
+  }
+
+  .phase-deliverable h4 {
+    margin-bottom: 8px;
+  }
+
+  .phase-deliverable p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  /* What AI consulting really means - examples grid */
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .example-card {
+    background: var(--card-bg);
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+    border-top: 3px solid var(--cyan);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .example-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(26, 62, 92, 0.15);
+  }
+
+  .example-card-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--cyan);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .example-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .example-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .example-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    font-weight: 600;
+  }
+
+  /* The three roles */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .role-card {
+    text-align: center;
+    padding: 32px 20px;
+    background: var(--card-bg);
+    border-bottom: 3px solid var(--cyan);
+    box-shadow: var(--card-shadow);
+  }
+
+  .role-card h3 {
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .role-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* Investment box */
+  .investment-box {
+    background: var(--navy);
+    color: var(--white);
+    padding: 60px 40px;
+    text-align: center;
+    margin: 40px 0;
+    position: relative;
+  }
+
+  .investment-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--cyan);
+  }
+
+  .investment-amount {
+    font-size: 64px;
+    font-weight: 300;
+    color: var(--white);
+    margin: 24px 0 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .investment-amount strong {
+    font-weight: 600;
+    color: var(--cyan);
+  }
+
+  .investment-detail {
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 32px;
+  }
+
+  .roi-line {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Not doing list */
+  .boundaries {
+    background: var(--bg-alt);
+    padding: 40px;
+    border-left: 4px solid var(--cyan);
+    margin-top: 32px;
+  }
+
+  .boundaries h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .boundaries ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+  }
+
+  .boundaries li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  .boundaries li::before {
+    content: '×';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    color: var(--cyan);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  /* Closing / next step */
+  .closing {
+    text-align: center;
+    padding: 100px 32px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--white);
+  }
+
+  .closing h2 {
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .closing p {
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 640px;
+    margin: 0 auto 32px;
+    font-size: 18px;
+  }
+
+  .closing-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  /* Footer / signature */
+  .signature {
+    background: var(--bg-alt);
+    padding: 60px 32px;
+    text-align: center;
+  }
+
+  .signature-block {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  .signatory {
+    text-align: center;
+  }
+
+  .signatory-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .signatory-role {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  footer {
+    background: var(--navy-deep);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 32px;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  footer a {
+    color: var(--cyan);
+    text-decoration: none;
+  }
+
+  /* Theme toggle */
+  .theme-toggle {
+    background: transparent;
+    color: var(--text-on-dark);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: background 0.2s ease;
+  }
+
+  .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Print / PDF styles */
+  @media print {
+    .topbar, .closing-actions, .theme-toggle, #download-pdf-btn {
+      display: none !important;
+    }
+    body {
+      background: white !important;
+      color: black !important;
+    }
+    .hero, .section-dark, .closing, footer, .investment-box, .phase-header {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    section {
+      padding: 40px 24px;
+      page-break-inside: avoid;
+    }
+    .phase {
+      page-break-inside: avoid;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .topbar { padding: 12px 20px; }
+    .brand-mark .brand-text { display: none; }
+    section { padding: 60px 24px; }
+    .hero { padding: 60px 24px 80px; }
+    .hero-meta { gap: 20px; }
+    .investment-amount { font-size: 48px; }
+    .signature-block { gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<div class="topbar">
+  <div class="brand-mark">
+    <div class="eb-circle">EB</div>
+    <div class="brand-text">
+      <strong>BOGEN.AI</strong><br>
+      AI ADVISORY &amp; AUTOMATION
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">🌙</button>
+    <button class="btn" id="download-pdf-btn">↓ Download PDF</button>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-eyebrow">Confidential Proposal — Prepared for Maria Babaev</div>
+  <h1>Before We <strong>Marry</strong>,<br>Let's Date for 90&nbsp;Days.</h1>
+  <p class="hero-sub">A 90-day AI advisory and outsourced execution engagement, built specifically for the way you actually run your business — not a curriculum, not a coaching program, not a playbook.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Prepared By</div>
+      <div class="hero-meta-value">Edmund Bogen &amp; Eytan Benzeno</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Prepared For</div>
+      <div class="hero-meta-value">Maria Babaev, Douglas Elliman</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Engagement</div>
+      <div class="hero-meta-value">90 days · $5,000 / month</div>
+    </div>
+  </div>
+</section>
+
+<!-- Personal Opening -->
+<section>
+  <div class="container-narrow">
+    <div class="accent-bar"></div>
+    <div class="section-eyebrow">A Personal Note</div>
+    <h2>Maria,</h2>
+    <p class="lead">When we caught up last week, you said something I've been thinking about ever since: <em>"In 2026, it's work smarter, not harder — and the urgency is more prominent now than it was when we started this conversation in Sarasota."</em></p>
+    <p>You're right. And you're already operating at a level — Thrive Mastermind, FIABCI, the Vienna symposium, the longevity panels at JCC, your Ritz Pompano position — where the question isn't whether AI matters. It's whether someone in your corner can actually <em>build</em> with you instead of selling you another program.</p>
+    <p>This proposal is my answer. It's structured the way you asked: date before we marry. Three months. A real on-ramp. A clean off-ramp. And graded against deliverables you and I agree to in writing at the end of Month 1.</p>
+    <p>Eytan flew in this week so we could prepare this together. He's the technical partner behind every build below — same model we used to publish <em>Prompt to Close</em> and the same model behind the work I showed you on the call.</p>
+  </div>
+</section>
+
+<!-- Where You Are Today -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-eyebrow">What I Heard</div>
+    <h2>Where you are <strong>today.</strong></h2>
+    <p class="lead">Before recommending anything, here's my read of how your business actually runs — in your own words from our call. If any of this is wrong, we correct it in Week 1.</p>
+
+    <div class="mirror-grid">
+      <div class="mirror-card">
+        <h4>The Producer</h4>
+        <p>90% of business is still you. Team handles some volume but you are the relationship, the brand, and the close.</p>
+      </div>
+      <div class="mirror-card">
+        <h4>CRM Stack</h4>
+        <p>FollowUpBoss as the "dirty bucket" — used at ~25% of capability. Buffini retained as the "clean bucket" for referral and anniversary reports.</p>
+      </div>
+      <div class="mirror-card">
+        <h4>Email &amp; Web</h4>
+        <p>luxurylonglsland.com on GoDaddy/Microsoft, with the same web partner of 22 years. Constant Contact for newsletter. No behavioral click intelligence.</p>
+      </div>
+      <div class="mirror-card">
+        <h4>Lead Strategy</h4>
+        <p>Direct mail (~15,000 pieces/year across Roslyn &amp; Gold Coast). Strategic neighborhood targeting. Showcase listings on Zillow. Sphere-of-influence over online lead chase.</p>
+      </div>
+      <div class="mirror-card">
+        <h4>Events &amp; Brand</h4>
+        <p>Thanksgiving event (15 years running, ~$10K). Longevity panels at JCC. FIABCI international presence. Russian and Hebrew language reach.</p>
+      </div>
+      <div class="mirror-card">
+        <h4>Market Intelligence</h4>
+        <p>Altos Research for zip-level monthly reports. Anniversary touchpoints with handwritten notes. Personal events and panels as primary lead generators.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Gap -->
+<section>
+  <div class="container-narrow">
+    <div class="accent-bar"></div>
+    <div class="section-eyebrow">The Diagnosis</div>
+    <h2>Where the leverage is.</h2>
+    <p class="lead">You don't have a marketing problem. You have an <em>extraction</em> problem — value that's already in your business but isn't being captured, surfaced, or acted on.</p>
+    <p>Four leverage points stood out from our conversation:</p>
+
+    <h3 style="margin-top: 32px;">1. CRM intelligence layer</h3>
+    <p>FollowUpBoss at 25% utilization is leaving the most valuable signal on the table — who's clicking, when, and why. We layer behavioral intelligence on top of your existing stack without forcing a migration you don't want.</p>
+
+    <h3>2. Newsletter as a sales instrument</h3>
+    <p>Constant Contact sends are firing in the dark. The Barbara Lipton example I showed you — knowing exactly which neighbor clicked exactly which property at exactly 10am Wednesday — that becomes the default, not the exception.</p>
+
+    <h3>3. Branded AI tools for your farms</h3>
+    <p>A CMA-a-day system, market reports, and buyer/seller calculators — all branded Maria Babaev, all powered by AI research, all delivered through your existing direct mail and digital channels for Roslyn and Gold Coast.</p>
+
+    <h3>4. Outsourced execution layer</h3>
+    <p>Most coaches tell you what to do. Your time on the bottleneck is the most expensive resource in your business. Eytan and I either coach you through it or do it for you — your call, deal by deal.</p>
+  </div>
+</section>
+
+<!-- The 90-Day Engagement -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-eyebrow">The Engagement</div>
+    <h2>90 days. Three sprints. <strong>One decision point.</strong></h2>
+    <p class="lead">Three months at $5,000 per month. Month 1 is paid discovery — the audit you'd never get from a coaching program because it's the work everyone else gives away or skips.</p>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-header-left">
+          <div class="phase-number">1</div>
+          <div>
+            <div class="phase-title">Discovery &amp; Diagnosis</div>
+            <div class="phase-subtitle">Days 1 — 30</div>
+          </div>
+        </div>
+        <div class="phase-price">$5,000</div>
+      </div>
+      <div class="phase-body">
+        <ul>
+          <li>4–5 working sessions with you, Eytan, and your key team members</li>
+          <li>Full audit of FollowUpBoss configuration, automations, and data hygiene</li>
+          <li>Constant Contact list health, segmentation, and integration review</li>
+          <li>Buffini referral &amp; anniversary report workflow audit</li>
+          <li>Direct mail campaign analysis (Roslyn + Gold Coast farms)</li>
+          <li>Altos Research integration with newsletter and CRM</li>
+          <li>Website backend review (in coordination with your existing partner — not replacing them)</li>
+          <li>Map of every tool, handoff, and bottleneck across your stack</li>
+        </ul>
+        <div class="phase-deliverable">
+          <h4>Day 30 Deliverable</h4>
+          <p>Written audit report and a 60-day build roadmap signed off by both sides. This is the contract for Months 2 and 3 — no surprises, no scope creep, no "trust me."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-header-left">
+          <div class="phase-number">2</div>
+          <div>
+            <div class="phase-title">Build</div>
+            <div class="phase-subtitle">Days 31 — 60</div>
+          </div>
+        </div>
+        <div class="phase-price">$5,000</div>
+      </div>
+      <div class="phase-body">
+        <ul>
+          <li>Newsletter click-intelligence dashboard live (Barbara-Lipton-level visibility)</li>
+          <li>First AI-powered branded market report deployed for one farm — your pick: Roslyn or Gold Coast</li>
+          <li>Branded buyer/seller tools: closing cost estimator, home value tool, CMA generator</li>
+          <li>FollowUpBoss optimization — the 75% you're not using, activated</li>
+          <li>Content engine connected to your longevity, FIABCI, and luxury angles</li>
+          <li>Weekly working sessions with you, plus async build cycles with Eytan</li>
+        </ul>
+        <div class="phase-deliverable">
+          <h4>Day 60 Deliverable</h4>
+          <p>Three live, branded systems running in production — not slide decks, not promises. Demonstrable click-through and engagement data from your real list.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-header-left">
+          <div class="phase-number">3</div>
+          <div>
+            <div class="phase-title">Scale &amp; Decision Point</div>
+            <div class="phase-subtitle">Days 61 — 90</div>
+          </div>
+        </div>
+        <div class="phase-price">$5,000</div>
+      </div>
+      <div class="phase-body">
+        <ul>
+          <li>Anniversary &amp; referral automation built on top of your Buffini data</li>
+          <li>Second farm activated with the market report system</li>
+          <li>Team training so deliverables continue without you in every loop</li>
+          <li>Integration with your event marketing (Thanksgiving event, longevity panels)</li>
+          <li>Full handoff documentation</li>
+          <li>Formal 90-day review meeting</li>
+        </ul>
+        <div class="phase-deliverable">
+          <h4>Day 90 Decision</h4>
+          <p>Continue at a defined ongoing rate, modify the scope, or part ways with everything we've built remaining yours. No pressure. No retainer auto-renewals. The work earns the next 90 days, or it doesn't.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What AI Consulting Really Means -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">What This Actually Looks Like</div>
+    <h2>What "AI consulting" <strong>really means</strong> in practice.</h2>
+    <p class="lead">"AI consulting" is a vague phrase. Here's what we've actually built for clients across real estate teams and individual top producers — concrete examples of the work, not theory.</p>
+
+    <div class="examples-grid">
+      <div class="example-card">
+        <div class="example-card-icon">📊</div>
+        <span class="example-tag">For Individual Top Producers</span>
+        <h3>Bilingual Market Report (Coral Gables)</h3>
+        <p>Built for a Douglas Elliman agent serving Hispanic clients. AI-researched, English + Spanish, light/dark mode toggle. Deployed as both a webpage and a downloadable PDF for direct mail follow-up. Cross-referenced across multiple AIs for accuracy.</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-card-icon">🧮</div>
+        <span class="example-tag">For Individual Top Producers</span>
+        <h3>Closing Cost Estimator (New Hampshire)</h3>
+        <p>County-specific calculator with sales price, down payment, and HOA inputs. Branded to the agent. Embedded on her site and shareable as a link with buyers. Captures lead data on every use.</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-card-icon">📈</div>
+        <span class="example-tag">For Real Estate Teams</span>
+        <h3>CMA-a-Day System</h3>
+        <p>Drag-and-drop comp analysis, AI-generated narrative, branded output. The team sends a CMA every day to a tightly defined farm — restricted enough that it builds dominance, generous enough that it generates conversations.</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-card-icon">📧</div>
+        <span class="example-tag">For Individual Top Producers</span>
+        <h3>Click-Intelligence Newsletter</h3>
+        <p>Constant Contact / Mailchimp integration that surfaces who clicked what, when. Pairs with CRM so a click on "What's my home worth" triggers a direct outreach within hours — not days.</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-card-icon">📞</div>
+        <span class="example-tag">For Real Estate Teams</span>
+        <h3>AI Voice Receptionist</h3>
+        <p>Named, personality-driven AI that answers inbound calls 24/7, qualifies leads, books appointments, and logs to your CRM. Mine is named Dawn Foster. We can build yours with your voice, your tone, your script.</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-card-icon">📕</div>
+        <span class="example-tag">For Individual Top Producers</span>
+        <h3>Authority Asset Build</h3>
+        <p>A book, signature white paper, or speaking deck — built from your existing recordings, transcripts, and content using a multi-AI editorial process. <em>Prompt to Close</em> was rated 9.4 across five AIs before publication. We can do the same with your story.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Three Roles -->
+<section class="section-dark">
+  <div class="container-narrow" style="text-align: center;">
+    <div class="section-eyebrow">How We Work</div>
+    <h2>Part coaching. Part consulting. <strong>Part build.</strong></h2>
+    <p class="lead" style="color: rgba(255,255,255,0.85); margin: 0 auto;">Most engagements force you to pick one. This one doesn't. On any given task, you tell us which role you want us in.</p>
+
+    <div class="roles-grid">
+      <div class="role-card">
+        <h3>Coach</h3>
+        <p>You want to learn it, run it yourself, and own the process.</p>
+      </div>
+      <div class="role-card">
+        <h3>Consultant</h3>
+        <p>You want strategy, frameworks, and an objective second opinion.</p>
+      </div>
+      <div class="role-card">
+        <h3>Builder</h3>
+        <p>You want it done — Eytan and team execute, you stay in your zone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Investment -->
+<section>
+  <div class="container-narrow">
+    <div class="section-eyebrow">Investment</div>
+    <h2>The math.</h2>
+    <p class="lead">A 90-day pilot priced as a pilot — not the steady-state rate. The number lets us prove value without making either of us regret a 12-month commitment we hadn't earned yet.</p>
+
+    <div class="investment-box">
+      <div class="investment-detail">90-Day Pilot Engagement</div>
+      <div class="investment-amount">$<strong>5,000</strong></div>
+      <div class="investment-detail">per month · billed monthly · 90 days</div>
+      <p class="roi-line">For context: a single $4M closing at 2.5% returns $100,000 in GCI. The full 90-day pilot is $15,000. The math works on a single deal influenced — and the systems we build keep influencing deals long after Day 90.</p>
+    </div>
+  </div>
+</section>
+
+<!-- What We're Not Doing -->
+<section class="section-alt">
+  <div class="container-narrow">
+    <div class="section-eyebrow">Boundaries</div>
+    <h2>What we're <strong>not</strong> doing.</h2>
+    <p class="lead">As important as the work itself. You've earned long-standing relationships and systems. We are not here to disrupt them.</p>
+
+    <div class="boundaries">
+      <h3>This engagement explicitly will not:</h3>
+      <ul>
+        <li>Replace your web partner of 22 years at luxurylonglsland.com</li>
+        <li>Touch the architecture of your existing site without his involvement</li>
+        <li>Push a Gmail or Google Workspace migration</li>
+        <li>Add you to a group coaching program or curriculum</li>
+        <li>Change your CRM out from under you</li>
+        <li>Conflict with your existing Buffini, Altos, or Constant Contact tools</li>
+        <li>Compete with the technical partners you already trust</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Closing / Next Step -->
+<section class="closing">
+  <h2>The next step is small. <br>The next 90 days don't have to be.</h2>
+  <p>Our follow-up call is already on the calendar — Thursday at 1pm. Eytan will be on. Bring questions, push back on anything in this proposal, and if it makes sense, we sign there or schedule signing for the week after.</p>
+  <div class="closing-actions">
+    <a href="mailto:edmund@bogenhomes.com?subject=Re%3A%20Bogen.ai%20Proposal" class="btn">✉ Reply to Edmund</a>
+    <a href="https://calendly.com/edmund-15/reignation-meeting-ed" class="btn btn-ghost" style="border-color: var(--cyan); color: var(--cyan);">📅 Confirm Thursday 1pm</a>
+  </div>
+</section>
+
+<!-- Signature -->
+<section class="signature">
+  <div class="container-narrow">
+    <h2 style="font-size: 24px; margin-bottom: 32px;">Prepared and presented by:</h2>
+    <div class="signature-block">
+      <div class="signatory">
+        <div class="signatory-name">Edmund Bogen</div>
+        <div class="signatory-role">Co-Founder, Bogen.ai · Author, Prompt to Close</div>
+      </div>
+      <div class="signatory">
+        <div class="signatory-name">Eytan Benzeno</div>
+        <div class="signatory-role">Co-Founder &amp; Technical Partner, Bogen.ai</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Bogen.ai · AI Advisory &amp; Automation · <a href="https://www.bogen.ai">bogen.ai</a></p>
+  <p style="margin-top: 8px;">A division of Dave T Productions LLC · This proposal is confidential and prepared exclusively for Maria Babaev.</p>
+</footer>
+
+<script>
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+
+  // Initial state from localStorage if available, otherwise light
+  const savedTheme = (typeof window !== 'undefined' && window.localStorage)
+    ? localStorage.getItem('bogen-theme')
+    : null;
+  if (savedTheme) {
+    root.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'dark' ? '☀' : '🌙';
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    themeToggle.textContent = next === 'dark' ? '☀' : '🌙';
+    try {
+      localStorage.setItem('bogen-theme', next);
+    } catch(e) {}
+  });
+
+  // PDF download via browser print
+  document.getElementById('download-pdf-btn').addEventListener('click', () => {
+    window.print();
+  });
+</script>
+
+</body>
+</html>
