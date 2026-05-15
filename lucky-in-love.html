@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bogen.ai Proposal — Lucky in Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background: #ffffff;
+        }
+        .header {
+            background: #1a3e5c;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-logo {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .header-date {
+            font-size: 12px;
+            font-weight: 400;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        .title-block {
+            margin-bottom: 60px;
+        }
+        .title-block h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a3e5c;
+            margin-bottom: 8px;
+        }
+        .title-block .subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            color: #00a8e1;
+            border-bottom: 3px solid #00a8e1;
+            padding-bottom: 12px;
+        }
+        .opening {
+            background: #eef8fc;
+            padding: 30px;
+            border-left: 4px solid #00a8e1;
+            margin: 40px 0;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .opportunity {
+            margin: 60px 0;
+        }
+        .opportunity h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 30px;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .column {
+            padding: 25px;
+            background: #f7f9fb;
+            border-radius: 4px;
+        }
+        .column h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #00a8e1;
+            padding-bottom: 10px;
+        }
+        .column ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .column li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .column li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #00a8e1;
+            font-weight: 600;
+        }
+        .approach {
+            margin: 60px 0;
+        }
+        .approach h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 30px;
+        }
+        .phase {
+            background: #eef8fc;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 4px solid #00a8e1;
+            border-radius: 4px;
+        }
+        .phase h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 15px;
+        }
+        .phase p {
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .phase ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+        .phase li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+        }
+        .phase li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #00a8e1;
+            font-weight: 600;
+        }
+        .deliverables {
+            background: #eef8fc;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+        .deliverables h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 20px;
+        }
+        .deliverables ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .deliverables li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+        }
+        .deliverables li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00a8e1;
+            font-weight: 600;
+        }
+        .investment {
+            margin: 60px 0;
+        }
+        .investment h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 30px;
+        }
+        .investment-block {
+            background: #f7f9fb;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .investment-block h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 12px;
+        }
+        .investment-block p {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .why-bogen {
+            margin: 60px 0;
+            background: #eef8fc;
+            padding: 30px;
+            border-radius: 4px;
+        }
+        .why-bogen h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 25px;
+        }
+        .why-bogen h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .why-bogen p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        .risk {
+            margin: 60px 0;
+        }
+        .risk h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 30px;
+        }
+        .risk-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .risk-item:last-child {
+            border-bottom: none;
+        }
+        .risk-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 8px;
+        }
+        .risk-item p {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .next-steps {
+            margin: 60px 0;
+            background: #eef8fc;
+            padding: 30px;
+            border-radius: 4px;
+        }
+        .next-steps h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 25px;
+        }
+        .next-steps ol {
+            padding-left: 25px;
+        }
+        .next-steps li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .content-partnership {
+            margin: 60px 0;
+            background: #f7f9fb;
+            padding: 30px;
+            border-left: 4px solid #00a8e1;
+            border-radius: 4px;
+        }
+        .content-partnership h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 15px;
+        }
+        .content-partnership p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .signature {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #1a3e5c;
+        }
+        .signature-block {
+            margin-bottom: 40px;
+        }
+        .signature-block h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 8px;
+        }
+        .signature-block p {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+        .sign-line {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            max-width: 500px;
+        }
+        .sign-line-item {
+            flex: 1;
+        }
+        .sign-line-item p {
+            font-size: 12px;
+            margin-bottom: 4px;
+            border-top: 1px solid #333;
+            padding-top: 8px;
+        }
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 40px 20px;
+            }
+            .title-block h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">BOGEN.AI</div>
+        <div class="header-date">May 14, 2026</div>
+    </div>
+
+    <div class="container">
+        <div class="title-block">
+            <h1>Proposal for Lucky in Love</h1>
+            <div class="subtitle">AI Readiness Assessment & Growth Sprint</div>
+        </div>
+
+        <div class="opening">
+            <p><strong>Brad,</strong></p>
+            <p style="margin-top: 12px;">Lucky in Love is built on five generations of apparel DNA — your great-grandfather designed WWI army uniforms, your grandfather founded Covergirl Dresses of Miami, and your mom and uncle built Tail into a category-leading brand. When you founded LIL in 2010, you spotted a void in women's tennis apparel and filled it with a point of view. Fifteen years later, you're distributing through 2,000+ pro shops, country clubs, and retail partnerships across the US and Europe, collaborating with K-Swiss and Simone Jardim, and building a 35,000-person community on Instagram.</p>
+            <p style="margin-top: 12px;">The challenge you named at dinner is operator-tight but systematic: the back end (ERP, CRM, email, dashboards, reporting) has grown slower than the brand. Your teams have Shopify, Klaviyo, and Okendo in place, but they are not yet orchestrated. And you have zero AI tooling in the wholesale engine — the 2,000 pro-shop accounts managing your fate with no data-driven account briefs or demand forecasting.</p>
+            <p style="margin-top: 12px;">This is exactly the gap Bogen.ai closes — not by replacing your team, but by professionalizing the operating system you already have.</p>
+        </div>
+
+        <div class="opportunity">
+            <h2>The Opportunity</h2>
+            <div class="two-column">
+                <div class="column">
+                    <h3>Current State</h3>
+                    <ul>
+                        <li>Back-end silos: ERP, CRM, email, analytics in separate islands</li>
+                        <li>Wholesale blindness: 2,000 pro-shop accounts with zero AI-driven account briefs</li>
+                        <li>Manual reporting load: Competitive research, demand forecasting, email campaigns still spreadsheet-driven</li>
+                        <li>DTC underperformance: Klaviyo unsegmented, no AI product recommendations</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Post-Engagement State</h3>
+                    <ul>
+                        <li>Unified operations view: Real-time dashboards across all systems</li>
+                        <li>AI-powered wholesale: Automated account briefs, trend alerts, demand forecasts</li>
+                        <li>Content velocity: Competitive research and campaigns AI-assisted at scale</li>
+                        <li>Customer intelligence: Sport-segmented lifecycle and AI recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="approach">
+            <h2>Approach: Two-Phase Engagement</h2>
+
+            <div class="phase">
+                <h3>Phase 1: AI Readiness Assessment (30 days, $2,500 flat)</h3>
+                <p><strong>Deliverable:</strong> A 20-page written assessment covering:</p>
+                <ul>
+                    <li>ERP + CRM + Shopify + Klaviyo audit (integration feasibility, data quality, automation readiness)</li>
+                    <li>Seven prioritized AI opportunities ranked by impact and effort</li>
+                    <li>Estimated investment and timeline for each</li>
+                    <li>Phase 2 scope recommendation + fixed investment</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Timeline:</strong> 30 days from kickoff. Kill-switch clause: if you are not convinced of value by Day 30, engagement ends with no obligation beyond the $2,500 assessment fee.</p>
+                <p><strong>Why this shape:</strong> The assessment is a standalone deliverable. You get actionable intelligence whether or not Phase 2 happens. And the assessment data becomes the basis for Phase 2 pricing — no guessing.</p>
+            </div>
+
+            <div class="phase">
+                <h3>Phase 2: 90-Day AI Integration Sprint (Scope-Dependent)</h3>
+                <p>If the assessment reveals high-impact, achievable opportunities, Phase 2 launches immediately.</p>
+                <p><strong>Typical timeline:</strong></p>
+                <ul>
+                    <li><strong>Weeks 1–3:</strong> Systems integration (ERP tap-in, Shopify/Klaviyo orchestration, dashboard scaffolding)</li>
+                    <li><strong>Weeks 4–8:</strong> AI build-out (wholesale account brief generator, DTC lifecycle flows, demand forecast pipeline)</li>
+                    <li><strong>Weeks 9–12:</strong> Optimization (user testing, rep training, performance validation, handoff documentation)</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Investment Range:</strong> $25,000 – $75,000 fixed fee, depending on scope. Benchmarked against mid-market AI consulting engagements at your scale (industry standard: $45K–$90K for comparable 90-day integrations).</p>
+                <p><strong>Optional:</strong> Month 4+ retainer ($8,000–$12,000/month) for ongoing optimization, new integrations, and AI model tuning.</p>
+            </div>
+        </div>
+
+        <div class="deliverables">
+            <h3>Phase 2 Deliverables (Example)</h3>
+            <ul>
+                <li>Weekly automated account brief generator (wholesale rep enablement)</li>
+                <li>Demand forecast dashboard (inventory + buy planning visibility)</li>
+                <li>Sport-segmented email/SMS lifecycle (DTC customer journey)</li>
+                <li>Competitive research dashboard (trend alerts + tea-leaf reading)</li>
+                <li>AI product recommendation engine (Shopify)</li>
+                <li>Team training + live guidance sessions</li>
+            </ul>
+        </div>
+
+        <div class="investment">
+            <h2>Investment & Terms</h2>
+
+            <div class="investment-block">
+                <h4>Phase 1: AI Readiness Assessment</h4>
+                <p><strong>Fee:</strong> $2,500 flat</p>
+                <p><strong>Payment:</strong> Due upon signature</p>
+                <p><strong>Refund Policy:</strong> If the assessment does not surface at least three viable AI opportunities with projected ROI, full refund.</p>
+                <p><strong>Timeline:</strong> 30 days</p>
+                <p><strong>Kill Switch:</strong> Full stop, no Phase 2 obligation, if you are unsatisfied</p>
+            </div>
+
+            <div class="investment-block">
+                <h4>Phase 2: Integration Sprint (if Phase 1 confirms scope)</h4>
+                <p><strong>Fee Range:</strong> $25,000–$75,000 fixed, determined during Phase 1</p>
+                <p><strong>Payment Terms:</strong> 50% on signature, 50% on delivery</p>
+                <p><strong>Performance Guarantee:</strong> If Bogen.ai does not deliver defined Phase 2 milestones within the sprint window, pro-rata refund for incomplete work</p>
+            </div>
+
+            <div class="investment-block">
+                <h4>Ongoing (Optional)</h4>
+                <p><strong>Retainer:</strong> $8,000–$12,000/month, Month 4+</p>
+                <p><strong>Scope:</strong> Continuous optimization, new AI model training, new integrations</p>
+            </div>
+        </div>
+
+        <div class="why-bogen">
+            <h2>Why Bogen.ai</h2>
+
+            <h3>Edmund Bogen — Founder</h3>
+            <p>Keynote speaker, author of <em>Prompt to Close</em>, and co-founder of Edmund's Mastermind (14,000-member community of realtors and entrepreneurs adopting AI at scale). Edmund's background is South Florida luxury real estate — the same affluent, relationship-driven, detail-obsessed buyer persona as your country club and pro-shop customer base. He understands the market. He understands the operator mindset.</p>
+
+            <h3>Eytan Benzeno — Co-Founder & AI Engineer</h3>
+            <p>AI engineer, automation expert, and Edmund's technical partner (30% equity). Eytan builds the Claude Projects, custom AI models, data pipelines, and integrations that power Bogen.ai. He is the technical layer that makes the strategy real.</p>
+
+            <h3>Our Approach</h3>
+            <p>We do not build software. We integrate AI into your existing systems (Shopify, Klaviyo, your ERP) and train your team to own the workflows. You keep control. You keep the data. We are not a vendor. We are a founder-friendly operator who happens to think in AI.</p>
+        </div>
+
+        <div class="risk">
+            <h2>Risk & Guarantees</h2>
+
+            <div class="risk-item">
+                <h4>Scope Discipline</h4>
+                <p>Phase 1 covers ERP feasibility assessment and opportunity scoring. It does <strong>not</strong> include creative production, paid media spend, photography, or platform migration. Those are separate conversations.</p>
+            </div>
+
+            <div class="risk-item">
+                <h4>AI Transparency</h4>
+                <p>AI models are directional, not oracular. Our job is to augment your judgment, not replace it. All AI outputs require your team's final decision and approval.</p>
+            </div>
+
+            <div class="risk-item">
+                <h4>Data Handling</h4>
+                <p>Customer data you share (lists, purchase history, etc.) is treated as confidential and deleted upon Phase 2 completion. Generalizable AI frameworks we build (account brief generator, demand forecasting model, product recommendation engine) are Bogen.ai IP, licensed to you during the engagement and beyond.</p>
+            </div>
+
+            <div class="risk-item">
+                <h4>Money-Back Commitment</h4>
+                <p>Phase 1 assessment is outcome-guaranteed: surface three viable opportunities or refund. Phase 2 is performance-guaranteed: deliver defined milestones or pro-rata refund.</p>
+            </div>
+        </div>
+
+        <div class="next-steps">
+            <h2>Next Steps</h2>
+            <ol>
+                <li><strong>Sign & Return</strong> — This proposal is ready. Execution agreement will follow Phase 1 kick-off.</li>
+                <li><strong>Kick-Off Call</strong> — Within 3 business days. 60 minutes with you + point of contact for ERP and wholesale accounts.</li>
+                <li><strong>Phase 1 Starts</strong> — Day 1 of 30. We audit, you operate. Weekly check-ins.</li>
+                <li><strong>Day 30 Delivery</strong> — Assessment report in your inbox. We discuss Phase 2 or part as friends.</li>
+            </ol>
+        </div>
+
+        <div class="content-partnership">
+            <h2>Content & Case Study Partnership</h2>
+            <p>If Phase 1 and Phase 2 succeed, Bogen.ai would like to:</p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #00a8e1; font-weight: 600;">•</span>
+                    Reference Lucky in Love by name in speaking engagements and case studies (with your approval on any metrics shared)
+                </li>
+                <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #00a8e1; font-weight: 600;">•</span>
+                    Produce a brief video case study or LinkedIn post documenting the engagement
+                </li>
+                <li style="padding-left: 20px; position: relative;">
+                    <span style="position: absolute; left: 0; color: #00a8e1; font-weight: 600;">•</span>
+                    Invite you as a guest on Edmund's Mastermind community or podcast
+                </li>
+            </ul>
+            <p style="margin-top: 15px;">This is how we build Bogen.ai's credibility in the apparel / DTC / luxury space. Your permission is optional, but deeply appreciated.</p>
+        </div>
+
+        <div class="signature">
+            <div class="signature-block">
+                <h4>Edmund Bogen</h4>
+                <p>Founder, Bogen.ai</p>
+                <p>edmund@bogen.ai</p>
+                <p>bogen.ai</p>
+                <p style="margin-top: 8px; font-size: 12px; font-style: italic;">On behalf of Dave T Productions, LLC</p>
+                <p style="font-size: 12px;">70% Edmund Bogen / 30% Eytan Benzeno</p>
+            </div>
+
+            <div class="sign-line">
+                <div class="sign-line-item">
+                    <p><strong>Brad Singer</strong></p>
+                    <p>Founder & CEO</p>
+                    <p>Lucky in Love</p>
+                    <p style="border: none; padding: 0; margin-top: 20px;">Date: _______________</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
