@@ -328,8 +328,278 @@
             border-top: 1px solid #333;
             padding-top: 8px;
         }
+        .roi-box {
+            background: #1a3e5c;
+            color: white;
+            padding: 30px;
+            border-radius: 4px;
+            margin: 40px 0;
+        }
+        .roi-box h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+        .roi-box p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            color: #e8f0f7;
+        }
+        .roi-box .roi-conclusion {
+            font-size: 16px;
+            color: white;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .tier-bonus {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #00a8e1;
+        }
+        .tier-bonus-label {
+            color: #1a3e5c;
+            font-size: 12px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .tier-bonus ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            flex-grow: 0;
+        }
+        .tier-bonus li {
+            margin-bottom: 4px;
+            padding-left: 16px;
+            font-size: 12px;
+            line-height: 1.5;
+            position: relative;
+        }
+        .tier-bonus li:before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: #00a8e1;
+        }
+        .compare {
+            margin: 60px 0;
+        }
+        .compare h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 15px;
+        }
+        .compare-intro {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        .compare-item {
+            background: #f7f9fb;
+            padding: 22px 25px;
+            border-left: 4px solid #00a8e1;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+        .compare-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 8px;
+        }
+        .compare-item p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #333;
+        }
+        .compare-conclusion {
+            margin-top: 25px;
+            padding: 25px;
+            background: #1a3e5c;
+            color: white;
+            border-radius: 4px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        .compare-conclusion strong {
+            color: #00a8e1;
+        }
+        .engagements {
+            margin: 60px 0;
+            background: #f7f9fb;
+            padding: 30px;
+            border-radius: 4px;
+            border-left: 4px solid #1a3e5c;
+        }
+        .engagements h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 8px;
+        }
+        .engagements-sub {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        .engagement-item {
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .engagement-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .engagement-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 6px;
+        }
+        .engagement-item p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .deliverable-showcase {
+            margin: 50px 0;
+            text-align: center;
+        }
+        .deliverable-showcase h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 8px;
+        }
+        .deliverable-showcase .showcase-caption {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .deliverable-showcase img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 8px 24px rgba(26, 62, 92, 0.18);
+            border: 1px solid #e0e0e0;
+        }
+        .deliverable-showcase .showcase-note {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #888;
+        }
+        .tiers {
+            margin: 60px 0;
+        }
+        .tiers h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 15px;
+        }
+        .tiers-intro {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        .tier-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .tier-card {
+            background: #f7f9fb;
+            padding: 25px;
+            border-radius: 4px;
+            border-top: 4px solid #00a8e1;
+            position: relative;
+        }
+        .tier-recommended {
+            background: #eef8fc;
+            border-top: 4px solid #1a3e5c;
+            box-shadow: 0 4px 12px rgba(26, 62, 92, 0.12);
+        }
+        .tier-badge {
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #1a3e5c;
+            color: white;
+            padding: 4px 12px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 3px;
+        }
+        .tier-header {
+            margin-bottom: 18px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #d0dde5;
+        }
+        .tier-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a3e5c;
+            margin-bottom: 6px;
+        }
+        .tier-price {
+            font-size: 26px;
+            font-weight: 700;
+            color: #00a8e1;
+        }
+        .tier-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+        .tier-card li {
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .tier-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00a8e1;
+            font-weight: 600;
+        }
+        .tier-fit {
+            font-size: 13px;
+            line-height: 1.5;
+            padding-top: 12px;
+            border-top: 1px solid #d0dde5;
+            color: #555;
+        }
+        .tiers-note {
+            background: #1a3e5c;
+            color: white;
+            padding: 18px 25px;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
         @media (max-width: 768px) {
             .two-column {
+                grid-template-columns: 1fr;
+            }
+            .tier-grid {
                 grid-template-columns: 1fr;
             }
             .container {
@@ -339,6 +609,136 @@
                 font-size: 28px;
             }
         }
+
+        /* ===== PRINT / PDF STYLES ===== */
+        @page {
+            size: Letter;
+            margin: 0.65in 0.55in 0.85in 0.55in;
+            @bottom-center {
+                content: "Bogen.ai  |  Lucky in Love Proposal  |  Page " counter(page) " of " counter(pages);
+                font-family: 'Montserrat', 'Helvetica', sans-serif;
+                font-size: 8.5px;
+                color: #888888;
+                padding-top: 14px;
+            }
+        }
+        @page :first {
+            @bottom-center {
+                content: "Bogen.ai  |  Confidential Proposal for Lucky in Love  |  May 2026";
+                font-family: 'Montserrat', 'Helvetica', sans-serif;
+                font-size: 8.5px;
+                color: #888888;
+            }
+        }
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            body {
+                background: white;
+                font-size: 12.5px;
+            }
+            .header {
+                margin: -0.65in -0.55in 20px -0.55in;
+                padding: 16px 0.55in;
+            }
+            .container {
+                padding: 20px 0;
+                max-width: 100%;
+            }
+            h1, h2, h3, h4 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            .opening,
+            .roi-box,
+            .phase,
+            .tier-card,
+            .tier-grid,
+            .deliverables,
+            .investment-block,
+            .compare-item,
+            .engagement-item,
+            .risk-item,
+            .next-steps,
+            .signature,
+            .content-partnership {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .deliverable-showcase > div {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-bottom: 25px;
+            }
+            .deliverable-showcase img {
+                max-height: 3.8in;
+                width: auto;
+                max-width: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+            .opportunity,
+            .approach,
+            .investment,
+            .why-bogen,
+            .compare,
+            .engagements,
+            .risk {
+                margin: 35px 0;
+            }
+            /* Use flexbox in print — WeasyPrint grid row-height is unreliable */
+            .tier-grid {
+                display: flex;
+                gap: 15px;
+                align-items: stretch;
+            }
+            .tier-card {
+                flex: 1 1 0;
+                padding: 16px;
+                overflow: visible;
+            }
+            .tier-header {
+                margin-bottom: 12px;
+                padding-bottom: 10px;
+            }
+            .tier-price {
+                font-size: 22px;
+            }
+            .tier-card ul {
+                margin-bottom: 10px;
+            }
+            .tier-card li {
+                font-size: 11px;
+                margin-bottom: 5px;
+                line-height: 1.4;
+            }
+            .tier-bonus {
+                margin-top: 10px;
+                padding-top: 10px;
+            }
+            .tier-bonus-label {
+                font-size: 10.5px;
+                margin-bottom: 6px;
+            }
+            .tier-bonus li {
+                font-size: 10px;
+                margin-bottom: 3px;
+                line-height: 1.4;
+            }
+            .tier-fit {
+                font-size: 11px;
+                padding-top: 9px;
+                margin-top: 10px;
+                line-height: 1.4;
+            }
+            .tiers-note {
+                font-size: 12px;
+            }
+        }
+        /* ===== END PRINT STYLES ===== */
+
     </style>
 </head>
 <body>
@@ -357,7 +757,7 @@
             <p><strong>Brad,</strong></p>
             <p style="margin-top: 12px;">Lucky in Love is built on five generations of apparel DNA — your great-grandfather designed WWI army uniforms, your grandfather founded Covergirl Dresses of Miami, and your mom and uncle built Tail into a category-leading brand. When you founded LIL in 2010, you spotted a void in women's tennis apparel and filled it with a point of view. Fifteen years later, you're distributing through 2,000+ pro shops, country clubs, and retail partnerships across the US and Europe, collaborating with K-Swiss and Simone Jardim, and building a 35,000-person community on Instagram.</p>
             <p style="margin-top: 12px;">The challenge you named at dinner is operator-tight but systematic: the back end (ERP, CRM, email, dashboards, reporting) has grown slower than the brand. Your teams have Shopify, Klaviyo, and Okendo in place, but they are not yet orchestrated. And you have zero AI tooling in the wholesale engine — the 2,000 pro-shop accounts managing your fate with no data-driven account briefs or demand forecasting.</p>
-            <p style="margin-top: 12px;">This is exactly the gap Bogen.ai closes — not by replacing your team, but by professionalizing the operating system you already have.</p>
+            <p style="margin-top: 12px;">This is exactly the gap Bogen.ai closes — not by replacing your team, but by professionalizing the operating system you already have. Done right, this engagement positions Lucky in Love as <strong>the AI-native apparel brand before the industry sees it coming</strong> — and gives you the data infrastructure to defend that position for the next decade.</p>
         </div>
 
         <div class="opportunity">
@@ -409,13 +809,78 @@
                     <li><strong>Weeks 4–8:</strong> AI build-out (wholesale account brief generator, DTC lifecycle flows, demand forecast pipeline)</li>
                     <li><strong>Weeks 9–12:</strong> Optimization (user testing, rep training, performance validation, handoff documentation)</li>
                 </ul>
-                <p style="margin-top: 15px;"><strong>Investment Range:</strong> $25,000 – $75,000 fixed fee, depending on scope. Benchmarked against mid-market AI consulting engagements at your scale (industry standard: $45K–$90K for comparable 90-day integrations).</p>
+                <p style="margin-top: 15px;"><strong>Investment Range:</strong> $25,000 – $125,000 fixed fee, depending on scope. Benchmarked against mid-market AI consulting engagements at your scale.</p>
                 <p><strong>Optional:</strong> Month 4+ retainer ($8,000–$12,000/month) for ongoing optimization, new integrations, and AI model tuning.</p>
             </div>
         </div>
 
+        <div class="roi-box">
+            <h3>THE MATH ON YOUR SIDE</h3>
+            <p>Lucky in Love distributes through ~2,000 pro-shop accounts. At a conservative <strong>$20K average annual wholesale per account</strong>, that's a <strong>$40M wholesale book</strong>.</p>
+            <p>Industry benchmarks for AI-powered account-brief generators paired with demand-forecast pipelines show <strong>3–7% incremental wholesale lift in year one</strong>. At 3%, that's <strong>$1.2M in incremental annual revenue</strong>. At 5%, $2M.</p>
+            <p class="roi-conclusion"><strong>Your Phase 2 investment ($25K–$125K) returns 10–80X in year one.</strong> This is the cleanest ROI math in any line of your business.</p>
+        </div>
+
+        <div class="tiers">
+            <h2>Phase 2 Scope Tiers</h2>
+            <p class="tiers-intro">Phase 1 confirms which tier fits your operation. You pick. Each tier delivers in 90 days under milestone-based payment. This menu replaces the typical AI-consulting guessing game.</p>
+            <div class="tier-grid">
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <h3>Foundation</h3>
+                        <div class="tier-price">$25,000</div>
+                    </div>
+                    <ul>
+                        <li>Wholesale account brief generator (rep enablement)</li>
+                        <li>Sport-segmented Klaviyo lifecycle (DTC)</li>
+                        <li>Unified ops dashboard (v1)</li>
+                        <li>Team training + handoff documentation</li>
+                    </ul>
+                    <p class="tier-fit"><em>You become: the operator who validated AI before anyone in the apparel category.</em></p>
+                </div>
+                <div class="tier-card tier-recommended">
+                    <div class="tier-badge">RECOMMENDED</div>
+                    <div class="tier-header">
+                        <h3>Growth</h3>
+                        <div class="tier-price">$60,000</div>
+                    </div>
+                    <ul>
+                        <li>Everything in Foundation, plus:</li>
+                        <li>Demand forecast dashboard (inventory + buy planning)</li>
+                        <li>AI product recommendation engine (Shopify)</li>
+                        <li>Competitive research + trend alerts</li>
+                        <li>First-quarter model tuning included</li>
+                    </ul>
+                    <div class="tier-bonus">
+                        <span class="tier-bonus-label">SIGN WITHIN 21 DAYS — BONUS STACK</span>
+                        <ul>
+                            <li>30-day model tuning extension (post-sprint)</li>
+                            <li>Quarterly executive AI briefing for 12 months</li>
+                            <li>One additional team member trained on the system</li>
+                        </ul>
+                    </div>
+                    <p class="tier-fit"><em>You become: the brand that turned 2,000 accounts into 2,000 data signals.</em></p>
+                </div>
+                <div class="tier-card">
+                    <div class="tier-header">
+                        <h3>Enterprise</h3>
+                        <div class="tier-price">$125,000</div>
+                    </div>
+                    <ul>
+                        <li>Everything in Growth, plus:</li>
+                        <li>ERP deep integration (real-time data flow)</li>
+                        <li>Custom Claude Project for executive Q&amp;A</li>
+                        <li>Wholesale rep mobile workflow (brief on demand)</li>
+                        <li>Onsite training day + 90-day post-sprint optimization</li>
+                    </ul>
+                    <p class="tier-fit"><em>You become: the fifth-generation founder who built apparel's next operating system.</em></p>
+                </div>
+            </div>
+            <p class="tiers-note"><strong>Phase 1 credit:</strong> The $2,500 assessment fee credits in full against your selected tier. &nbsp;|&nbsp; <strong>Payment:</strong> 40% on signature / 30% mid-sprint / 30% on delivery. &nbsp;|&nbsp; <strong>Timeline:</strong> 90 days from kickoff, every tier.</p>
+        </div>
+
         <div class="deliverables">
-            <h3>Phase 2 Deliverables (Example)</h3>
+            <h3>Phase 2 Deliverables (Master Menu)</h3>
             <ul>
                 <li>Weekly automated account brief generator (wholesale rep enablement)</li>
                 <li>Demand forecast dashboard (inventory + buy planning visibility)</li>
@@ -426,6 +891,23 @@
             </ul>
         </div>
 
+        <div class="deliverable-showcase">
+            <h3>Example Deliverables — What You and Your Team Will See</h3>
+            <p class="showcase-caption">Two live previews from the Phase 2 build. Account labels, metrics, and AI recommendations shown are illustrative.</p>
+
+            <div style="margin-bottom: 35px;">
+                <p style="font-size: 14px; font-weight: 600; color: #1a3e5c; margin-bottom: 10px; text-align: left;">What your wholesale team sees — AI-Generated Account Brief</p>
+                <img src="assets/lucky-in-love-account-brief-mockup.png" alt="Lucky in Love AI-generated wholesale account brief mockup showing account KPIs, 12-month velocity chart, and AI-recommended actions" />
+                <p class="showcase-note" style="text-align: left;">Each of your 2,000+ pro-shop accounts gets a brief like this, auto-generated, delivered to your reps weekly.</p>
+            </div>
+
+            <div>
+                <p style="font-size: 14px; font-weight: 600; color: #1a3e5c; margin-bottom: 10px; text-align: left;">What you see — Executive Command Center</p>
+                <img src="assets/lucky-in-love-executive-dashboard-mockup.png" alt="Lucky in Love Executive Command Center dashboard showing wholesale and DTC KPIs, top accounts by velocity, revenue mix, and AI-generated CEO priorities" />
+                <p class="showcase-note" style="text-align: left;">Your morning briefing — top accounts, revenue mix, inventory health, and the three things AI flagged as worth your attention this week.</p>
+            </div>
+        </div>
+
         <div class="investment">
             <h2>Investment & Terms</h2>
 
@@ -433,16 +915,23 @@
                 <h4>Phase 1: AI Readiness Assessment</h4>
                 <p><strong>Fee:</strong> $2,500 flat</p>
                 <p><strong>Payment:</strong> Due upon signature</p>
-                <p><strong>Refund Policy:</strong> If the assessment does not surface at least three viable AI opportunities with projected ROI, full refund.</p>
+                <p><strong>Refund Policy:</strong> If the assessment does not surface at least three opportunities with projected annual ROI of 5X or more (supported by industry benchmark data), full refund.</p>
                 <p><strong>Timeline:</strong> 30 days</p>
                 <p><strong>Kill Switch:</strong> Full stop, no Phase 2 obligation, if you are unsatisfied</p>
             </div>
 
             <div class="investment-block">
                 <h4>Phase 2: Integration Sprint (if Phase 1 confirms scope)</h4>
-                <p><strong>Fee Range:</strong> $25,000–$75,000 fixed, determined during Phase 1</p>
+                <p><strong>Fee Range:</strong> $25,000–$125,000 fixed, determined during Phase 1</p>
                 <p><strong>Payment Terms:</strong> 50% on signature, 50% on delivery</p>
                 <p><strong>Performance Guarantee:</strong> If Bogen.ai does not deliver defined Phase 2 milestones within the sprint window, pro-rata refund for incomplete work</p>
+            </div>
+
+            <div class="investment-block">
+                <h4>Performance Bonus (Optional Upside)</h4>
+                <p><strong>Trigger:</strong> If wholesale revenue in the 90 days following Phase 2 delivery exceeds the prior comparable quarter by 3% or more</p>
+                <p><strong>Bonus:</strong> 5% of the incremental wholesale lift, capped at $25,000</p>
+                <p><strong>Why:</strong> Aligns Bogen.ai directly with measurable outcome. No bonus if no lift — pure upside to you.</p>
             </div>
 
             <div class="investment-block">
@@ -458,11 +947,59 @@
             <h3>Edmund Bogen — Founder</h3>
             <p>Keynote speaker, author of <em>Prompt to Close</em>, and co-founder of Edmund's Mastermind (14,000-member community of realtors and entrepreneurs adopting AI at scale). Edmund's background is South Florida luxury real estate — the same affluent, relationship-driven, detail-obsessed buyer persona as your country club and pro-shop customer base. He understands the market. He understands the operator mindset.</p>
 
-            <h3>Eytan Benzeno — Co-Founder & AI Engineer</h3>
-            <p>AI engineer, automation expert, and Edmund's technical partner (30% equity). Eytan builds the Claude Projects, custom AI models, data pipelines, and integrations that power Bogen.ai. He is the technical layer that makes the strategy real.</p>
+            <h3>Eytan Benzeno — Co-Founder & AI Engineer (Primary Technical Executor on This Engagement)</h3>
+            <p>AI engineer and Edmund's technical partner. <strong>Eytan leads the technical execution on this engagement</strong> — building the Claude Projects, custom AI models, data pipelines, and Shopify / Klaviyo / ERP integrations. Edmund holds strategy, client accountability, and delivery oversight. Eytan does the build. This is by design — it gives Lucky in Love a dedicated senior AI engineer for the full 90 days.</p>
 
             <h3>Our Approach</h3>
-            <p>We do not build software. We integrate AI into your existing systems (Shopify, Klaviyo, your ERP) and train your team to own the workflows. You keep control. You keep the data. We are not a vendor. We are a founder-friendly operator who happens to think in AI.</p>
+            <p>We do not build software. We integrate AI into your existing systems (Shopify, Klaviyo, your ERP) and train your team to own the workflows. We are not a vendor. We are a founder-friendly operator who happens to think in AI.</p>
+            <p style="margin-top: 12px;"><strong>You retain ownership of:</strong> platforms, workflows, customer relationships, operational control, and business data.</p>
+        </div>
+
+        <div class="compare">
+            <h2>How We Compare</h2>
+            <p class="compare-intro">You'll likely evaluate three alternatives. Here's the honest read:</p>
+
+            <div class="compare-item">
+                <h4>Tier-one consultancies (McKinsey, Deloitte Digital, Bain)</h4>
+                <p>Excellent at board-level transformation work. Built for 12-month engagements at $500K+, typically staffed with junior consultants under partner oversight, ending in a polished deck. Overbuilt for a 90-day AI integration on a $40M wholesale book.</p>
+            </div>
+
+            <div class="compare-item">
+                <h4>Platform specialists (Klaviyo agencies, Shopify Plus partners, freelance ERP consultants)</h4>
+                <p>Strong at tactical execution on a single platform. Limited at orchestrating across Shopify + Klaviyo + ERP + wholesale workflows as a unified intelligence layer — which is the actual problem you're solving.</p>
+            </div>
+
+            <div class="compare-item">
+                <h4>An internal hire (Head of Data, VP of Digital)</h4>
+                <p>The right long-term move. Takes 4–6 months to recruit, $200K+ in fully-loaded compensation, and another 6–9 months of ramp before they produce output. This engagement is what gets you to "ready for that hire" — they inherit a working system instead of a blank page.</p>
+            </div>
+
+            <p class="compare-conclusion"><strong>Bogen.ai is built for the founder-operator who needs senior AI execution in 90 days, fixed-fee, with the same people writing strategy and doing the build.</strong> No hourly meter. No offshore handoff. No 9-month timeline.</p>
+        </div>
+
+        <div class="engagements">
+            <h2>Selected Engagements</h2>
+            <p class="engagements-sub">Anonymized for client confidentiality. References available on request following NDA.</p>
+
+            <div class="engagement-item">
+                <h4>Multi-agent luxury real estate operation (Southeast US, 80+ agents)</h4>
+                <p>Deployed AI-driven lead routing, automated client briefs, and a weekly market intelligence pipeline. Standardized how a fragmented producer team consumed and acted on market data.</p>
+            </div>
+
+            <div class="engagement-item">
+                <h4>Regional brokerage with 2,000+ contact database</h4>
+                <p>Klaviyo segmentation overhaul, automated nurture sequences, and AI-generated CMA delivery system. Lifted reply rates on dormant contacts and eliminated manual report production.</p>
+            </div>
+
+            <div class="engagement-item">
+                <h4>Coaching/membership operator scaling past 100 members</h4>
+                <p>Built member onboarding automation, billing reconciliation system, and retention dashboards. Operator visibility moved from monthly spreadsheets to real-time view.</p>
+            </div>
+
+            <div class="engagement-item">
+                <h4>Hospitality + real estate operator (South Florida)</h4>
+                <p>Operations AI deployment, executive reporting infrastructure, and content automation across multiple business lines under one parent operator.</p>
+            </div>
         </div>
 
         <div class="risk">
@@ -480,7 +1017,7 @@
 
             <div class="risk-item">
                 <h4>Data Handling</h4>
-                <p>Customer data you share (lists, purchase history, etc.) is treated as confidential and deleted upon Phase 2 completion. Generalizable AI frameworks we build (account brief generator, demand forecasting model, product recommendation engine) are Bogen.ai IP, licensed to you during the engagement and beyond.</p>
+                <p>Customer data you share (lists, purchase history, etc.) is treated as confidential and deleted upon Phase 2 completion. Generalizable AI frameworks we build (account brief generator, demand forecasting model, product recommendation engine) are Bogen.ai IP, <strong>licensed to Lucky in Love on a perpetual, royalty-free, non-exclusive basis</strong> for your continued use post-engagement.</p>
             </div>
 
             <div class="risk-item">
@@ -492,7 +1029,8 @@
         <div class="next-steps">
             <h2>Next Steps</h2>
             <ol>
-                <li><strong>Sign & Return</strong> — This proposal is ready. Execution agreement will follow Phase 1 kick-off.</li>
+                <li><strong>Mutual NDA</strong> — Signed by both parties before the kickoff call (separate one-pager, sent alongside this proposal).</li>
+                <li><strong>Sign & Return</strong> — This proposal is ready. Execution agreement follows the kickoff call.</li>
                 <li><strong>Kick-Off Call</strong> — Within 3 business days. 60 minutes with you + point of contact for ERP and wholesale accounts.</li>
                 <li><strong>Phase 1 Starts</strong> — Day 1 of 30. We audit, you operate. Weekly check-ins.</li>
                 <li><strong>Day 30 Delivery</strong> — Assessment report in your inbox. We discuss Phase 2 or part as friends.</li>
@@ -501,7 +1039,8 @@
 
         <div class="content-partnership">
             <h2>Content & Case Study Partnership</h2>
-            <p>If Phase 1 and Phase 2 succeed, Bogen.ai would like to:</p>
+            <p><strong>Direct ask:</strong> If we deliver, would you be open to documenting this engagement publicly? Lucky in Love becomes the apparel industry's flagship case study in AI integration, and Bogen.ai earns the right to point to your name when working with peer founders.</p>
+            <p>Specifically, if Phase 1 and Phase 2 succeed, Bogen.ai would like to:</p>
             <ul style="list-style: none; padding-left: 0;">
                 <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
                     <span style="position: absolute; left: 0; color: #00a8e1; font-weight: 600;">•</span>
@@ -517,6 +1056,7 @@
                 </li>
             </ul>
             <p style="margin-top: 15px;">This is how we build Bogen.ai's credibility in the apparel / DTC / luxury space. Your permission is optional, but deeply appreciated.</p>
+            <p style="margin-top: 15px; font-size: 13px; color: #555; padding: 15px; background: #ffffff; border-radius: 4px; border-left: 3px solid #00a8e1;"><strong>Durable rights:</strong> Bogen.ai retains the perpetual right to use anonymized engagement metrics and methodology references in marketing materials. Named use of "Lucky in Love" or "Brad Singer" remains subject to your written approval and can be revoked with 30 days notice.</p>
         </div>
 
         <div class="signature">
@@ -526,7 +1066,6 @@
                 <p>edmund@bogen.ai</p>
                 <p>bogen.ai</p>
                 <p style="margin-top: 8px; font-size: 12px; font-style: italic;">On behalf of Dave T Productions, LLC</p>
-                <p style="font-size: 12px;">70% Edmund Bogen / 30% Eytan Benzeno</p>
             </div>
 
             <div class="sign-line">
