@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrie McCormick × Bogen.ai — Your Unfair Operating System</title>
+<meta name="description" content="Bogen.ai partnership proposal for Carrie McCormick. Start with ListingStory — already built and live — then grow into the systems that scale a solo luxury practice.">
+<style>
+:root {
+  --teal: #2B6166;
+  --navy: #0d1620;
+  --navy2: #1a2332;
+  --navy3: #243044;
+  --blue: #00a8e1;
+  --gold: #ffd93d;
+  --green: #00c48c;
+  --red: #ff6b6b;
+  --pink: #ff7eb6;
+  --white: #f0f4f8;
+  --gray: #8899aa;
+  --border: rgba(255,255,255,0.08);
+  --bg: var(--navy);
+  --surface: var(--navy2);
+  --text: var(--white);
+  --text2: #c0ccd8;
+  --text3: var(--gray);
+}
+
+[data-theme="light"] {
+  --white: #0d1620;
+  --gray: #3a4e60;
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --text: #0d1620;
+  --text2: #1e2e3e;
+  --text3: #3a4e60;
+  --border: rgba(0,0,0,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body.gated { overflow: hidden; }
+
+/* PASSWORD GATE */
+#gate {
+  position: fixed; inset: 0; z-index: 9999;
+  background: linear-gradient(180deg, #0d1620 0%, #1a2332 100%);
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+}
+#gate::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0,168,225,0.12) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 40% at 80% 90%, rgba(255,126,182,0.08) 0%, transparent 60%);
+}
+.gate-box {
+  position: relative; z-index: 1; text-align: center; max-width: 400px; width: 100%;
+}
+.gate-lock { font-size: 2rem; margin-bottom: 1rem; }
+.gate-brand { font-weight: 800; letter-spacing: 0.04em; color: #fff; font-size: 1.2rem; margin-bottom: 1.5rem; }
+.gate-brand span { color: var(--blue); }
+.gate-title { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+.gate-sub { font-size: 0.9rem; color: #8899aa; margin-bottom: 1.75rem; line-height: 1.5; }
+#gateInput {
+  width: 100%; padding: 0.9rem 1.1rem; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04);
+  color: #fff; font-size: 1rem; text-align: center; letter-spacing: 0.05em;
+  margin-bottom: 0.9rem; outline: none; transition: border-color 0.2s;
+}
+#gateInput:focus { border-color: var(--blue); }
+#gateBtn {
+  width: 100%; padding: 0.9rem; border-radius: 10px; border: none;
+  background: var(--blue); color: #fff; font-size: 0.95rem; font-weight: 700;
+  cursor: pointer; transition: opacity 0.2s;
+}
+#gateBtn:hover { opacity: 0.88; }
+.gate-err { display: none; color: var(--red); font-size: 0.85rem; margin-top: 0.9rem; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 60px;
+  background: rgba(13,22,32,0.97);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-weight: 800; letter-spacing: 0.04em; color: #fff; font-size: 1rem; }
+.nav-logo span { color: var(--blue); }
+.nav-links { display: flex; align-items: center; gap: 1rem; }
+.nav-links a { color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  background: var(--blue); color: #fff !important;
+  padding: 0.4rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+}
+.theme-toggle {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--gray); cursor: pointer; padding: 0.3rem 0.75rem;
+  border-radius: 6px; font-size: 0.8rem; transition: all 0.2s;
+}
+.theme-toggle:hover { border-color: var(--blue); color: var(--blue); }
+
+/* HERO */
+.hero {
+  min-height: 80vh;
+  background: linear-gradient(180deg, #0d1620 0%, #1a2332 100%) !important;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 5rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,168,225,0.10) 0%, transparent 70%),
+              radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,126,182,0.10) 0%, transparent 60%),
+              radial-gradient(ellipse 50% 40% at 15% 75%, rgba(255,217,61,0.06) 0%, transparent 60%);
+}
+.hero-inner { position: relative; z-index: 1; max-width: 900px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  border: 1px solid rgba(0,168,225,0.3); border-radius: 20px;
+  padding: 0.3rem 1rem; font-size: 0.78rem; color: var(--blue);
+  text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem;
+}
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); animation: pulse 2s infinite; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.12; margin-bottom: 1rem; color: #fff; }
+.hero h1 span { color: var(--blue); }
+.hero h1 .pink { color: var(--pink); }
+.hero p { font-size: 1.1rem; color: #c0ccd8; max-width: 740px; margin: 0 auto 2.5rem; }
+.hero-eyebrow { font-size: 0.85rem; color: var(--gray); margin-bottom: 1.25rem; letter-spacing: 0.04em; }
+
+.hero-stats {
+  display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+  margin-top: 2rem; padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.stat-val { font-size: 1.7rem; font-weight: 800; color: var(--blue); display: block; }
+.stat-lbl { font-size: 0.74rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* SECTIONS */
+section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
+
+.section-label {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--blue); margin-bottom: 0.75rem;
+}
+.section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--blue); }
+
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 1rem; color: var(--text); line-height: 1.2; }
+h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
+
+.lede { font-size: 1.05rem; color: var(--text3); margin-bottom: 2rem; max-width: 780px; }
+
+/* CARDS */
+.card-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.6rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover { border-color: rgba(0,168,225,0.3); transform: translateY(-3px); }
+.card-icon { font-size: 1.5rem; margin-bottom: 0.85rem; }
+.card p { font-size: 0.92rem; color: var(--text2); }
+.tag {
+  display: inline-block; font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 20px;
+  background: rgba(0,168,225,0.12); color: var(--blue); margin-top: 0.75rem;
+}
+.tag-gold { background: rgba(255,217,61,0.12); color: var(--gold); }
+.tag-pink { background: rgba(255,126,182,0.12); color: var(--pink); }
+.tag-green { background: rgba(0,196,140,0.14); color: var(--green); }
+
+/* SNAPSHOT TABLE */
+.snapshot-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem; margin-top: 1.25rem;
+}
+.snap-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.1rem 1.3rem;
+}
+.snap-item .snap-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gray); margin-bottom: 0.4rem; }
+.snap-item .snap-val { font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+.snap-item .snap-sub { font-size: 0.8rem; color: var(--text3); margin-top: 0.25rem; }
+
+/* PAIN POINT ROWS — ranked */
+.pain-row {
+  display: grid; grid-template-columns: 80px 1fr auto;
+  gap: 1.25rem; padding: 1.4rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+.pain-row:last-child { border-bottom: none; }
+.pain-num {
+  font-size: 1.4rem; font-weight: 800; color: var(--blue);
+  font-variant-numeric: tabular-nums;
+}
+.pain-row h4 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+.pain-row p { font-size: 0.9rem; color: var(--text3); }
+.pain-row blockquote {
+  font-style: italic; color: var(--text2);
+  border-left: 2px solid var(--blue); padding-left: 0.85rem;
+  margin-top: 0.5rem; font-size: 0.88rem;
+}
+.pain-impact {
+  font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.07em;
+  background: rgba(0,196,140,0.12); color: var(--green);
+  padding: 0.3rem 0.7rem; border-radius: 20px; white-space: nowrap;
+}
+
+/* OFFERS — three modules */
+.module-grid {
+  display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 1.5rem;
+}
+.module {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 2rem;
+  position: relative; overflow: hidden;
+}
+.module::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 4px; background: linear-gradient(90deg, var(--blue), var(--pink));
+}
+.module-header {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  flex-wrap: wrap; margin-bottom: 0.6rem;
+}
+.module-rank {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--blue); font-weight: 700;
+}
+.module-name { font-size: 1.4rem; font-weight: 800; color: var(--text); margin-bottom: 0.3rem; }
+.module-tag { font-size: 0.85rem; color: var(--text3); margin-bottom: 1rem; }
+.module-body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.5rem; align-items: start; }
+.module-scope p { font-size: 0.95rem; color: var(--text2); line-height: 1.6; }
+.module-scope ul { list-style: none; margin-top: 0.75rem; }
+.module-scope li {
+  font-size: 0.88rem; color: var(--text2);
+  padding: 0.35rem 0; padding-left: 1.2rem; position: relative;
+}
+.module-scope li::before {
+  content: '→'; position: absolute; left: 0; color: var(--blue); font-weight: 700;
+}
+.module-side {
+  background: rgba(0,168,225,0.05); border: 1px solid rgba(0,168,225,0.15);
+  border-radius: 12px; padding: 1.25rem;
+}
+.module-side .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray); margin-bottom: 0.35rem; }
+.module-side .val { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.85rem; }
+.module-side .val:last-child { margin-bottom: 0; }
+.module-side .roi { color: var(--green); font-size: 0.85rem; line-height: 1.5; }
+.module-quote {
+  margin-top: 1rem; padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+  font-style: italic; font-size: 0.85rem; color: var(--text3);
+}
+.module-quote strong { color: var(--text2); font-style: normal; }
+@media (max-width: 720px) {
+  .module-body { grid-template-columns: 1fr; }
+}
+
+/* HIGHLIGHTS */
+.highlight-blue {
+  background: rgba(0,168,225,0.07); border: 1px solid rgba(0,168,225,0.2);
+  border-radius: 14px; padding: 1.5rem 1.75rem; margin-top: 1.5rem;
+}
+.highlight-gold {
+  background: rgba(255,217,61,0.07); border: 1px solid rgba(255,217,61,0.2);
+  border-radius: 14px; padding: 1.5rem 1.75rem; margin-top: 1.5rem;
+}
+.highlight-red {
+  background: rgba(255,107,107,0.05); border: 1px solid rgba(255,107,107,0.15);
+  border-radius: 14px; padding: 1.5rem 1.75rem; margin-top: 1.5rem;
+}
+.highlight-blue p, .highlight-gold p, .highlight-red p { font-size: 0.93rem; color: var(--text2); margin-top: 0.4rem; }
+
+/* TIP BOX */
+.tip-box {
+  background: linear-gradient(135deg, rgba(0,168,225,0.08), rgba(255,126,182,0.08));
+  border: 1px solid rgba(0,168,225,0.25);
+  border-radius: 14px; padding: 1.75rem; margin-top: 1.5rem;
+}
+.tip-box .tip-label {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--blue); font-weight: 700; margin-bottom: 0.5rem;
+}
+.tip-box p { color: var(--text2); font-size: 0.95rem; }
+
+/* TERMS */
+.terms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+.term-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.4rem; }
+.term-item h4 { font-size: 0.9rem; font-weight: 700; color: var(--blue); margin-bottom: 0.45rem; }
+.term-item p { font-size: 0.85rem; color: var(--text2); line-height: 1.55; }
+
+/* FOOTER */
+footer {
+  background: var(--navy); border-top: 1px solid var(--border);
+  padding: 3rem 2rem; text-align: center;
+}
+footer p { font-size: 0.85rem; color: var(--gray); }
+.confidential-bar {
+  margin-top: 1.5rem; padding: 0.6rem 1rem;
+  background: rgba(255,217,61,0.05); border: 1px solid rgba(255,217,61,0.15);
+  border-radius: 8px; display: inline-block;
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,217,61,0.5);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+@media (max-width: 768px) {
+  section { padding: 4rem 1.25rem; }
+  .hero { padding: 7rem 1.25rem 4rem; }
+  .hero-stats { gap: 1.5rem; }
+  .nav-links { gap: 0.5rem; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .pain-row { grid-template-columns: 50px 1fr; }
+  .pain-impact { grid-column: 2; justify-self: start; }
+}
+
+/* LIGHT MODE OVERRIDES */
+[data-theme="light"] nav { background: rgba(13,22,32,0.98); }
+[data-theme="light"] .hero { background: linear-gradient(180deg,#0d1620 0%,#1a2332 100%) !important; }
+[data-theme="light"] footer { background: #0d1620; }
+[data-theme="light"] .card { box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+[data-theme="light"] .snap-item { box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+[data-theme="light"] .module { box-shadow: 0 2px 14px rgba(0,0,0,0.06); }
+[data-theme="light"] .highlight-blue { background: rgba(0,168,225,0.06); border-color: rgba(0,168,225,0.2); }
+[data-theme="light"] .tip-box { background: linear-gradient(135deg, rgba(0,168,225,0.06), rgba(255,126,182,0.06)); }
+
+/* PRINT */
+@media print {
+  nav, .theme-toggle, #pdf-modal, .nav-links, #gate { display: none !important; }
+  body.gated { overflow: visible !important; }
+  :root, html, body {
+    --white: #0d1620;
+    --gray: #3a4e60;
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --text: #0d1620;
+    --text2: #1e2e3e;
+    --text3: #3a4e60;
+    --border: rgba(0,0,0,0.12);
+  }
+  body { background: #fff !important; color: #0d1620 !important; }
+  h2, h3, .pain-row h4, .module-name, .snap-item .snap-val, .module-side .val { color: #0d1620 !important; }
+  .lede, .card p, .pain-row p, .module-scope p, .module-scope li { color: #1e2e3e !important; }
+  footer { background: #0d1620 !important; color: #f0f4f8 !important; }
+  footer p, footer strong { color: #f0f4f8 !important; }
+  footer a { color: #00a8e1 !important; }
+  .hero {
+    min-height: 9.5in; height: 9.5in;
+    padding: 2rem 0.4rem;
+    page-break-after: always;
+    background: linear-gradient(180deg,#0d1620 0%,#1a2332 100%) !important;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-inner { max-width: 6.1in; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 0.95rem; }
+  .hero-stats { gap: 1.25rem; }
+  section { padding: 1.5rem 1rem; max-width: 100%; page-break-inside: avoid; }
+  .module { page-break-inside: avoid; }
+  .card, .module, .snap-item, .term-item { box-shadow: none; border: 1px solid #d0d8e0; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body class="gated">
+
+<!-- PASSWORD GATE -->
+<div id="gate">
+  <div class="gate-box">
+    <div class="gate-lock">🔒</div>
+    <div class="gate-brand">Bogen<span>.ai</span></div>
+    <div class="gate-title">Private Proposal</div>
+    <div class="gate-sub">Prepared for Carrie McCormick. Enter your access code to continue.</div>
+    <input id="gateInput" type="password" placeholder="Access code" autocomplete="off" />
+    <button id="gateBtn" onclick="tryGate()">Unlock</button>
+    <div id="gateErr" class="gate-err">Incorrect code — try again.</div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-logo">Bogen<span>.ai</span></div>
+  <div class="nav-links">
+    <a href="#need">What we heard</a>
+    <a href="#build">The path</a>
+    <a href="#snapshot">Snapshot</a>
+    <a href="#next">Next</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ Light / ☾ Dark</button>
+    <a href="mailto:edmund@bogen.ai?subject=ListingStory%20%E2%80%94%20Next%20step" class="nav-cta">Reply</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Partnership Proposal — June 2026
+    </div>
+    <div class="hero-eyebrow">Bogen.ai × Carrie McCormick</div>
+    <h1>Three systems we'd build for<br><span>Carrie McCormick</span> — starting with <span class="pink">the one you've already seen</span></h1>
+    <p>Carrie — after Chicago on June 3, we didn't send a deck. Eytan and I went home and built your form. <strong style="color:#fff;">ListingStory is live.</strong> Here's the full plan: start with the tool you've already touched, let it earn its keep, and grow into the systems that scale you — without ever breaking <em>"when you hire Carrie, you get Carrie."</em></p>
+    <div class="hero-stats">
+      <div><span class="stat-val">$3.5B</span><span class="stat-lbl">Career Sales</span></div>
+      <div><span class="stat-val">25+</span><span class="stat-lbl">Years</span></div>
+      <div><span class="stat-val">#1</span><span class="stat-lbl">Chicago Luxury Broker</span></div>
+      <div><span class="stat-val">1</span><span class="stat-lbl">Person It All Runs Through</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE HEARD -->
+<section id="need">
+  <div class="section-label">What we heard</div>
+  <h2>What's actually capping the business — ranked</h2>
+  <p class="lede">You've built the city's #1 solo luxury practice. The ceiling isn't demand — it's that everything runs through one person. These are the leverage points, in order, and every system below ladders into this list.</p>
+
+  <div class="pain-row">
+    <div class="pain-num">01</div>
+    <div>
+      <h4>The solo ceiling — every listing runs through you</h4>
+      <p>The intake, the copy, the follow-up, the database, the phone. Your promise is your moat and your ceiling at the same time.</p>
+      <blockquote>"When you hire Carrie, you get Carrie."</blockquote>
+    </div>
+    <div class="pain-impact">Time = Listings</div>
+  </div>
+
+  <div class="pain-row">
+    <div class="pain-num">02</div>
+    <div>
+      <h4>Seller intake on JotForm</h4>
+      <p>A generic form that collects answers and stops there — no story, no brand, nothing that wins you the pitch in the room.</p>
+    </div>
+    <div class="pain-impact">+Win Rate</div>
+  </div>
+
+  <div class="pain-row">
+    <div class="pain-num">03</div>
+    <div>
+      <h4>Listing copy written by hand</h4>
+      <p>Every description drafted from scratch, listing by listing — hours that only you can give, on work a system can carry.</p>
+    </div>
+    <div class="pain-impact">Hours Back</div>
+  </div>
+
+  <div class="pain-row">
+    <div class="pain-num">04</div>
+    <div>
+      <h4>Twenty years of clients, scattered</h4>
+      <p>$3.5B of relationships living across inboxes, contacts, and memory. The repeat and referral business is there — it's just not organized to work for you.</p>
+    </div>
+    <div class="pain-impact">+Repeat / Referral</div>
+  </div>
+
+  <div class="pain-row">
+    <div class="pain-num">05</div>
+    <div>
+      <h4>Calls caught only when you're free</h4>
+      <p>At your price point a missed call is a missed listing. After-hours inbound goes to voicemail and goes cold.</p>
+    </div>
+    <div class="pain-impact">+Captured Leads</div>
+  </div>
+
+  <div class="highlight-red">
+    <h3 style="color:var(--red);">What we won't pitch you</h3>
+    <p>We won't tell you how to sell luxury real estate. You've forgotten more about that than any consultant will ever know. We're not here to flatten what works — your business works. We build the AI scaffolding <em>around</em> what you already do better than anyone, so the only thing left on your plate is the part only Carrie can do.</p>
+  </div>
+</section>
+
+<!-- THE PATH -->
+<section id="build">
+  <div class="section-label">The path</div>
+  <h2>One proof. Then it builds itself.</h2>
+  <p class="lede">You start with the tool you've already seen working — run as a 90-day proof. As it earns its place, the Stack comes online around it, one module at a time, on your go-ahead. You never buy what you haven't watched work first.</p>
+
+  <div class="module-grid">
+
+    <!-- STAGE 1 -->
+    <div class="module">
+      <div class="module-header">
+        <div>
+          <div class="module-rank">Stage 01 · Live now — the proof</div>
+          <div class="module-name">ListingStory</div>
+          <div class="module-tag">Your branded seller-intake app that writes the listing story on submit</div>
+        </div>
+      </div>
+      <div class="module-body">
+        <div class="module-scope">
+          <p>Already built, branded in your colors, carrying your line — <em>"every home has a story and I bring it to life."</em> A seller fills it out; it writes the listing the moment they submit.</p>
+          <ul>
+            <li>Custom-branded form — unlimited submissions, no JotForm caps</li>
+            <li>AI Property Story every submission — MLS remarks + IG caption, in your voice</li>
+            <li>Submissions dashboard + a real database underneath</li>
+            <li>Hosting, updates, support — zero tech burden on you</li>
+          </ul>
+        </div>
+        <div class="module-side">
+          <div>
+            <div class="label">Investment</div>
+            <div class="val">$1,250/mo · 90-day proof<br><span style="font-size:0.78rem;color:var(--text3);font-weight:500;">+ $1,500 build (credited to annual)</span></div>
+          </div>
+          <div>
+            <div class="label">Outcome (days, not months)</div>
+            <div class="roi">Live in your listings this week<br>Win the pitch · lose the busywork<br>One won listing pays for the year</div>
+          </div>
+        </div>
+      </div>
+      <div class="module-quote"><strong>Why it's first:</strong> it's already built and you've touched it. The proof, not a promise. Lowest risk, fastest yes.</div>
+    </div>
+
+    <!-- STAGE 2 -->
+    <div class="module">
+      <div class="module-header">
+        <div>
+          <div class="module-rank">Stage 02 · Rolls in — months 2–6</div>
+          <div class="module-name">The Stack</div>
+          <div class="module-tag">Three modules that come online around ListingStory, on the same data spine</div>
+        </div>
+      </div>
+      <div class="module-body">
+        <div class="module-scope">
+          <p>Once the proof has earned it, the Stack builds itself in around ListingStory — each module riding the data it's already collecting.</p>
+          <ul>
+            <li><strong>AI Voicemail Operator</strong> — answers &amp; qualifies, 24/7, never misses a lead</li>
+            <li><strong>Database / CRM</strong> — your 20-year sphere, finally organized and working</li>
+            <li><strong>Newsletter Engine</strong> — your property stories become listing emails automatically</li>
+          </ul>
+        </div>
+        <div class="module-side">
+          <div>
+            <div class="label">Investment</div>
+            <div class="val">$3,000/mo · all three<br><span style="font-size:0.78rem;color:var(--text3);font-weight:500;">scoping begins Day 60; extras priced separately</span></div>
+          </div>
+          <div>
+            <div class="label">Outcome</div>
+            <div class="roi">One missed $2.5M call ≈ $60K — caught<br>Your sphere, reactivated<br>Your stories, working while you sleep</div>
+          </div>
+        </div>
+      </div>
+      <div class="module-quote"><strong>How it rolls in:</strong> we scope at Day 60 and add modules on your go-ahead — the $1,250 proof escalates into the Stack as each piece goes live. You approve every step.</div>
+    </div>
+
+    <!-- STAGE 3 -->
+    <div class="module">
+      <div class="module-header">
+        <div>
+          <div class="module-rank">Stage 03 · The destination — month 6+</div>
+          <div class="module-name">Full Partnership</div>
+          <div class="module-tag">Edmund + Eytan operate everything, end to end, plus advisory</div>
+        </div>
+      </div>
+      <div class="module-body">
+        <div class="module-scope">
+          <p>When the systems are carrying real weight, we run all of it for you — and Edmund stays at the table on the bigger questions.</p>
+          <ul>
+            <li>We operate all four systems — built, run, optimized</li>
+            <li>Bi-weekly strategy sessions with Edmund — growth, brand, your next chapter</li>
+            <li>Eytan on call — priority build queue + ongoing automation</li>
+            <li>Monthly performance reporting</li>
+          </ul>
+        </div>
+        <div class="module-side">
+          <div>
+            <div class="label">Investment</div>
+            <div class="val">$7,500/mo<br><span style="font-size:0.78rem;color:var(--text3);font-weight:500;">~$90K/year, fully managed</span></div>
+          </div>
+          <div>
+            <div class="label">Outcome</div>
+            <div class="roi">Two senior operators for less than one ops hire — without breaking your solo brand</div>
+          </div>
+        </div>
+      </div>
+      <div class="module-quote"><strong>Why last:</strong> only when the systems carry real weight. Earned, not asked for cold.</div>
+    </div>
+
+  </div>
+
+  <div class="highlight-gold">
+    <h3 style="color:var(--gold);">The full picture — where this goes</h3>
+    <p>At maturity, Bogen.ai is your outsourced AI operations team: ListingStory, an AI voicemail operator, your full client database, and an automated newsletter — built, run, and optimized by Edmund and Eytan at <strong>$7,500/month (~$90K/year)</strong>, still less than the single ops hire that would quietly break <em>"when you hire Carrie, you get Carrie."</em> You don't start there. You start with a $1,250 proof — and it builds itself from there.</p>
+  </div>
+</section>
+
+<!-- SNAPSHOT -->
+<section id="snapshot">
+  <div class="section-label">Who we're building for</div>
+  <h2>Elite fundamentals and a software gap</h2>
+  <p class="lede">You don't need a tech transformation. You need the AI scaffolding that scales you without diluting the personal touch that made you #1. That's the posture — build around what you do brilliantly.</p>
+
+  <div class="snapshot-grid">
+    <div class="snap-item">
+      <div class="snap-label">Career sales</div>
+      <div class="snap-val">$3.5B+ · 25+ years</div>
+      <div class="snap-sub">Chicago's #1 individual luxury broker</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">Model</div>
+      <div class="snap-val">Solo principal — by design</div>
+      <div class="snap-sub">"When you hire Carrie, you get Carrie"</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">Brokerage</div>
+      <div class="snap-val">@properties Christie's</div>
+      <div class="snap-sub">International Real Estate</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">Territory</div>
+      <div class="snap-val">Gold Coast · Lincoln Park</div>
+      <div class="snap-sub">Streeterville · River North · North Shore</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">Brand line</div>
+      <div class="snap-val">"Every home has a story"</div>
+      <div class="snap-sub">…and I bring it to life — now a system, not a tagline</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">Audience</div>
+      <div class="snap-val">123K on Instagram</div>
+      <div class="snap-sub">@carriemccormickrealestate</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">Currently paying</div>
+      <div class="snap-val">~$100/mo to JotForm</div>
+      <div class="snap-sub">For a form that only collects answers</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">Already built for you</div>
+      <div class="snap-val">ListingStory — live</div>
+      <div class="snap-sub">bogen.ai/c/mccormick · not a mockup</div>
+    </div>
+  </div>
+
+  <div class="highlight-blue">
+    <h3 style="color:var(--blue);">See it live</h3>
+    <p>Open it on your phone, fill it out as if you were one of your sellers, and watch it write the listing story. That's the difference between a consultant who pitches and a partner who builds. &nbsp;→&nbsp; <a href="https://www.bogen.ai/c/mccormick/" style="color:var(--blue);font-weight:700;">The seller form</a> &nbsp;·&nbsp; <a href="https://www.bogen.ai/c/mccormick/admin.html" style="color:var(--blue);font-weight:700;">Your dashboard</a></p>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section id="next">
+  <div class="section-label">Next</div>
+  <h2>From here</h2>
+  <p class="lede">ListingStory is already live. The next steps are small and concrete — no big check, no long contract to find out if this is for real.</p>
+
+  <div class="card-grid-2">
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <h3>See it live</h3>
+      <p>Open <strong>bogen.ai/c/mccormick</strong> on your phone, fill it out as a seller, and watch it write the listing story in your voice.</p>
+      <span class="tag">Right now</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h3>Fields + brand call</h3>
+      <p>Twenty minutes to lock your exact seller questions and confirm the look. We adjust anything you want.</p>
+      <span class="tag tag-gold">This week</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🚀</div>
+      <h3>Go live on real listings</h3>
+      <p>You start sending the form to actual sellers. The 90-day proof begins; we're on call for tweaks.</p>
+      <span class="tag tag-pink">Within days</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤝</div>
+      <h3>If it's not for you</h3>
+      <p>Part as friends, no pressure. You only move to the Stack if ListingStory earns it first.</p>
+      <span class="tag tag-green">No pressure</span>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Our posture</div>
+    <p>Founder-friendly. Operator-respectful. We free up the time you spend on intake, copy, follow-up, and the phone — so you can do what only Carrie can do: win the listing, tell the story, take care of the client.</p>
+  </div>
+
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
+    <a href="mailto:edmund@bogen.ai?subject=ListingStory%20%E2%80%94%20Let's%20start&body=Hi%20Edmund%20%E2%80%94%20" style="display:inline-flex;align-items:center;gap:0.6rem;background:var(--blue);color:#fff;text-decoration:none;padding:0.85rem 1.85rem;border-radius:10px;font-weight:700;font-size:0.95rem;">📧 Reply to Edmund</a>
+    <a href="mailto:eytan@bogen.ai?subject=ListingStory%20%E2%80%94%20Build%20question&body=Hi%20Eytan%20%E2%80%94%20" style="display:inline-flex;align-items:center;gap:0.6rem;background:transparent;color:var(--blue);border:1px solid var(--blue);text-decoration:none;padding:0.85rem 1.85rem;border-radius:10px;font-weight:700;font-size:0.95rem;">📧 Reply to Eytan</a>
+    <button onclick="openPdfModal()" style="display:inline-flex;align-items:center;gap:0.6rem;background:transparent;color:var(--text2);border:1px solid var(--border);cursor:pointer;padding:0.85rem 1.85rem;border-radius:10px;font-weight:700;font-size:0.95rem;">⬇ Download PDF</button>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section id="terms">
+  <div class="section-label">Terms</div>
+  <h2>The fine print, in plain language</h2>
+  <div class="terms-grid">
+    <div class="term-item">
+      <h4>This proposal supersedes</h4>
+      <p>This agreement replaces and supersedes the prior proposal of May 30, 2026 in its entirety.</p>
+    </div>
+    <div class="term-item">
+      <h4>Ownership &amp; license</h4>
+      <p>ListingStory and all systems are Bogen.ai intellectual property, licensed to you on a perpetual, non-exclusive, royalty-free basis for your use while engaged. Your brand, your data, and your client relationships remain entirely yours.</p>
+    </div>
+    <div class="term-item">
+      <h4>Term &amp; escalation</h4>
+      <p>Stage 1 runs as a 90-day proof at $1,250/mo (3-month minimum), then month-to-month (30-day notice). Stack scoping begins Day 60; modules are added on your go-ahead at $3,000/mo. Annual plan saves 10% and credits the build fee.</p>
+    </div>
+    <div class="term-item">
+      <h4>Approval &amp; compliance</h4>
+      <p>You and your brokerage review and approve all AI-generated listing copy before publication; published material remains subject to your brokerage's advertising, MLS, and Fair Housing requirements. Seller data is treated as confidential and deleted on request.</p>
+    </div>
+  </div>
+  <div class="highlight-blue" style="margin-top:1.5rem;">
+    <h3 style="color:var(--blue);">Case study partnership</h3>
+    <p>When this works — and it will — we'd like to tell the story. With your written approval, Bogen.ai may reference you by name and document this engagement to show other top agents what's possible. You approve any metrics shared, and you can revoke named use at any time.</p>
+  </div>
+</section>
+
+<footer>
+  <p><strong style="color:var(--white);">Bogen.ai</strong> — AI &amp; automation for the people who built the business</p>
+  <p style="margin-top:0.4rem;"><a href="https://bogen.ai" style="color:var(--blue); text-decoration:none;">bogen.ai</a> &nbsp;·&nbsp; <a href="mailto:edmund@bogen.ai" style="color:var(--blue); text-decoration:none;">edmund@bogen.ai</a> &nbsp;·&nbsp; <a href="mailto:eytan@bogen.ai" style="color:var(--blue); text-decoration:none;">eytan@bogen.ai</a></p>
+  <div class="confidential-bar">Confidential — Prepared for Carrie McCormick after the June 3, 2026 conversation</div>
+</footer>
+
+<!-- PDF PREVIEW MODAL -->
+<div id="pdf-modal" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.85); backdrop-filter:blur(6px); flex-direction:column; align-items:center; justify-content:center; padding:1rem;">
+  <div style="background:#1a2332; border:1px solid rgba(255,255,255,0.1); border-radius:16px; width:100%; max-width:920px; height:90vh; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 24px 80px rgba(0,0,0,0.6);">
+    <div style="display:flex; align-items:center; justify-content:space-between; padding:1rem 1.5rem; border-bottom:1px solid rgba(255,255,255,0.08); background:#0d1620; flex-shrink:0;">
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-size:1.1rem;">📄</span>
+        <div>
+          <div style="font-weight:700;font-size:0.95rem;color:#f0f4f8;">Carrie-McCormick-Partnership.pdf</div>
+          <div style="font-size:0.75rem;color:#8899aa;">Bogen.ai Partnership Proposal — Preview</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <a href="carrie-mccormick-discovery.pdf" download style="display:inline-flex;align-items:center;gap:0.5rem; background:#00a8e1;color:#fff;text-decoration:none; padding:0.5rem 1.1rem;border-radius:8px; font-weight:600;font-size:0.85rem;">⬇ Download</a>
+        <button onclick="closePdfModal()" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12); color:#8899aa;cursor:pointer;width:36px;height:36px;border-radius:8px; font-size:1.1rem;display:flex;align-items:center;justify-content:center;">✕</button>
+      </div>
+    </div>
+    <iframe id="pdf-iframe" src="" style="flex:1;width:100%;border:none;background:#fff;" title="Carrie McCormick Partnership Proposal Preview"></iframe>
+  </div>
+</div>
+
+<script>
+// THEME
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('cmcc-theme', next);
+}
+(function() {
+  const saved = localStorage.getItem('cmcc-theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
+// GATE
+var GATE_HASH = 'Q2FycmllMjAyNg=='; // base64('Carrie2026')
+function unlockGate() {
+  document.getElementById('gate').style.display = 'none';
+  document.body.classList.remove('gated');
+  try { sessionStorage.setItem('cmcc_unlocked', '1'); } catch (e) {}
+}
+function tryGate() {
+  var v = document.getElementById('gateInput').value;
+  var ok = false;
+  try { ok = (btoa(v) === GATE_HASH); } catch (e) { ok = false; }
+  if (ok) { unlockGate(); }
+  else {
+    document.getElementById('gateErr').style.display = 'block';
+    document.getElementById('gateInput').value = '';
+    document.getElementById('gateInput').focus();
+  }
+}
+(function() {
+  try { if (sessionStorage.getItem('cmcc_unlocked') === '1') unlockGate(); } catch (e) {}
+  var input = document.getElementById('gateInput');
+  if (input) {
+    input.addEventListener('keydown', function(e) { if (e.key === 'Enter') tryGate(); });
+    input.focus();
+  }
+})();
+
+// PDF MODAL
+function openPdfModal() {
+  var modal = document.getElementById('pdf-modal');
+  var iframe = document.getElementById('pdf-iframe');
+  if (!iframe.src || iframe.src === window.location.href) iframe.src = 'carrie-mccormick-discovery.pdf';
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closePdfModal() {
+  document.getElementById('pdf-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('pdf-modal').addEventListener('click', function(e) { if (e.target === this) closePdfModal(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePdfModal(); });
+</script>
+</body>
+</html>
