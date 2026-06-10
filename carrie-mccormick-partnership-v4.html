@@ -96,7 +96,8 @@
         .signature-block p { font-size: 13px; margin-bottom: 4px; }
         .sign-line { margin-top: 30px; display: flex; justify-content: space-between; max-width: 500px; }
         .sign-line-item { flex: 1; }
-        .sign-line-item p { font-size: 12px; margin-bottom: 4px; border-top: 1px solid #333; padding-top: 8px; }
+        .sign-line-item p { font-size: 12px; margin-bottom: 4px; }
+        .sign-line-item p:first-child { border-top: 1px solid #333; padding-top: 8px; }
         .roi-box { background: #1a3e5c; color: white; padding: 30px; border-radius: 4px; margin: 40px 0; }
         .roi-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 15px; color: white; letter-spacing: 0.5px; }
         .roi-box p { font-size: 14px; line-height: 1.7; margin-bottom: 12px; color: #e8f0f7; }
@@ -156,7 +157,7 @@
         .phase-body h3 { font-size: 18px; font-weight: 600; color: #1a3e5c; margin-bottom: 4px; }
         .phase-when { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #00a8e1; margin-bottom: 10px; text-transform: uppercase; }
         .phase-price { font-size: 22px; font-weight: 700; color: #1a3e5c; margin: 8px 0 12px; }
-        .phase-price span { font-size: 12px; font-weight: 500; color: #555; }
+        .phase-price span { display: block; font-size: 12px; font-weight: 500; color: #555; line-height: 1.5; margin-top: 4px; }
         .phase-body p { font-size: 13.5px; line-height: 1.7; margin-bottom: 8px; }
         .phase-body ul { list-style: none; padding-left: 0; margin-top: 10px; }
         .phase-body li { font-size: 13px; padding-left: 18px; position: relative; margin-bottom: 6px; line-height: 1.5; }
@@ -200,13 +201,20 @@
             body { background: white; font-size: 12.5px; }
             .header { margin: -0.65in -0.55in 20px -0.55in; padding: 16px 0.55in; }
             .container { padding: 20px 0; max-width: 100%; }
+            p { orphans: 3; widows: 3; }
             h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+            .phases-intro, .modules-intro, .compare-intro { page-break-after: avoid; break-after: avoid; }
             .opening, .roi-box, .module, .deliverables, .compare-item,
             .livebox, .risk-item, .next-steps, .signature, .disclaimer-inline,
-            .phase-step, .grows, .founding-banner, .guarantee-box {
+            .phase-step, .grows, .founding-banner, .guarantee-box, .why-bogen {
                 page-break-inside: avoid; break-inside: avoid;
             }
             .opportunity, .modules, .why-bogen, .compare, .risk { margin: 35px 0; }
+            .phase-step { padding: 16px 18px; gap: 16px; }
+            .phase-num { font-size: 26px; min-width: 30px; }
+            .phase-price { font-size: 18px; margin: 6px 0 8px; }
+            .phase-body li { font-size: 11.5px; margin-bottom: 5px; }
+            .phase-body p { font-size: 12px; }
         }
         /* ===== END PRINT STYLES ===== */
     </style>
