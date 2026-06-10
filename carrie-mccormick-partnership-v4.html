@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bogen.ai Proposal — Carrie McCormick (v4)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background: #ffffff;
+        }
+        /* ===== PASSWORD GATE ===== */
+        body.gated { overflow: hidden; }
+        #gate {
+            position: fixed; inset: 0; z-index: 9999;
+            background: #0f2438;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .gate-box { text-align: center; max-width: 360px; padding: 40px 30px; }
+        .gate-lock { font-size: 2rem; margin-bottom: 1rem; }
+        .gate-brand { font-weight: 800; letter-spacing: 0.04em; color: #fff; font-size: 1.2rem; margin-bottom: 1.5rem; }
+        .gate-brand span { color: #00a8e1; }
+        .gate-title { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+        .gate-sub { font-size: 0.9rem; color: #8899aa; margin-bottom: 1.75rem; line-height: 1.5; }
+        #gateInput {
+            width: 100%; padding: 12px 14px; border-radius: 6px; border: 1px solid #2a4258;
+            background: #16314a; color: #fff; font-size: 1rem; font-family: inherit; outline: none;
+        }
+        #gateInput:focus { border-color: #00a8e1; }
+        #gateBtn {
+            margin-top: 12px; width: 100%; padding: 12px; border: none; border-radius: 6px;
+            background: #00a8e1; color: #fff; font-weight: 600; font-size: 1rem; cursor: pointer; font-family: inherit;
+        }
+        #gateBtn:hover { opacity: 0.88; }
+        .gate-err { display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.9rem; }
+        /* ===== END GATE ===== */
+        .header {
+            background: #1a3e5c; color: white; padding: 20px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header-logo { font-size: 18px; font-weight: 700; letter-spacing: 2px; }
+        .header-date { font-size: 12px; font-weight: 400; }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
+        .title-block { margin-bottom: 60px; }
+        .title-block h1 { font-size: 34px; font-weight: 700; color: #1a3e5c; margin-bottom: 8px; line-height: 1.25; }
+        .title-block .subtitle {
+            font-size: 18px; font-weight: 400; color: #00a8e1;
+            border-bottom: 3px solid #00a8e1; padding-bottom: 12px;
+        }
+        .opening {
+            background: #eef8fc; padding: 30px; border-left: 4px solid #00a8e1;
+            margin: 40px 0; font-size: 15px; line-height: 1.8;
+        }
+        .disclaimer-inline {
+            background: #fff8e8; border-left: 4px solid #e0a800; padding: 16px 20px;
+            margin: 20px 0; font-size: 12.5px; line-height: 1.6; color: #5a4a1a; border-radius: 3px;
+        }
+        .disclaimer-inline strong { color: #7a5a00; }
+        .opportunity { margin: 60px 0; }
+        .opportunity h2 { font-size: 24px; font-weight: 600; color: #1a3e5c; margin-bottom: 30px; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+        .column { padding: 25px; background: #f7f9fb; border-radius: 4px; }
+        .column h3 {
+            font-size: 16px; font-weight: 600; color: #1a3e5c; margin-bottom: 15px;
+            border-bottom: 2px solid #00a8e1; padding-bottom: 10px;
+        }
+        .column ul { list-style: none; padding-left: 0; }
+        .column li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .column li:before { content: "→"; position: absolute; left: 0; color: #00a8e1; font-weight: 600; }
+        .deliverables { background: #eef8fc; padding: 30px; margin: 40px 0; border-radius: 4px; }
+        .deliverables h3 { font-size: 18px; font-weight: 600; color: #1a3e5c; margin-bottom: 20px; }
+        .deliverables ul { list-style: none; padding-left: 0; }
+        .deliverables li { margin-bottom: 10px; padding-left: 20px; position: relative; font-size: 14px; }
+        .deliverables li:before { content: "✓"; position: absolute; left: 0; color: #00a8e1; font-weight: 600; }
+        .why-bogen { margin: 60px 0; background: #eef8fc; padding: 30px; border-radius: 4px; }
+        .why-bogen h2 { font-size: 24px; font-weight: 600; color: #1a3e5c; margin-bottom: 25px; }
+        .why-bogen h3 { font-size: 16px; font-weight: 600; color: #1a3e5c; margin-top: 20px; margin-bottom: 10px; }
+        .why-bogen p { font-size: 14px; margin-bottom: 15px; line-height: 1.7; }
+        .risk { margin: 60px 0; }
+        .risk h2 { font-size: 24px; font-weight: 600; color: #1a3e5c; margin-bottom: 30px; }
+        .risk-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0; }
+        .risk-item:last-child { border-bottom: none; }
+        .risk-item h4 { font-size: 14px; font-weight: 600; color: #1a3e5c; margin-bottom: 8px; }
+        .risk-item p { font-size: 13px; line-height: 1.6; }
+        .next-steps { margin: 60px 0; background: #eef8fc; padding: 30px; border-radius: 4px; }
+        .next-steps h2 { font-size: 24px; font-weight: 600; color: #1a3e5c; margin-bottom: 25px; }
+        .next-steps ol { padding-left: 25px; }
+        .next-steps li { margin-bottom: 12px; font-size: 14px; line-height: 1.6; }
+        .signature { margin-top: 80px; padding-top: 30px; border-top: 2px solid #1a3e5c; }
+        .signature-block { margin-bottom: 40px; }
+        .signature-block h4 { font-size: 14px; font-weight: 600; color: #1a3e5c; margin-bottom: 8px; }
+        .signature-block p { font-size: 13px; margin-bottom: 4px; }
+        .sign-line { margin-top: 30px; display: flex; justify-content: space-between; max-width: 500px; }
+        .sign-line-item { flex: 1; }
+        .sign-line-item p { font-size: 12px; margin-bottom: 4px; border-top: 1px solid #333; padding-top: 8px; }
+        .roi-box { background: #1a3e5c; color: white; padding: 30px; border-radius: 4px; margin: 40px 0; }
+        .roi-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 15px; color: white; letter-spacing: 0.5px; }
+        .roi-box p { font-size: 14px; line-height: 1.7; margin-bottom: 12px; color: #e8f0f7; }
+        .roi-box .roi-conclusion {
+            font-size: 16px; color: white; margin-top: 15px; padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .compare { margin: 60px 0; }
+        .compare h2 { font-size: 24px; font-weight: 600; color: #1a3e5c; margin-bottom: 15px; }
+        .compare-intro { font-size: 14px; color: #555; margin-bottom: 25px; line-height: 1.7; }
+        .compare-item {
+            background: #f7f9fb; padding: 22px 25px; border-left: 4px solid #00a8e1;
+            border-radius: 4px; margin-bottom: 16px;
+        }
+        .compare-item h4 { font-size: 15px; font-weight: 600; color: #1a3e5c; margin-bottom: 8px; }
+        .compare-item p { font-size: 13px; line-height: 1.7; color: #333; }
+        .compare-conclusion {
+            margin-top: 25px; padding: 25px; background: #1a3e5c; color: white;
+            border-radius: 4px; font-size: 15px; line-height: 1.7;
+        }
+        .compare-conclusion strong { color: #00a8e1; }
+        .livebox { margin: 50px 0; background: #1a3e5c; color: white; padding: 32px; border-radius: 6px; text-align: center; }
+        .livebox .live-eyebrow { font-size: 11px; letter-spacing: 2px; font-weight: 700; color: #00a8e1; margin-bottom: 12px; }
+        .livebox h3 { font-size: 22px; font-weight: 600; color: white; margin-bottom: 12px; }
+        .livebox p {
+            font-size: 14px; line-height: 1.7; color: #e8f0f7; margin-bottom: 20px;
+            max-width: 620px; margin-left: auto; margin-right: auto;
+        }
+        .livebox .live-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .livebox .live-link {
+            background: #00a8e1; color: white; padding: 12px 22px; border-radius: 4px;
+            font-size: 13px; font-weight: 600; text-decoration: none; display: inline-block;
+        }
+        .livebox .live-link span { display: block; font-size: 11px; font-weight: 400; opacity: 0.9; margin-top: 2px; }
+        .modules { margin: 60px 0; }
+        .modules h2 { font-size: 24px; font-weight: 600; color: #1a3e5c; margin-bottom: 12px; }
+        .modules-intro { font-size: 14px; color: #555; margin-bottom: 30px; line-height: 1.7; }
+        .module {
+            background: #f7f9fb; padding: 24px 26px; border-radius: 4px; margin-bottom: 16px;
+            border-left: 4px solid #00a8e1;
+        }
+        .module h4 { font-size: 15px; font-weight: 600; color: #1a3e5c; margin-bottom: 6px; }
+        .module .module-pain { font-size: 12px; font-style: italic; color: #00a8e1; margin-bottom: 8px; }
+        .module p { font-size: 13px; line-height: 1.7; color: #333; }
+        @media (max-width: 768px) {
+            .two-column { grid-template-columns: 1fr; }
+            .container { padding: 40px 20px; }
+            .title-block h1 { font-size: 26px; }
+        }
+        .phases { margin: 50px 0; }
+        .phases h2 { font-size: 24px; font-weight: 600; color: #1a3e5c; margin-bottom: 12px; }
+        .phases-intro { font-size: 14px; color: #555; margin-bottom: 30px; line-height: 1.7; }
+        .phase-step { display: flex; gap: 22px; background: #f7f9fb; border-radius: 4px; padding: 26px; margin-bottom: 18px; border-left: 4px solid #00a8e1; }
+        .phase-featured { background: #eef8fc; border-left: 4px solid #1a3e5c; box-shadow: 0 4px 12px rgba(26, 62, 92, 0.12); }
+        .phase-num { font-size: 34px; font-weight: 700; color: #00a8e1; line-height: 1; min-width: 38px; }
+        .phase-body { flex: 1; }
+        .phase-body h3 { font-size: 18px; font-weight: 600; color: #1a3e5c; margin-bottom: 4px; }
+        .phase-when { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #00a8e1; margin-bottom: 10px; text-transform: uppercase; }
+        .phase-price { font-size: 22px; font-weight: 700; color: #1a3e5c; margin: 8px 0 12px; }
+        .phase-price span { font-size: 12px; font-weight: 500; color: #555; }
+        .phase-body p { font-size: 13.5px; line-height: 1.7; margin-bottom: 8px; }
+        .phase-body ul { list-style: none; padding-left: 0; margin-top: 10px; }
+        .phase-body li { font-size: 13px; padding-left: 18px; position: relative; margin-bottom: 6px; line-height: 1.5; }
+        .phase-body li:before { content: "→"; position: absolute; left: 0; color: #00a8e1; font-weight: 600; }
+        .grows { background: #eef8fc; border-radius: 4px; padding: 28px 30px; margin: 30px 0; }
+        .grows h3 { font-size: 18px; font-weight: 600; color: #1a3e5c; margin-bottom: 14px; }
+        .grows p { font-size: 13.5px; line-height: 1.7; margin-bottom: 10px; }
+        .grows ul { list-style: none; padding-left: 0; }
+        .grows li { font-size: 13.5px; padding-left: 22px; position: relative; margin-bottom: 9px; line-height: 1.6; }
+        .grows li:before { content: "✓"; position: absolute; left: 0; color: #00a8e1; font-weight: 600; }
+        .founding-banner {
+            background: #1a3e5c; color: white; padding: 20px 26px; border-radius: 4px;
+            font-size: 14px; line-height: 1.7; margin: 30px 0;
+        }
+        .founding-banner strong { color: #00a8e1; }
+        .guarantee-box {
+            border: 2px solid #1a3e5c; border-radius: 6px; padding: 26px 30px; margin: 40px 0;
+            background: #ffffff;
+        }
+        .guarantee-box h3 { font-size: 18px; font-weight: 700; color: #1a3e5c; margin-bottom: 10px; }
+        .guarantee-box p { font-size: 14px; line-height: 1.7; color: #333; }
+
+        /* ===== PRINT / PDF STYLES ===== */
+        @page {
+            size: Letter; margin: 0.65in 0.55in 0.85in 0.55in;
+            @bottom-center {
+                content: "Bogen.ai  |  Carrie McCormick Proposal (v4)  |  Page " counter(page) " of " counter(pages);
+                font-family: 'Montserrat', 'Helvetica', sans-serif; font-size: 8.5px; color: #888888; padding-top: 14px;
+            }
+        }
+        @page :first {
+            @bottom-center {
+                content: "Bogen.ai  |  Confidential Proposal for Carrie McCormick  |  June 2026";
+                font-family: 'Montserrat', 'Helvetica', sans-serif; font-size: 8.5px; color: #888888;
+            }
+        }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            #gate { display: none !important; }
+            body.gated { overflow: visible !important; }
+            body { background: white; font-size: 12.5px; }
+            .header { margin: -0.65in -0.55in 20px -0.55in; padding: 16px 0.55in; }
+            .container { padding: 20px 0; max-width: 100%; }
+            h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+            .opening, .roi-box, .module, .deliverables, .compare-item,
+            .livebox, .risk-item, .next-steps, .signature, .disclaimer-inline,
+            .phase-step, .grows, .founding-banner, .guarantee-box {
+                page-break-inside: avoid; break-inside: avoid;
+            }
+            .opportunity, .modules, .why-bogen, .compare, .risk { margin: 35px 0; }
+        }
+        /* ===== END PRINT STYLES ===== */
+    </style>
+</head>
+<body class="gated">
+
+    <!-- ===== PASSWORD GATE ===== -->
+    <div id="gate">
+        <div class="gate-box">
+            <div class="gate-lock">🔒</div>
+            <div class="gate-brand">Bogen<span>.ai</span></div>
+            <div class="gate-title">Private Proposal</div>
+            <div class="gate-sub">Prepared for Carrie McCormick. Enter your access code to continue.</div>
+            <input id="gateInput" type="password" placeholder="Access code" autocomplete="off" />
+            <button id="gateBtn" onclick="tryGate()">Unlock</button>
+            <div id="gateErr" class="gate-err">Incorrect code — try again.</div>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="header-logo">BOGEN.AI</div>
+        <div class="header-date">June 10, 2026 · v4</div>
+    </div>
+
+    <div class="container">
+        <div class="title-block">
+            <h1>When You Hire Carrie, They Get Carrie — At Twice the Scale</h1>
+            <div class="subtitle">We built it before we pitched it. A Bogen.ai proposal for Carrie McCormick.</div>
+        </div>
+
+        <div class="opening">
+            <p><strong>Carrie,</strong></p>
+            <p style="margin-top: 12px;">You sent us your list — every place the business lives on your phone, in your memory, or in your inbox. This proposal is built directly from <strong>your own words</strong> — every system below traces back to something you asked for.</p>
+            <p style="margin-top: 12px;">ListingStory is already live in your colors. We built it the night of our first meeting, before we wrote a word of this proposal. That's how we work: <strong>proof first, then a plan.</strong></p>
+            <p style="margin-top: 12px;">The only decision in front of you today is deliberately small: a <strong>$7,500 Roadmap Sprint, credited in full toward your build.</strong> In about two weeks it maps your stack, sequences your whole list by ROI, puts your <strong>second working system live</strong>, and hands you one fixed build price and one recommended monthly — in writing, before you commit to anything else. You buy the diagnosis; we hand you the prescription. Everything beyond the Sprint waits until you've seen the plan.</p>
+        </div>
+
+        <div class="opportunity">
+            <h2>Your List → What We'd Build</h2>
+            <div class="two-column">
+                <div class="column">
+                    <h3>What You Told Us Hurts</h3>
+                    <ul>
+                        <li>Calls &amp; texts living on your phone, never recapped</li>
+                        <li>No system telling you who to follow up with, and when</li>
+                        <li>Milestones (births, moves, job changes) you'd act on — if you knew</li>
+                        <li>Staying visible on social without it feeling generic</li>
+                        <li>Intake that should auto-write the feature sheet</li>
+                        <li>A real newsletter, in your voice, on a reliable cadence</li>
+                        <li>Buyer wish-lists that should auto-match new listings</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>What Bogen.ai Builds For It</h3>
+                    <ul>
+                        <li>A Call &amp; Text Concierge that captures, transcribes &amp; recaps daily</li>
+                        <li>A Follow-Up Engine that surfaces the right name at the right time</li>
+                        <li>A Lead Intelligence Engine watching for life-event signals</li>
+                        <li>A Social Presence Engine posting &amp; engaging in your voice</li>
+                        <li>ListingStory — already live, already writing your listing copy</li>
+                        <li>A Newsletter Engine drafting &amp; sending through your Mailerlite</li>
+                        <li>Buyer↔listing matching off your MLS / Zenlist data</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="font-size:13px;color:#555;line-height:1.7;">Your current stack stays — we integrate, we don't replace. <strong>Monday.com</strong> and <strong>Mailerlite</strong> connect directly; your <strong>MLS / Zenlist</strong> data feeds the buyer-matching; your <strong>YouTube, LinkedIn, Instagram and Facebook</strong> are where the Social Presence Engine works. And throughout this proposal, <strong>"your voice" means your written style and brand voice</strong> — never a synthetic voice clone or biometric replica.</p>
+        </div>
+
+        <div class="roi-box">
+            <h3>THE MATH — ONE LISTING</h3>
+            <p>At your price point, a single luxury listing side on a $2.5M home is roughly <strong>$60,000 in commission</strong>. You don't need a productivity statistic to justify this — you need <strong>one listing.</strong></p>
+            <p class="roi-conclusion">One seller who chooses you because the experience felt more bespoke than the agent across the table. One call caught that would otherwise have gone cold. One past client resurfaced before they list with someone else. One buyer matched to a listing the morning it hits. <strong>Any one of those, once, pays for the better part of a year.</strong></p>
+        </div>
+
+        <div class="livebox">
+            <div class="live-eyebrow">NOT A MOCKUP — IT'S LIVE RIGHT NOW</div>
+            <h3>See ListingStory in your colors</h3>
+            <p>We built this for you the night of our first meeting — before we wrote a word of this proposal. Open it on your phone, fill it out as one of your sellers would, and watch it write the story. You'll know in ninety seconds whether this belongs in your listing process.</p>
+            <div class="live-links">
+                <a class="live-link" href="https://www.bogen.ai/c/mccormick/">The Seller Form<span>bogen.ai/c/mccormick</span></a>
+                <a class="live-link" href="https://www.bogen.ai/c/mccormick/admin.html">Your Dashboard<span>bogen.ai/c/mccormick/admin.html</span></a>
+            </div>
+        </div>
+
+        <div class="phases">
+            <h2>How This Works — One Decision Today</h2>
+            <p class="phases-intro">You commit to the Roadmap Sprint only. It produces your build price and your monthly partnership fee — one recommended number for each, fixed in writing — <em>before</em> you commit to either. You never choose from a menu of tiers; we diagnose and recommend.</p>
+
+            <div class="phase-step phase-featured">
+                <div class="phase-num">1</div>
+                <div class="phase-body">
+                    <div class="phase-when">The decision today · ~2 weeks</div>
+                    <h3>Your AI Operating Roadmap + Your Second System, Live</h3>
+                    <div class="phase-price">$7,500 <span>fixed — credited in full toward your build</span></div>
+                    <p>This isn't a study. The Sprint ships.</p>
+                    <ul>
+                        <li>Full audit of your stack &amp; data — Monday.com, Mailerlite, MLS / Zenlist, your phone line, your social</li>
+                        <li>Your pain-point list turned into a sequenced 90-day build roadmap, each item with its ROI</li>
+                        <li><strong>Your second working system goes live before the Sprint ends</strong> — the Follow-Up Engine (v1), surfacing who to reach out to each morning from your existing contacts</li>
+                        <li>Service levels defined, plus the legal/compliance guardrails (set with your counsel) for any life-event or outreach work</li>
+                        <li><strong>One fixed price for the Foundation Build and one recommended monthly partnership fee</strong> — your prescription, in writing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="phase-step">
+                <div class="phase-num">2</div>
+                <div class="phase-body">
+                    <div class="phase-when">Priced by the roadmap · fixed before you commit</div>
+                    <h3>Foundation Build</h3>
+                    <div class="phase-price">One fixed number <span>— named in your roadmap, milestone-paid as systems go live</span></div>
+                    <p>We build the first priority systems from your roadmap — formalizing ListingStory and standing up the core that gets the business off your phone. Value-priced against the ROI the Sprint surfaced — never billed by the hour. Your $7,500 comes off the top.</p>
+                </div>
+            </div>
+
+            <div class="phase-step">
+                <div class="phase-num">3</div>
+                <div class="phase-body">
+                    <div class="phase-when">Priced by the roadmap · one recommended monthly</div>
+                    <h3>Partnership Retainer</h3>
+                    <div class="phase-price">One recommended monthly <span>— named in your roadmap, sized to how much we run + build</span></div>
+                    <p>Then we run everything we've built — and the retainer <strong>includes ongoing build capacity.</strong> That's the engine: when you think of the next thing, we build it inside the partnership. 3-month minimum, then month-to-month. <strong>Social Presence</strong> (done-for-you posting + engagement across your four platforms) is available as a scoped add-on whenever you want it.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="founding-banner">
+            <strong>Founding-Client terms, held through June 30, 2026.</strong> Greenlight the Sprint by June 30 and your monthly partnership rate locks for 12 months. We run a deliberately small book of full-partnership clients — the build only works when the people who designed it are the people running it — and we are holding one build slot for you through that date.
+        </div>
+
+        <div class="guarantee-box">
+            <h3>The 60-Day Live Guarantee</h3>
+            <p>Speed is the product. From build kickoff, your first systems from the roadmap are <strong>live and working within 60 days — or that month of the partnership is on us.</strong> And ListingStory keeps its own guarantee: run it for 30 days, and if it isn't the most useful tool in your listing process, we refund its build fee in full.</p>
+        </div>
+
+        <div class="grows">
+            <h3>What happens when you think of something new</h3>
+            <p>You will. That's the point — and it's built in, not a renegotiation:</p>
+            <ul>
+                <li><strong>It rolls into your retainer.</strong> Most new requests — the newsletter, then lead intelligence, then buyer-matching — are built inside the monthly build capacity you're already paying for.</li>
+                <li><strong>Or it becomes a fixed-fee Sprint.</strong> Anything large or urgent is a discrete, fixed-price Sprint layered on top — quoted in writing before any work starts.</li>
+                <li><strong>Your monthly adjusts only when scope materially grows</strong> — a documented step, never a surprise.</li>
+            </ul>
+            <p style="margin-top:6px;">Every quarterly review ends the same way: <em>"here's the next bottleneck — want it in the queue or as a Sprint?"</em></p>
+        </div>
+
+        <div class="modules">
+            <h2>The Systems — In Your Words</h2>
+            <p class="modules-intro">Every module below is something you named. Here's what each one does.</p>
+
+            <div class="module">
+                <h4>ListingStory · already live</h4>
+                <div class="module-pain">"A client intake form that auto-generates a polished feature sheet / listing copy."</div>
+                <p>Your branded seller-intake app. The moment a seller submits, Claude drafts the Property Story — MLS remarks plus an Instagram caption, in your voice, designed with Fair Housing guardrails. You approve every word before it's used. Every submission feeds your dashboard and the database the rest of the stack is built on.</p>
+            </div>
+
+            <div class="module">
+                <h4>Follow-Up Engine · ships in your Sprint</h4>
+                <div class="module-pain">"A system that proactively tells me who to follow up with and when, based on last contact and deal stage."</div>
+                <p>A proactive engine that surfaces the right name at the right moment — ranked by last contact and deal stage — and drafts the outreach in your voice for your approval. Version 1 goes live during your Roadmap Sprint, working off your existing contacts.</p>
+            </div>
+
+            <div class="module">
+                <h4>Call &amp; Text Concierge</h4>
+                <div class="module-pain">"Need inbound calls and texts automatically captured, transcribed, and recapped into a daily digest instead of living on my phone."</div>
+                <p>Inbound calls and texts are captured, transcribed, and rolled into one daily digest you actually read — so nothing lives on your phone and nothing slips because you were showing a property when it came in. <strong>Built consent-first:</strong> Illinois requires all parties to consent to call recording, so the Concierge ships with a caller disclosure notice built in — deployment is conditioned on that consent mechanism being live.</p>
+            </div>
+
+            <div class="module">
+                <h4>Newsletter Engine</h4>
+                <div class="module-pain">"A recurring newsletter program… market updates, neighborhood spotlights, just-listed/just-sold… drafted in my voice and sent on a reliable cadence."</div>
+                <p>Market updates, neighborhood spotlights, and just-listed / just-sold features drafted in your voice on a dependable schedule — sent through your existing Mailerlite, so your list and your sending reputation stay yours.</p>
+            </div>
+
+            <div class="module">
+                <h4>Lead Intelligence Engine</h4>
+                <div class="module-pain">"Connect CRM + social to surface life events… life-changing moments… match the buyers with properties that come on the market."</div>
+                <p>Two jobs, one data layer. <strong>Life-event monitoring</strong> watches connected sources for the moments that move people — births, marriages, graduations, job changes, and other life events — so you can reach out at the right time. <strong>Buyer↔listing matching</strong> takes each buyer's wish-list and matches it against new and pre-market listings from your MLS / Zenlist data, ranking the fits and drafting the outreach for your approval.</p>
+                <div class="disclaimer-inline">
+                    <strong>Important — please read.</strong> Some life-event signals (for example, certain court or probate filings) may be available as public record. Bogen.ai is <strong>not a law firm and does not provide legal advice.</strong> You and your brokerage are <strong>solely responsible for independently confirming the legality and compliance</strong> of any public-records-based outreach under Illinois and federal law — including Fair Housing, advertising, and anti-solicitation rules — with your own counsel before any such outreach is used. Bogen.ai does not provide consumer reports, and no system may be used for any FCRA-regulated purpose. Any automated text or call outreach is additionally subject to federal telemarketing rules (TCPA / Do-Not-Call), which require recipient consent that you and your brokerage are responsible for — Bogen.ai builds approval gating into every send, and you approve all outreach in advance. <strong>Buyer↔listing matching also depends on your MLS / Zenlist data-license terms, which your managing broker must confirm.</strong>
+                </div>
+            </div>
+
+            <div class="module">
+                <h4>Social Presence Engine · add-on</h4>
+                <div class="module-pain">"Help me post, comment, and stay visible consistently without it feeling generic."</div>
+                <p>Consistent posting and engagement across YouTube, LinkedIn, Instagram and Facebook, drafted in your written style and brand voice — you approve before anything publishes.</p>
+            </div>
+        </div>
+
+        <div class="why-bogen">
+            <h2>Why Bogen.ai</h2>
+            <h3>Edmund Bogen — Founder</h3>
+            <p>Keynote speaker, author of <em>Prompt to Close</em>, and founder of Edmund's Mastermind — a 14,000-member community of realtors and entrepreneurs adopting AI at scale. Edmund's own background is South Florida luxury real estate: the same relationship-driven, white-glove, detail-obsessed business you run. He speaks your language because it's his language. On this engagement Edmund holds strategy, the relationship, and advisory.</p>
+            <h3>Eytan Benzeno — Partner &amp; AI Engineer</h3>
+            <p>Eytan is the technical force behind Bogen.ai's builds — custom apps, AI models, automations, and integrations. <strong>Eytan builds; Edmund advises.</strong> With this partnership you get a dedicated senior AI engineer, not a queue ticket.</p>
+            <h3>Our Approach</h3>
+            <p>Everything we build wears <em>your</em> brand and feeds <em>your</em> database. We're not a software vendor and we're not an agency that bills by the hour. We're two operators who build the tools, then run them with you. We run a deliberately small book of full-partnership clients — the build only works when the people who designed it are the people running it.</p>
+        </div>
+
+        <div class="compare">
+            <h2>The Alternative You're Actually Weighing</h2>
+            <div class="compare-item">
+                <h4>Hire an operations / marketing person</h4>
+                <p>A full-time hire costs multiples of this partnership, takes months to recruit and ramp — and it quietly breaks your promise. "When you hire Carrie, you get Carrie" stops being true the moment a seller is really dealing with your assistant. Systems scale you without diluting you. (And no, stacking more SaaS subscriptions doesn't solve it either — none of them talk to each other, and you become the integration layer.)</p>
+            </div>
+            <p class="compare-conclusion"><strong>Bogen.ai is built for the solo principal who needs to scale herself without hiring a team or becoming an IT department.</strong> The same two people write the strategy and do the build. You start small, you see it work, and you grow it on your terms.</p>
+        </div>
+
+        <div class="risk">
+            <h2>Risk, Guarantee &amp; Compliance</h2>
+            <div class="risk-item">
+                <h4>One Small Commitment</h4>
+                <p>You commit to the $7,500 Roadmap Sprint only — credited in full toward your build. The build and the partnership are priced and shown to you in writing before you commit to either. We'd rather grow this slowly and keep you for years than oversell it once.</p>
+            </div>
+            <div class="risk-item">
+                <h4>60-Day Live Guarantee</h4>
+                <p>From build kickoff, your first roadmap systems are live within 60 days or that month of the partnership is on us. ListingStory carries its own 30-day money-back guarantee on its build fee.</p>
+            </div>
+            <div class="risk-item">
+                <h4>What You Own — and What We License</h4>
+                <p>Your brand, your seller and client data, and your client relationships are yours — always, including after we part ways, and your data exports with you at any time. The systems Bogen.ai builds (including ListingStory) are Bogen.ai intellectual property, licensed to you for the term of the engagement. You're never stranded: your data, your list, and your relationships leave with you.</p>
+            </div>
+            <div class="risk-item">
+                <h4>Defined Scope &amp; Service Levels</h4>
+                <p>Each managed service runs to a written service level — concierge response windows, newsletter sends per month, and (for the Social Presence add-on) a set number of posts and capped revision rounds — so "done-for-you" always means a clear, agreed scope for both of us.</p>
+            </div>
+            <div class="risk-item">
+                <h4>Fair Housing &amp; Content Approval</h4>
+                <p>Every AI-generated listing story, follow-up, post, and outreach is designed with Fair Housing guardrails, and you and your brokerage review and approve all copy before it is ever published or sent — all published material remains subject to Fair Housing law and your brokerage's advertising and MLS requirements. The AI drafts; you decide.</p>
+            </div>
+            <div class="risk-item">
+                <h4>Recording &amp; Outreach Consent</h4>
+                <p>The Call &amp; Text Concierge deploys only with an all-party consent mechanism (caller disclosure) in place, as Illinois law requires. Automated outreach is subject to TCPA / Do-Not-Call consent requirements that you and your brokerage own; Bogen.ai builds the approval gating, and nothing sends without your sign-off.</p>
+            </div>
+            <div class="risk-item">
+                <h4>Not Legal Advice</h4>
+                <p><strong>Bogen.ai is not a law firm and provides no legal advice.</strong> Any feature touching public records or life-event data is provided as a tool only. You and your brokerage are solely responsible for confirming, with your own counsel, that any such use is lawful and compliant under Illinois and federal law before it is used. We will build to whatever guardrails you and your counsel set.</p>
+            </div>
+        </div>
+
+        <div class="next-steps">
+            <h2>Next Steps</h2>
+            <ol>
+                <li><strong>Send your available dates.</strong> We'll walk through this together on our next call.</li>
+                <li><strong>Greenlight the Roadmap Sprint.</strong> The one decision: $7,500, credited to your build. Founding-Client rate lock and your build slot are held through <strong>June 30, 2026</strong>. We kick off within days.</li>
+                <li><strong>Two weeks later:</strong> your sequenced roadmap, your Follow-Up Engine live, one fixed build price, and one recommended monthly — in writing, before you commit to either.</li>
+                <li><strong>Build, then partner.</strong> We build the foundation, then run and grow it with you — new ideas roll into the partnership as they come.</li>
+            </ol>
+        </div>
+
+        <div class="deliverables">
+            <h3>Case Study Partnership</h3>
+            <p style="font-size: 14px; line-height: 1.7; margin-bottom: 18px;">When this works — and it will — we'd like to tell the story. With your separate written approval, Bogen.ai may reference you by name and document this engagement (a short video, post, or keynote case study) to show other top agents what's possible. You approve any metrics shared, and you can withdraw named use for future materials at any time.</p>
+            <ul>
+                <li>You become the flagship example of the luxury-agent AI operating system</li>
+                <li>All named use of "Carrie McCormick" remains subject to your written approval</li>
+            </ul>
+        </div>
+
+        <div class="risk">
+            <h2>What Your Signature Commits — and What It Doesn't</h2>
+            <div class="risk-item">
+                <h4>The Sprint Only</h4>
+                <p>Your signature below engages the <strong>Discovery &amp; Roadmap Sprint only</strong>: $7,500, fixed, credited in full toward the Foundation Build if you proceed. Everything else in this document — the Foundation Build, the Partnership Retainer, and any add-ons — is a <strong>non-binding description</strong> of how the partnership would run. Those become binding only upon a separate Master Services Agreement and Statement of Work, with their prices fixed in writing as deliverables of the Sprint.</p>
+            </div>
+            <div class="risk-item">
+                <h4>Supersession</h4>
+                <p>This proposal (June 10, 2026) supersedes all prior proposals, including those of May 30, June 4, and June 9, 2026. Once executed, the Master Services Agreement and Statements of Work govern the engagement.</p>
+            </div>
+        </div>
+
+        <div class="signature">
+            <div class="signature-block">
+                <h4>Edmund Bogen</h4>
+                <p>Founder, Bogen.ai</p>
+                <p>edmund@bogen.ai</p>
+                <p>bogen.ai</p>
+                <p style="margin-top: 8px; font-size: 12px; font-style: italic;">With Eytan Benzeno, Partner &amp; AI Engineer</p>
+            </div>
+            <div class="sign-line">
+                <div class="sign-line-item">
+                    <p><strong>Carrie McCormick</strong></p>
+                    <p>Founder &amp; Principal</p>
+                    <p>Carrie McCormick Real Estate · @properties Christie's</p>
+                    <p style="border: none; padding: 0; margin-top: 20px;">Date: _______________</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    var GATE_HASH = 'Q2FycmllMjAyNg=='; // base64('Carrie2026')
+    function unlockGate() {
+        document.getElementById('gate').style.display = 'none';
+        document.body.classList.remove('gated');
+        try { sessionStorage.setItem('cmcc_unlocked', '1'); } catch (e) {}
+    }
+    function tryGate() {
+        var v = document.getElementById('gateInput').value;
+        var ok = (btoa(v) === GATE_HASH);
+        if (ok) { unlockGate(); }
+        else {
+            document.getElementById('gateErr').style.display = 'block';
+            document.getElementById('gateInput').value = '';
+            document.getElementById('gateInput').focus();
+        }
+    }
+    (function () {
+        try { if (sessionStorage.getItem('cmcc_unlocked') === '1') unlockGate(); } catch (e) {}
+        var input = document.getElementById('gateInput');
+        if (input) {
+            input.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryGate(); });
+            input.focus();
+        }
+    })();
+    </script>
+</body>
+</html>
