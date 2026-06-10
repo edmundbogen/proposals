@@ -173,6 +173,39 @@
             font-size: 14px; line-height: 1.7; margin: 30px 0;
         }
         .founding-banner strong { color: #00a8e1; }
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        .theme-toggle, .pdf-btn {
+            background: transparent; border: 1px solid rgba(255,255,255,0.35); color: #cfe0ee;
+            cursor: pointer; padding: 5px 12px; border-radius: 6px; font-size: 12px;
+            font-family: inherit; text-decoration: none; transition: all 0.2s;
+        }
+        .theme-toggle:hover, .pdf-btn:hover { border-color: #00a8e1; color: #00a8e1; }
+        /* ===== DARK THEME ===== */
+        [data-theme="dark"] body { background: #0d1620; color: #c8d4e0; }
+        [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4 { color: #e8f0f7; }
+        [data-theme="dark"] .roi-box h3, [data-theme="dark"] .livebox h3 { color: #ffffff; }
+        [data-theme="dark"] .opening, [data-theme="dark"] .deliverables, [data-theme="dark"] .next-steps,
+        [data-theme="dark"] .why-bogen, [data-theme="dark"] .grows { background: #13273c; }
+        [data-theme="dark"] .column, [data-theme="dark"] .module, [data-theme="dark"] .compare-item,
+        [data-theme="dark"] .phase-step { background: #16314a; }
+        [data-theme="dark"] .phase-featured { background: #1a3550; }
+        [data-theme="dark"] .guarantee-box { background: #10243a; border-color: #2f5375; }
+        [data-theme="dark"] .column h3 { border-bottom-color: #00a8e1; }
+        [data-theme="dark"] .module p, [data-theme="dark"] .compare-item p, [data-theme="dark"] .risk-item p,
+        [data-theme="dark"] .phase-body p, [data-theme="dark"] .phase-body li, [data-theme="dark"] .grows p,
+        [data-theme="dark"] .grows li, [data-theme="dark"] .why-bogen p, [data-theme="dark"] .guarantee-box p,
+        [data-theme="dark"] .deliverables li, [data-theme="dark"] .next-steps li, [data-theme="dark"] .column li { color: #c0ccd8; }
+        [data-theme="dark"] .phases-intro, [data-theme="dark"] .modules-intro, [data-theme="dark"] .compare-intro { color: #9fb3c8; }
+        [data-theme="dark"] .phase-price { color: #e8f0f7; }
+        [data-theme="dark"] .phase-price span { color: #9fb3c8; }
+        [data-theme="dark"] .risk-item { border-bottom-color: #24405c; }
+        [data-theme="dark"] .signature { border-top-color: #4a7ba6; }
+        [data-theme="dark"] .signature-block p, [data-theme="dark"] .sign-line-item p { color: #c0ccd8; }
+        [data-theme="dark"] .sign-line-item p:first-child { border-top-color: #9fb3c8; }
+        [data-theme="dark"] .disclaimer-inline { background: #2c2410; border-left-color: #c79a1e; color: #e3d3a1; }
+        [data-theme="dark"] .disclaimer-inline strong { color: #f0d77b; }
+        [data-theme="dark"] p[style] { color: #9fb3c8 !important; }
+        /* ===== END DARK THEME ===== */
         .guarantee-box {
             border: 2px solid #1a3e5c; border-radius: 6px; padding: 26px 30px; margin: 40px 0;
             background: #ffffff;
@@ -197,6 +230,7 @@
         @media print {
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
             #gate { display: none !important; }
+            .theme-toggle, .pdf-btn { display: none !important; }
             body.gated { overflow: visible !important; }
             body { background: white; font-size: 12.5px; }
             .header { margin: -0.65in -0.55in 20px -0.55in; padding: 16px 0.55in; }
@@ -236,7 +270,11 @@
 
     <div class="header">
         <div class="header-logo">BOGEN.AI</div>
-        <div class="header-date">June 10, 2026 · v4</div>
+        <div class="header-right">
+            <button class="theme-toggle" onclick="toggleTheme()">☀ Light / ☾ Dark</button>
+            <a class="pdf-btn" href="carrie-mccormick-partnership-v4.pdf" download>⬇ Download PDF</a>
+            <div class="header-date">June 10, 2026 · v4</div>
+        </div>
     </div>
 
     <div class="container">
@@ -524,7 +562,13 @@
             document.getElementById('gateInput').focus();
         }
     }
+    function toggleTheme() {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('cmccp_theme', next); } catch (e) {}
+    }
     (function () {
+        try { var t = localStorage.getItem('cmccp_theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
         try { if (sessionStorage.getItem('cmcc_unlocked') === '1') unlockGate(); } catch (e) {}
         var input = document.getElementById('gateInput');
         if (input) {
