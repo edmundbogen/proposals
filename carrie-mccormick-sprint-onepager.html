@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Roadmap Sprint — Carrie McCormick · Bogen.ai</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a3e5c;
+    --cyan: #00a8e1;
+    --ice: #eef8fc;
+    --mist: #f7f9fb;
+    --line: #e0e0e0;
+    --text: #333;
+    --muted: #555;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', 'Helvetica', sans-serif;
+    color: var(--text);
+    background: var(--mist);
+    line-height: 1.55;
+  }
+
+  /* ---------- Access gate ---------- */
+  #gate {
+    position: fixed; inset: 0; z-index: 50;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  #gate .gate-card {
+    background: #fff; border-radius: 12px; padding: 40px 36px;
+    max-width: 400px; width: 100%; text-align: center;
+  }
+  #gate .lock { font-size: 28px; margin-bottom: 10px; }
+  #gate h1 { font-size: 20px; color: var(--navy); margin-bottom: 6px; }
+  #gate p { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+  #gate input {
+    width: 100%; padding: 12px 14px; font-size: 16px;
+    border: 1px solid var(--line); border-radius: 8px;
+    font-family: inherit; margin-bottom: 12px; text-align: center;
+  }
+  #gate button {
+    width: 100%; padding: 12px; font-size: 15px; font-weight: 700;
+    background: var(--cyan); color: #fff; border: none; border-radius: 8px;
+    cursor: pointer; font-family: inherit;
+  }
+  #gate .err { color: #c0392b; font-size: 13px; margin-top: 10px; display: none; }
+
+  /* ---------- Page ---------- */
+  .page { max-width: 760px; margin: 0 auto; padding: 40px 28px 60px; }
+  header.brand {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 3px solid var(--navy); padding-bottom: 14px; margin-bottom: 28px;
+  }
+  .logo { font-weight: 800; font-size: 20px; color: var(--navy); letter-spacing: 1px; }
+  .logo span { color: var(--cyan); }
+  .date { font-size: 13px; color: var(--muted); }
+
+  h1.title { font-size: 27px; color: var(--navy); line-height: 1.25; margin-bottom: 8px; }
+  p.subtitle { font-size: 15px; color: var(--muted); margin-bottom: 30px; }
+
+  .block {
+    background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--cyan);
+    border-radius: 8px; padding: 20px 22px; margin-bottom: 16px;
+  }
+  .block .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--cyan); margin-bottom: 4px;
+  }
+  .block .tag.live { color: #1e8e3e; }
+  .block h2 { font-size: 17px; color: var(--navy); margin-bottom: 8px; }
+  .block p { font-size: 14px; color: var(--text); margin-bottom: 8px; }
+  .block p:last-child { margin-bottom: 0; }
+  .block ul { margin: 6px 0 4px 18px; }
+  .block li { font-size: 14px; margin-bottom: 5px; }
+  .block a { color: var(--cyan); font-weight: 600; text-decoration: none; }
+  .quote { font-style: italic; color: var(--muted); font-size: 13.5px; border-left: 2px solid var(--line); padding-left: 12px; margin: 8px 0; }
+
+  .pay {
+    background: var(--ice); border: 1px solid #c0ccd8; border-radius: 8px;
+    padding: 22px; margin: 26px 0 18px;
+  }
+  .pay h2 { font-size: 17px; color: var(--navy); margin-bottom: 4px; }
+  .pay .total { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+  .pay table { width: 100%; border-collapse: collapse; }
+  .pay td {
+    padding: 9px 6px; font-size: 14px; border-top: 1px solid #c0ccd8;
+    vertical-align: top;
+  }
+  .pay td.amt { font-weight: 700; color: var(--navy); white-space: nowrap; width: 90px; }
+  .pay .credit { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+  footer {
+    margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--line);
+    font-size: 13.5px; color: var(--muted);
+  }
+  footer .names { color: var(--navy); font-weight: 700; font-size: 14.5px; }
+
+  @media print {
+    #gate { display: none !important; }
+    body { background: #fff; }
+    .page { padding: 0; max-width: 100%; }
+    .block, .pay { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-card">
+    <div class="lock">🔒</div>
+    <h1>Bogen<span style="color:#00a8e1">.ai</span> — Private Page</h1>
+    <p>Prepared for Carrie McCormick. Enter your access code to continue.</p>
+    <input type="password" id="code" placeholder="Access code" autocomplete="off">
+    <button onclick="unlock()">Unlock</button>
+    <div class="err" id="err">Incorrect code — try again.</div>
+  </div>
+</div>
+
+<div class="page">
+  <header class="brand">
+    <div class="logo">BOGEN<span>.AI</span></div>
+    <div class="date">July 3, 2026 · Sprint Summary</div>
+  </header>
+
+  <h1 class="title">Your Roadmap Sprint, on One Page</h1>
+  <p class="subtitle">Everything the $7,500 Sprint delivers over the next 30–45 days — one system already live, one going live, and your complete build plan with fixed pricing.</p>
+
+  <div class="block">
+    <span class="tag live">✓ Live today — before you've paid a dollar</span>
+    <h2>1 · ListingStory</h2>
+    <p>Your branded seller-intake app. A seller fills out one elegant form; the moment they submit, the AI drafts the Property Story — MLS remarks plus an Instagram caption, in your voice, with Fair Housing guardrails. You approve every word. Every submission feeds your dashboard and the database everything else is built on.</p>
+    <p><a href="https://www.bogen.ai/c/mccormick/">bogen.ai/c/mccormick</a> — fill it out on your phone as one of your sellers would. Ninety seconds.</p>
+  </div>
+
+  <div class="block">
+    <span class="tag">Ships inside your Sprint</span>
+    <h2>2 · Follow-Up Engine — Version 1</h2>
+    <p>The system you asked for: <em>"something that proactively tells me who to follow up with and when."</em> Here is exactly what Version 1 looks like:</p>
+    <ul>
+      <li><strong>Every morning, a short digest lands in your inbox:</strong> the five people you should reach out to today, from your existing contacts.</li>
+      <li><strong>Each name comes with the why</strong> — "closed with you in 2023, no touch in four months" — ranked by last contact and deal stage.</li>
+      <li><strong>Each name comes with a drafted text or email in your voice.</strong> You approve, edit, or skip. Nothing ever sends without you.</li>
+    </ul>
+    <p>Version 1 runs on a secure import of your current contact list. Live CRM sync (Monday.com) is part of the Foundation Build that follows.</p>
+  </div>
+
+  <div class="block">
+    <span class="tag">Phase one — starts at kickoff</span>
+    <h2>3 · The Deep Dive Into Your Business</h2>
+    <p>We audit everything you run — Monday.com, Mailerlite, your MLS / Zenlist data, your phone line, and your four social platforms — and map where every lead, listing, and follow-up actually lives. We also define the service levels and the legal / compliance guardrails (with your counsel) for any outreach work, so everything we build is safe to use on day one.</p>
+  </div>
+
+  <div class="block">
+    <span class="tag">Delivered at the end of the Sprint</span>
+    <h2>4 · Your Roadmap — and the Next Build, Priced</h2>
+    <p>Your full wish-list — call concierge, newsletter, lead intelligence, buyer-matching — sequenced into a 90-day build plan, each item ranked by ROI. It closes with two fixed numbers in writing: one price for your Foundation Build and one recommended monthly. You see the whole plan and both numbers <strong>before</strong> you commit to anything beyond the Sprint.</p>
+  </div>
+
+  <div class="block">
+    <span class="tag">Our standing commitment</span>
+    <h2>5 · You Own What You Pay For</h2>
+    <p>Everything we build for you becomes your property, outright, once paid in full — including ListingStory and your Follow-Up Engine. Your brand, your data, and your client relationships were always yours; now the tools are too. If we ever part ways, everything goes with you.</p>
+  </div>
+
+  <div class="pay">
+    <h2>The Investment</h2>
+    <div class="total">$7,500 fixed, over the 30–45 day Sprint — paid as the work lands, not up front:</div>
+    <table>
+      <tr><td class="amt">$3,000</td><td><strong>At kickoff</strong> — the Sprint begins within days.</td></tr>
+      <tr><td class="amt">$3,000</td><td><strong>When your Follow-Up Engine v1 goes live</strong> — you're using it before you've paid the second installment.</td></tr>
+      <tr><td class="amt">$1,500</td><td><strong>On delivery of your roadmap</strong> — the plan and both fixed numbers, in writing.</td></tr>
+    </table>
+    <div class="credit">Every dollar of the $7,500 is credited in full toward your Foundation Build if you proceed. Major credit cards accepted.</div>
+  </div>
+
+  <footer>
+    <div class="names">Edmund Bogen — Founder, Bogen.ai</div>
+    edmund@bogen.ai · bogen.ai<br>
+    With Eytan Benzeno, Partner &amp; Technologist
+  </footer>
+</div>
+
+<script>
+  function unlock() {
+    var v = document.getElementById('code').value.trim();
+    if (v === 'Carrie2026') {
+      sessionStorage.setItem('cmcc_unlocked', '1');
+      document.getElementById('gate').style.display = 'none';
+    } else {
+      document.getElementById('err').style.display = 'block';
+    }
+  }
+  document.getElementById('code').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') unlock();
+  });
+  if (sessionStorage.getItem('cmcc_unlocked') === '1') {
+    document.getElementById('gate').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
