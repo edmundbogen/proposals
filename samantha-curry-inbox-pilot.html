@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curry Inbox Engine — Pilot Agreement from Bogen.ai</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    color: #333333;
+    background: #ffffff;
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .header {
+    background: #1a3e5c;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-brand {
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .header-brand strong { font-weight: 600; }
+  .header-date {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+  }
+
+  .title-block {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 3px solid #00a8e1;
+  }
+  .title-block h1 {
+    font-size: 28px;
+    font-weight: 300;
+    color: #1a3e5c;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .title-block .subtitle {
+    font-size: 15px;
+    color: #666666;
+    font-weight: 400;
+  }
+  .title-block .prepared-for {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #999999;
+    letter-spacing: 0.04em;
+  }
+
+  .intro {
+    font-size: 16px;
+    color: #444444;
+    margin-bottom: 48px;
+    line-height: 1.8;
+  }
+  .intro p + p { margin-top: 14px; }
+
+  .section-header {
+    font-size: 12px;
+    font-weight: 600;
+    color: #00a8e1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  h2.section-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: #1a3e5c;
+    margin-bottom: 16px;
+  }
+
+  .how-it-works {
+    margin-bottom: 48px;
+    padding: 24px 28px;
+    background: #f7f9fb;
+    border-radius: 6px;
+    border-left: 4px solid #00a8e1;
+  }
+  .how-it-works h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3e5c;
+    margin-bottom: 12px;
+  }
+  .how-it-works p.hiw-note {
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.7;
+    margin-top: 14px;
+  }
+  .how-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .how-step {
+    text-align: center;
+    padding: 16px 12px;
+    background: #ffffff;
+    border-radius: 6px;
+  }
+  .how-step .step-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: #00a8e1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .how-step .step-who {
+    font-size: 11px;
+    font-weight: 600;
+    color: #999999;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .how-step .step-desc {
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.4;
+  }
+
+  .guarantee {
+    margin: 0 0 48px;
+    padding: 24px 28px;
+    background: #f0faf0;
+    border-radius: 6px;
+    border-left: 4px solid #4caf50;
+  }
+  .guarantee h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2e7d32;
+    margin-bottom: 10px;
+  }
+  .guarantee ul { list-style: none; padding: 0; }
+  .guarantee ul li {
+    padding: 5px 0 5px 20px;
+    position: relative;
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.6;
+  }
+  .guarantee ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 7px;
+    height: 7px;
+    background: #4caf50;
+    border-radius: 50%;
+  }
+
+  .timeline { margin-bottom: 52px; }
+  .timeline-grid { display: grid; gap: 16px; margin-top: 16px; }
+  .timeline-block {
+    background: #f7f9fb;
+    border-radius: 6px;
+    padding: 20px 24px;
+    border-left: 4px solid #00a8e1;
+  }
+  .timeline-block .period {
+    font-size: 12px;
+    font-weight: 600;
+    color: #00a8e1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .timeline-block ul { list-style: none; padding: 0; }
+  .timeline-block ul li {
+    padding: 3px 0 3px 16px;
+    position: relative;
+    font-size: 14px;
+    color: #555555;
+  }
+  .timeline-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    background: #00a8e1;
+    border-radius: 50%;
+  }
+  .timeline-outcome {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #1a3e5c;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .timeline-outcome strong { color: #00a8e1; }
+
+  .pricing {
+    background: #f7f9fb;
+    border-radius: 6px;
+    padding: 36px 32px;
+    margin: 48px 0;
+  }
+  .pricing h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1a3e5c;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .pricing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 16px 0;
+    border-bottom: 1px solid #e4e8ec;
+  }
+  .pricing-row:last-of-type { border-bottom: none; }
+  .pricing-label { font-size: 15px; color: #444444; flex: 1; }
+  .pricing-label .note {
+    display: block;
+    font-size: 13px;
+    color: #888888;
+    margin-top: 2px;
+  }
+  .pricing-amount {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a3e5c;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .pricing-terms {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #e4e8ec;
+  }
+  .pricing-terms p {
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+  .pricing-terms p:last-child { margin-bottom: 0; }
+
+  .scorecard {
+    margin-bottom: 48px;
+    padding: 24px 28px;
+    background: #eef8fc;
+    border-radius: 6px;
+    border: 1px solid #c8e6f0;
+  }
+  .scorecard h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3e5c;
+    margin-bottom: 10px;
+  }
+  .scorecard p { font-size: 14px; color: #555555; line-height: 1.7; margin-bottom: 10px; }
+  .scorecard ul { list-style: none; padding: 0; }
+  .scorecard ul li {
+    padding: 4px 0 4px 16px;
+    position: relative;
+    font-size: 14px;
+    color: #555555;
+  }
+  .scorecard ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    background: #00a8e1;
+    border-radius: 50%;
+  }
+
+  .terms { margin-bottom: 48px; }
+  .terms h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #1a3e5c;
+    margin-bottom: 20px;
+  }
+  .term {
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eef1f4;
+  }
+  .term:last-child { border-bottom: none; }
+  .term h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a3e5c;
+    margin-bottom: 4px;
+  }
+  .term p {
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.65;
+  }
+
+  .signature-section {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid #e4e8ec;
+  }
+  .signature-section h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1a3e5c;
+    margin-bottom: 12px;
+  }
+  .signature-section .sig-intro {
+    font-size: 15px;
+    color: #444444;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 24px;
+  }
+  .sig-block .sig-line {
+    border-bottom: 1px solid #999999;
+    height: 44px;
+    margin-bottom: 8px;
+  }
+  .sig-block .sig-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a3e5c;
+  }
+  .sig-block .sig-title {
+    font-size: 13px;
+    color: #888888;
+  }
+  .sig-block .sig-date {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #888888;
+  }
+  .sig-block .sig-date span {
+    display: inline-block;
+    border-bottom: 1px solid #bbbbbb;
+    width: 160px;
+    height: 18px;
+    vertical-align: bottom;
+    margin-left: 6px;
+  }
+
+  .footer {
+    background: #1a3e5c;
+    padding: 32px 60px;
+    margin-top: 60px;
+    text-align: center;
+  }
+  .footer-text {
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .footer-text a { color: #00a8e1; text-decoration: none; }
+
+  .password-gate {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #1a3e5c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+  }
+  .password-gate.hidden { opacity: 0; pointer-events: none; }
+  .password-box { text-align: center; max-width: 380px; padding: 48px 40px; }
+  .password-box .lock-brand {
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 24px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .password-box .lock-brand strong { font-weight: 600; }
+  .password-box .lock-subtitle {
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+  .password-box input {
+    width: 100%;
+    padding: 14px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.08);
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 0.08em;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .password-box input::placeholder { color: rgba(255,255,255,0.35); letter-spacing: 0.04em; }
+  .password-box input:focus { border-color: #00a8e1; }
+  .password-box .enter-btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 48px;
+    background: #00a8e1;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .password-box .enter-btn:hover { background: #0090c4; }
+  .password-box .error-msg {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 12px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .password-box .error-msg.visible { opacity: 1; }
+
+  .proposal-content { display: none; }
+  .proposal-content.unlocked { display: block; }
+
+  @media print {
+    .password-gate { display: none !important; }
+    .proposal-content { display: block !important; }
+    body { font-size: 14px; }
+    .header, .footer { padding: 24px 40px; }
+    .container { padding: 40px 20px 40px; }
+  }
+
+  @media (max-width: 600px) {
+    .header { padding: 28px 24px; }
+    .container { padding: 40px 20px 60px; }
+    .pricing-row { flex-direction: column; gap: 4px; }
+    .pricing-amount { text-align: left; }
+    .how-steps { grid-template-columns: 1fr; }
+    .sig-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Password Gate -->
+<div class="password-gate" id="passwordGate">
+  <div class="password-box">
+    <div class="lock-brand"><strong>Bogen</strong>.ai</div>
+    <div class="lock-subtitle">Confidential Pilot Agreement</div>
+    <input type="password" id="passwordInput" placeholder="Enter password" autofocus>
+    <br>
+    <button class="enter-btn" id="enterBtn">VIEW AGREEMENT</button>
+    <div class="error-msg" id="errorMsg">Incorrect password. Please try again.</div>
+  </div>
+</div>
+
+<!-- Agreement Content -->
+<div class="proposal-content" id="proposalContent">
+
+<div class="header">
+  <div class="header-brand"><strong>Bogen</strong>.ai</div>
+  <div class="header-date">Pilot Agreement &mdash; August 16, 2026</div>
+</div>
+
+<div class="container">
+
+  <div class="title-block">
+    <h1>Curry Inbox Engine</h1>
+    <div class="subtitle">30-Day Paid Pilot &mdash; AI reply drafts, written into your Outlook, reviewed and sent only by you</div>
+    <div class="prepared-for">Prepared for Samantha Curry &nbsp;&bull;&nbsp; The Bristol, Palm Beach</div>
+  </div>
+
+  <div class="intro">
+    <p>Samantha &mdash; you and Heather are two people carrying a four-person workload, and most of it lives in Outlook. Hiring takes months you don't have. This pilot puts a system into your existing inbox workflow that drafts replies to your most repetitive email in your voice &mdash; so the two of you review and send instead of composing from scratch.</p>
+    <p>Like the Valuation Cockpit, this is built specifically for how your team actually works. You don't learn new software. You don't change how you send email. Within three business days of signing, you'll be getting draft replies back; within ten working days of the access checks clearing, drafts will be waiting in your own Outlook Drafts folder before you've even opened the message.</p>
+  </div>
+
+  <!-- What You Get -->
+  <div class="section-header">The Pilot</div>
+  <h2 class="section-title">What You Get</h2>
+
+  <div class="how-it-works">
+    <h3>Track 1 &mdash; Forward-to-Draft (live by Day 3)</h3>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="step-num">1</span>
+        <div class="step-who">You or Heather</div>
+        <div class="step-desc">Forward any client email to your private drafting address</div>
+      </div>
+      <div class="how-step">
+        <span class="step-num">2</span>
+        <div class="step-who">The Engine</div>
+        <div class="step-desc">Returns a ready-to-send reply in your voice, typically within ~2 minutes</div>
+      </div>
+      <div class="how-step">
+        <span class="step-num">3</span>
+        <div class="step-who">You</div>
+        <div class="step-desc">Paste, adjust if needed, and send from your own Outlook</div>
+      </div>
+    </div>
+    <p class="hiw-note">Works with your current mailbox from day one. No IT approvals, no new software.</p>
+  </div>
+
+  <div class="how-it-works">
+    <h3>Track 2 &mdash; Drafts Waiting in Your Outlook (within 10 working days of the Day-0 Gate)</h3>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="step-num">1</span>
+        <div class="step-who">The Engine</div>
+        <div class="step-desc">Checks your mailbox every 5 minutes for your two highest-volume email types</div>
+      </div>
+      <div class="how-step">
+        <span class="step-num">2</span>
+        <div class="step-who">The Engine</div>
+        <div class="step-desc">Writes a reply draft directly into your Outlook Drafts, in-thread</div>
+      </div>
+      <div class="how-step">
+        <span class="step-num">3</span>
+        <div class="step-who">You</div>
+        <div class="step-desc">Open the thread, the reply is already there &mdash; review, edit, send</div>
+      </div>
+    </div>
+    <p class="hiw-note">If an email isn't one of the two types &mdash; or the system isn't confident &mdash; it does nothing. The email sits in your inbox exactly as it does today. A missing draft is always the failure mode; a bad draft never is.</p>
+  </div>
+
+  <!-- Safety -->
+  <div class="guarantee">
+    <h3>Built-In Safeguards</h3>
+    <ul>
+      <li><strong>It cannot send email.</strong> The system is never granted send permission &mdash; technically incapable, not just policy. Every email is sent by a human: you or Heather.</li>
+      <li><strong>Fair Housing screen on 100% of drafts.</strong> Every draft passes an independent Fair Housing review before it's written. If it fails, the draft is never created.</li>
+      <li><strong>Your email is not stored.</strong> Message content is processed in memory and never retained &mdash; no bodies, no attachments, ever.</li>
+      <li><strong>One-email kill switch.</strong> Send an email with PAUSE in the subject and all drafting stops within one 5-minute cycle, confirmed within one business hour.</li>
+      <li><strong>You own the mailbox.</strong> Track 2 runs on a Microsoft 365 account on your own domain, owned by you &mdash; not by Bogen.ai, not by anyone else.</li>
+    </ul>
+  </div>
+
+  <!-- Timeline -->
+  <div class="timeline">
+    <div class="section-header">Schedule</div>
+    <h2 class="section-title">How the Pilot Runs</h2>
+    <div class="timeline-grid">
+      <div class="timeline-block">
+        <div class="period">Day 0 &mdash; The 90-Minute Working Session</div>
+        <ul>
+          <li>One screen-share: a 2-minute mailbox test, a sent-mail export, and picking your two highest-volume email types together</li>
+          <li>This session is the "Day-0 Gate" &mdash; it determines whether Track 2 can proceed (see Investment below)</li>
+        </ul>
+      </div>
+      <div class="timeline-block">
+        <div class="period">Days 1&ndash;3 &mdash; First Value</div>
+        <ul>
+          <li>Your voice guide is built from your actual sent replies</li>
+          <li>Sample drafts on your real past emails, reviewed by you before anything goes live</li>
+          <li>Track 1 forward-to-draft turned on</li>
+        </ul>
+      </div>
+      <div class="timeline-block">
+        <div class="period">Days 4&ndash;10 &mdash; Into Your Outlook</div>
+        <ul>
+          <li>Track 2 built and safety-tested away from your mail first</li>
+          <li>2&ndash;3 days watching your real inbox in classify-only mode (no drafts yet)</li>
+          <li>Drafts turned on in your mailbox, one email type at a time; Heather's mailbox follows</li>
+        </ul>
+      </div>
+      <div class="timeline-block">
+        <div class="period">Weeks 3&ndash;6 &mdash; The Measured 30 Days</div>
+        <ul>
+          <li>Normal use, weekly 15-minute tuning check-in</li>
+          <li>Weekly numbers: drafts created, drafts sent, hours returned</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-outcome">
+      At the end of 30 days you get a <strong>written verdict &mdash; GREEN / YELLOW / RED</strong> &mdash; with the actual numbers, and a clear recommendation on whether the full Inbox Engine is worth building.
+    </div>
+  </div>
+
+  <!-- Scorecard -->
+  <div class="scorecard">
+    <h3>How We Measure Success</h3>
+    <p>No vague "do you like it" metrics. The pilot is scored on five numbers, tracked weekly:</p>
+    <ul>
+      <li>Drafts created per week</li>
+      <li>Percentage of drafts you actually send &mdash; the number that matters most</li>
+      <li>Hours per week returned to you and Heather</li>
+      <li>Bad-draft incidents (target: zero)</li>
+      <li>Fair Housing blocks (each one reviewed &mdash; that's the screen doing its job)</li>
+    </ul>
+  </div>
+
+  <!-- Investment -->
+  <div class="pricing">
+    <h2>Investment</h2>
+    <div class="pricing-row">
+      <div class="pricing-label">
+        At signing
+        <span class="note">Covers the working session, your voice guide, sample drafts on your real email, and Track 1 live by Day 3</span>
+      </div>
+      <div class="pricing-amount">$2,500</div>
+    </div>
+    <div class="pricing-row">
+      <div class="pricing-label">
+        When the Day-0 Gate passes
+        <span class="note">Covers Track 2: drafts written directly into your Outlook, both mailboxes, plus the full 30-day measured pilot with weekly tuning</span>
+      </div>
+      <div class="pricing-amount">$4,000</div>
+    </div>
+    <div class="pricing-row">
+      <div class="pricing-label"><strong>Total pilot</strong></div>
+      <div class="pricing-amount">$6,500</div>
+    </div>
+    <div class="pricing-terms">
+      <p><strong>The Day-0 Gate:</strong> three things, all confirmed at the working session &mdash; (1) the 2-minute mailbox redirect test succeeds, (2) you confirm by email that you're comfortable replying from your samanthasellspalmbeach.com address, and (3) the session itself is held. If the gate doesn't pass &mdash; for example, if brokerage mail settings block the redirect &mdash; <strong>the $4,000 is never invoiced</strong> and the pilot continues as Track 1 only.</p>
+      <p><strong>Full-build credit:</strong> if the verdict is GREEN and you proceed to the full Curry Inbox Engine ($12,500) within 30 days of receiving the written verdict, the $2,500 is credited &mdash; you'd pay $10,000.</p>
+      <p><strong>Included support:</strong> weekly tuning, all system maintenance during the pilot, 2-business-day response. <strong>Not included:</strong> email types beyond two (three if the top two turn out to cover less than 20% of your reply volume), CRM integration, analytics reports, any work on Douglas Elliman's systems, or mailboxes beyond yours and Heather's.</p>
+    </div>
+  </div>
+
+  <!-- Terms -->
+  <div class="terms">
+    <div class="section-header">The Fine Print, In Plain English</div>
+    <h2>Terms</h2>
+
+    <div class="term">
+      <h4>1. Drafts are suggestions &mdash; you send</h4>
+      <p>The system produces draft replies only. It holds no permission to send email and is technically incapable of doing so. Every draft is a suggestion: you or Heather review, edit, and send (or discard) each one, and you are solely responsible for every email actually sent.</p>
+    </div>
+
+    <div class="term">
+      <h4>2. Fair Housing and your license</h4>
+      <p>Every draft passes an automated Fair Housing screen before it is written, and drafts the system is not confident about are simply not created. The screen is a risk-reduction tool &mdash; not legal advice and not a compliance guarantee. As the licensed real estate professional, you retain full responsibility for Fair Housing, Florida license-law, and advertising compliance, including your signature and disclosures when sending from your own domain.</p>
+    </div>
+
+    <div class="term">
+      <h4>3. Your brokerage's policies are yours to confirm</h4>
+      <p>You are responsible for confirming that Douglas Elliman's policies permit redirecting or forwarding mail from your corporate mailbox and replying from your own domain. Bogen.ai uses only standard, user-level mail features and will never bypass or work around your brokerage's IT or security controls. If the mail path is blocked, the pilot continues in forward-to-draft mode and the $4,000 is never invoiced.</p>
+    </div>
+
+    <div class="term">
+      <h4>4. Your data</h4>
+      <p>Email content is processed in memory via third-party AI providers under their commercial terms and is not retained by Bogen.ai &mdash; no message bodies, no attachments, ever. Within 7 days of the pilot ending for any reason, Bogen.ai deletes all pilot data and confirms deletion in writing. Bogen.ai's administrative access to your Microsoft 365 account is limited to configuring and operating this pilot, and is revoked at offboarding &mdash; the account, the domain, and your mail are yours.</p>
+    </div>
+
+    <div class="term">
+      <h4>5. Heather</h4>
+      <p>Heather is an authorized user under this agreement. You authorize the engine's access to her mailbox for the pilot and are responsible for her use of the system.</p>
+    </div>
+
+    <div class="term">
+      <h4>6. Payment</h4>
+      <p>$2,500 is due at signing and becomes non-refundable once Track 1 is delivered (by Day 3). $4,000 is due only when all three Day-0 Gate conditions are met, and is otherwise never invoiced.</p>
+    </div>
+
+    <div class="term">
+      <h4>7. A pilot, honestly</h4>
+      <p>This is a 30-day measured pilot ending in a written GREEN/YELLOW/RED verdict. Bogen.ai does not guarantee any particular outcome, draft-quality level, time savings, or verdict &mdash; that's exactly what the pilot exists to measure.</p>
+    </div>
+
+    <div class="term">
+      <h4>8. Who owns what</h4>
+      <p>Bogen.ai owns the Curry Inbox Engine &mdash; its software, prompts, workflows, and methods, including improvements made during the pilot. You own your emails, your data, and the Microsoft 365 account created for this pilot. Nothing here transfers the engine to you or your data to Bogen.ai.</p>
+    </div>
+
+    <div class="term">
+      <h4>9. Ending it</h4>
+      <p>Either of us may end the pilot at any time with written notice &mdash; email is fine. Fees already due remain payable, no further fees accrue, and all pilot data is deleted per Term 4.</p>
+    </div>
+
+    <div class="term">
+      <h4>10. Liability cap</h4>
+      <p>Bogen.ai's total liability under this agreement, for any reason, is capped at the fees you actually paid. Neither party is liable for indirect or consequential damages, including lost commissions or lost deals. This does not limit your own responsibility for emails you send.</p>
+    </div>
+
+    <div class="term">
+      <h4>11. What Bogen.ai is &mdash; and isn't</h4>
+      <p>Bogen.ai (Dave T Productions, LLC) is an independent technology contractor. It is not your broker, lawyer, or compliance advisor, and it assumes no regulatory obligations on your behalf. This engagement is with you individually; it is not affiliated with, endorsed by, or an integration with Douglas Elliman.</p>
+    </div>
+  </div>
+
+  <!-- Signature -->
+  <div class="signature-section">
+    <h2>Let's Get Your Hours Back</h2>
+    <p class="sig-intro">Sign below (or reply "approved" by email &mdash; that works too), and we'll schedule the 90-minute working session this week. Track 1 is live within three business days of that session.</p>
+    <div class="sig-grid">
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Samantha Curry</div>
+        <div class="sig-title">Client</div>
+        <div class="sig-date">Date: <span></span></div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Edmund Bogen</div>
+        <div class="sig-title">Founder, Bogen.ai (Dave T Productions, LLC)</div>
+        <div class="sig-date">Date: <span></span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-text">Bogen.ai &nbsp;&bull;&nbsp; Boca Raton, FL &nbsp;&bull;&nbsp; <a href="mailto:edmund@bogen.ai">edmund@bogen.ai</a></div>
+</div>
+
+</div><!-- end .proposal-content -->
+
+<script>
+(function() {
+  var correctHash = '61a94af9';
+  function simpleHash(str) {
+    var h = 0;
+    for (var i = 0; i < str.length; i++) {
+      h = ((h << 5) - h) + str.charCodeAt(i);
+      h = h & 0xffffffff;
+    }
+    return (h >>> 0).toString(16).slice(0, 8);
+  }
+
+  function tryUnlock() {
+    var input = document.getElementById('passwordInput').value;
+    if (simpleHash(input) === correctHash) {
+      document.getElementById('passwordGate').classList.add('hidden');
+      document.getElementById('proposalContent').classList.add('unlocked');
+      setTimeout(function() {
+        document.getElementById('passwordGate').style.display = 'none';
+      }, 500);
+    } else {
+      document.getElementById('errorMsg').classList.add('visible');
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('passwordInput').focus();
+      setTimeout(function() {
+        document.getElementById('errorMsg').classList.remove('visible');
+      }, 2500);
+    }
+  }
+
+  document.getElementById('enterBtn').addEventListener('click', tryUnlock);
+  document.getElementById('passwordInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') tryUnlock();
+  });
+})();
+</script>
+
+</body>
+</html>
