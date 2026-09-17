@@ -467,11 +467,35 @@
   .proposal-content.unlocked { display: block; }
 
   @media print {
+    @page { size: letter; margin: 0.55in 0.6in 0.6in; }
     .password-gate { display: none !important; }
     .proposal-content { display: block !important; }
-    body { font-size: 14px; }
-    .header, .footer { padding: 24px 40px; }
-    .container { padding: 40px 20px 40px; }
+    body { font-size: 12px; line-height: 1.45; }
+    .header { padding: 14px 28px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .footer { padding: 14px 28px; margin-top: 24px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .container { max-width: none; padding: 16px 8px 0; }
+    .title-block { margin-bottom: 16px; padding-bottom: 12px; }
+    .title-block h1 { font-size: 21px; }
+    .title-block .subtitle { font-size: 13px; }
+    .intro { font-size: 12.5px; margin-bottom: 16px; line-height: 1.5; }
+    .intro p + p { margin-top: 8px; }
+    .section-header { margin-bottom: 6px; }
+    .guarantee { padding: 12px 16px; margin-bottom: 0; }
+    .guarantee li { font-size: 12px; margin-bottom: 4px; line-height: 1.42; }
+    .pricing { padding: 20px 24px; margin-bottom: 22px; break-before: page; page-break-before: always; }
+    .pricing-row { padding: 10px 0; }
+    .pricing-label { font-size: 13px; }
+    .pricing-terms { margin-top: 12px; padding-top: 12px; }
+    .pricing-terms p { font-size: 12px; margin-bottom: 8px; line-height: 1.5; }
+    .terms { margin-bottom: 16px; }
+    .terms h2 { margin-bottom: 10px; font-size: 17px; }
+    .term { margin-bottom: 9px; padding-bottom: 9px; }
+    .term h4 { font-size: 12.5px; margin-bottom: 2px; }
+    .term p { font-size: 12px; line-height: 1.5; }
+    .signature-section { margin-top: 22px; padding-top: 16px; }
+    .sig-grid { margin-top: 28px; }
+    .term, .guarantee li, .pricing, .signature-section, .title-block, .intro { break-inside: avoid; page-break-inside: avoid; }
+    .section-header, .section-title, .terms h2, .guarantee h3, .pricing h2, .term h4 { break-after: avoid; page-break-after: avoid; }
   }
 
   @media (max-width: 600px) {
@@ -530,8 +554,7 @@
       <li><strong>Your tech go-between.</strong> One call or email to us instead of five to vendors. We set up, troubleshoot, and connect your AI tools (Claude, Wispr Flow, MLS connections, and whatever comes next) and deal with the technical side on your behalf.</li>
       <li><strong>Training and one-on-one work.</strong> Hands-on sessions for you and Heather &mdash; screen-share or in person &mdash; on the tools you actually use, at the pace you need.</li>
       <li><strong>Ongoing AI advisory.</strong> A standing sounding board for where AI fits in your business, what to adopt, what to ignore, and what to build next.</li>
-      <li><strong>Integration and ongoing builds.</strong> We keep integrating what's already underway &mdash; including your automated voicemail system &mdash; and continue building additional valuation systems and tools for you as your business calls for them, under this same approach.</li>
-      <li><strong>Maintenance of what we've built.</strong> The Valuation Cockpit, the voicemail system, and every future build stay hosted, updated, and working.</li>
+      <li><strong>Integration and ongoing builds.</strong> We keep integrating what's already underway &mdash; including your automated voicemail system &mdash; and continue building additional valuation systems and tools as your business calls for them, under this same approach. Everything we've built &mdash; the Valuation Cockpit, the voicemail system, and every future build &mdash; stays hosted, updated, and working.</li>
     </ul>
   </div>
 
