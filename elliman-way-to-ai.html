@@ -176,6 +176,42 @@
     .arrow { width: auto; transform: rotate(90deg); }
     .runner, .footer { left: 16px; right: 16px; }
   }
+
+  /* Stat grid (light research) */
+  .grid4 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
+  .grid4 .stat { padding: 16px 18px 14px; }
+
+  /* Sample page */
+  .sample-frame { border: 1px solid var(--line); border-top: 4px solid var(--navy); padding: 26px 30px 22px; margin-top: 6px; }
+  .sample-head { display: flex; justify-content: space-between; font-size: 7.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 14px; }
+  .sample-title { font-size: 15pt; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); margin-bottom: 4px; }
+  .sample-sub { font-size: 9.5pt; color: var(--muted); margin-bottom: 12px; }
+  .prompt { background: #0f2a40; color: #e8f4fb; font-size: 8.8pt; line-height: 1.55; padding: 14px 16px; border-left: 4px solid var(--cyan); margin: 8px 0 12px; }
+  .prompt .pl { font-size: 7pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); margin-bottom: 6px; font-weight: 600; }
+  .prompt ol { margin: 4px 0 4px 16px; }
+  .prompt li { margin-bottom: 2px; }
+  .tips { display: flex; gap: 12px; }
+  .tip { flex: 1; padding: 10px 12px; font-size: 8.6pt; line-height: 1.45; }
+  .tip .tl { font-size: 7pt; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+  .tip.std { background: var(--gray); border-top: 3px solid var(--navy); }
+  .tip.std .tl { color: var(--navy); }
+  .tip.elli { background: #eaf7fd; border-top: 3px solid var(--cyan); }
+  .tip.elli .tl { color: var(--cyan); }
+  .tip.try { background: var(--gray); border-top: 3px solid var(--muted); }
+  .tip.try .tl { color: var(--muted); }
+
+  /* Sessions */
+  .sessions td:first-child { width: 7%; font-size: 16pt; font-weight: 300; color: var(--cyan); text-align: center; vertical-align: middle; }
+  .sessions td .st { font-weight: 600; color: var(--navy); font-size: 10pt; }
+  .formats { display: flex; gap: 12px; margin: 6px 0 14px; }
+  .fmt { flex: 1; background: var(--navy); color: #fff; padding: 12px 14px; }
+  .fmt .fl { font-size: 7pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); font-weight: 600; }
+  .fmt .ft { font-size: 10.5pt; font-weight: 600; margin: 3px 0 3px; }
+  .fmt .fd { font-size: 8.5pt; line-height: 1.45; }
+  @media screen and (max-width: 860px) {
+    .grid4 { grid-template-columns: 1fr; }
+    .tips, .formats { flex-direction: column; }
+  }
 </style>
 </head>
 <body>
@@ -188,7 +224,7 @@
   <div class="cover-mid">
     <div class="kicker">A proposal · September 2026</div>
     <h1>The Elliman<br>Way to AI</h1>
-    <p class="sub">An AI coursebook for Elliman agents that starts with the tools they already use and leads them to Elliman's own.</p>
+    <p class="sub">A book and a presentation series that teach every Elliman agent to use AI the Elliman way, starting with the tools they already use.</p>
     <p class="byline">Written by Edmund Bogen</p>
   </div>
   <div class="cover-bottom">
@@ -210,9 +246,9 @@
   <h2>Jay,</h2>
   <div class="letter">
     <p>Elliman is making a serious investment in AI with Elli and Elius. The hard part will not be building the tools. It will be getting agents to use them.</p>
-    <p>The research is consistent. Companies buy tools, and people keep using the ones they already know. Compass put its CEO on the road this summer and got about one in five agents to try its new AI assistant.</p>
-    <p>There is an easier path. Instead of asking agents to switch, give them a manual for the AI they already use every day, ChatGPT, Claude, Gemini, Grok, and teach them to use it the Elliman way. Along the way, bring them into Elli.</p>
-    <p>That is <strong>The Elliman Way to AI</strong>: a coursebook written by an Elliman agent for Elliman agents. It gives Florida a branded piece no competitor has. I'd like your support to publish it under the Elliman name, starting here in Florida.</p>
+    <p>The research is consistent: people keep using the AI they already know. So instead of asking agents to switch, let's give them a manual for the AI they use every day and teach them to use it the Elliman way. Along the way, we bring them into Elli.</p>
+    <p>That is <strong>The Elliman Way to AI</strong>, a book written by an Elliman agent for Elliman agents, available on Amazon. I'll bring it to every agent through a series of presentations, in our offices and on Zoom. Elliman provides a copy to each agent.</p>
+    <p>It gives Florida a branded program no competitor has. I'd like your support to launch it here first.</p>
     <div class="sig">
       <strong>Edmund Bogen</strong>
       <span>Broker Associate, The Edmund Bogen Team at Douglas Elliman Real Estate</span>
@@ -226,57 +262,37 @@
       <div class="src">Microsoft · 2024</div>
     </div>
     <div class="stat">
-      <div class="num">13%</div>
-      <div class="txt">of salespeople use their CRM's full capabilities, though 80% of companies have one.</div>
-      <div class="src">Accenture · 2016</div>
+      <div class="num">4</div>
+      <div class="txt">hands-on sessions, in person and on Zoom, with the book in every agent's hands.</div>
+      <div class="src">The series</div>
     </div>
     <div class="stat">
-      <div class="num">~18%</div>
-      <div class="txt">of Compass agents tried its new AI assistant in the first weeks, after CEO roadshows.</div>
-      <div class="src">Fortune · 2026</div>
+      <div class="num">1</div>
+      <div class="txt">branded AI playbook for Elliman agents that no competitor has.</div>
+      <div class="src">The book</div>
     </div>
   </div>
-
   <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>2</span></div>
 </section>
 
-<!-- PAGE 3 — THE PROBLEM -->
+<!-- PAGE 3 — WHY (LIGHT RESEARCH) -->
 <section class="page">
-  <div class="runner"><span>The Elliman Way to AI</span><span>The Adoption Problem</span></div>
+  <div class="runner"><span>The Elliman Way to AI</span><span>Why This Works</span></div>
 
-  <div class="section">
-    <h2>The Adoption Problem</h2>
-    <p class="lead">Companies buy the tools. People don't use them. A decade of research from the largest firms in the world says the same thing.</p>
-    <table>
-      <tr><th>Source</th><th>Year</th><th>Finding</th></tr>
-      <tr><td class="src">Accenture with CSO Insights</td><td class="yr">2016</td><td>80% of companies have a CRM; only 13% of salespeople use its full capabilities. 59% say they must use too many tools.</td></tr>
-      <tr><td class="src">Microsoft &amp; LinkedIn Work Trend Index</td><td class="yr">2024</td><td>75% of knowledge workers use AI at work. 78% of them bring their own AI tools.</td></tr>
-      <tr><td class="src">Gartner Digital Worker Survey</td><td class="yr">2024</td><td>Only 23% of employees are completely satisfied with their work applications, down from 30% in 2022.</td></tr>
-      <tr><td class="src">Gartner</td><td class="yr">2024</td><td>Only 48% of digital initiatives meet their business targets.</td></tr>
-      <tr><td class="src">WalkMe (SAP), State of Digital Adoption</td><td class="yr">2025</td><td>Enterprises wasted $104 million on underused technology in 2024. Only 28% of employees know how to use their company's AI tools.</td></tr>
-      <tr><td class="src">MIT NANDA, The GenAI Divide</td><td class="yr">2025</td><td>95% of enterprise AI pilots showed no measurable profit impact. Workers at over 90% of firms use personal AI tools anyway.</td></tr>
-    </table>
-    <p><strong>The pattern:</strong> people already use AI. They use their own.</p>
+  <h2>Agents Use the AI They Know</h2>
+  <p class="lead">Companies buy tools. People keep using their own. Four numbers tell the story.</p>
+  <div class="grid4">
+    <div class="stat"><div class="num">78%</div><div class="txt">of people who use AI at work bring their own tools rather than the company's.</div><div class="src">Microsoft &amp; LinkedIn · 2024</div></div>
+    <div class="stat"><div class="num">28%</div><div class="txt">of employees know how to use their company's AI tools.</div><div class="src">WalkMe (SAP) · 2025</div></div>
+    <div class="stat"><div class="num">13%</div><div class="txt">of salespeople use their CRM's full capabilities, though 80% of companies have one.</div><div class="src">Accenture · 2016</div></div>
+    <div class="stat"><div class="num">~18%</div><div class="txt">of Compass agents tried its new AI assistant in the first weeks, after CEO roadshows.</div><div class="src">Fortune · 2026</div></div>
   </div>
-
-  <div class="section">
-    <h2>Real Estate Is No Exception</h2>
-    <p>Agents are independent contractors. They pick their own tools, and no one can require them to change.</p>
-    <ul>
-      <li><strong>Compass, 2026.</strong> A live demo day, CEO office roadshows and in-person training. Within weeks, about 15,000 of 83,000 agents had used its AI Assistant, roughly 18%.</li>
-    </ul>
-    <div class="quote">"It takes a lot of work to get agents to actually adopt these tools."<span>Rory Golod, President of Growth, Compass · Fortune, September 2026</span></div>
-    <ul>
-      <li><strong>Keller Williams Command.</strong> Agents told RealTrends they used it mainly because they had to register sales in it. One called it "clunky" for running a team.</li>
-      <li><strong>The counter-example: Morgan Stanley.</strong> Its AI assistant reached about 98% of advisor teams because it met advisors inside tools they already used.</li>
-    </ul>
-    <p><strong>The lesson:</strong> adoption follows familiarity. Meet people where they already work.</p>
-  </div>
-
+  <div class="quote">"It takes a lot of work to get agents to actually adopt these tools."<span>Rory Golod, President of Growth, Compass · Fortune, September 2026</span></div>
+  <p><strong>What works:</strong> Morgan Stanley's AI assistant reached about 98% of advisor teams because it met them inside tools they already used. The same idea applies here. Meet agents where they already work, then lead them to Elli.</p>
   <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>3</span></div>
 </section>
 
-<!-- PAGE 4 — THE APPROACH + THE BOOK -->
+<!-- PAGE 4 — APPROACH + CONTENTS -->
 <section class="page">
   <div class="runner"><span>The Elliman Way to AI</span><span>The Approach</span></div>
 
@@ -291,7 +307,7 @@
       </div>
       <div class="arrow">&rsaquo;</div>
       <div class="step mid">
-        <div class="n">The book</div>
+        <div class="n">The book + series</div>
         <div class="t">The Elliman Way to AI</div>
         <div class="d">One method, one prompt library, one standard for brand, compliance and client data.</div>
       </div>
@@ -314,71 +330,116 @@
       <li><strong>The Elliman standard</strong>: brand voice, Fair Housing guardrails, and what client data never goes into a public AI tool.</li>
       <li><strong>The bridge to Elli and Elius</strong>: when to move a task from a general AI into Elliman's platform, step by step.</li>
     </ol>
-    <p>Every prompt is written by an Elliman agent and tested on real listings and real clients.</p>
+    <p>Every prompt is written by an Elliman agent and tested on real listings and real clients. See a sample page on the next page.</p>
   </div>
-
-  <div class="section">
-    <h2>Why Me</h2>
-    <p>An Elliman broker associate in South Florida and author of <em>Prompt to Close: The AI Playbook for Real Estate Professionals</em> (Amazon). I teach AI to agents every week through a mastermind and a Facebook group of nearly 20,000 real estate professionals, and I founded the AI consulting firm Bogen.ai.</p>
-  </div>
-
   <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>4</span></div>
 </section>
 
-<!-- PAGE 5 — WHAT EACH SIDE GETS, NEXT STEPS -->
+<!-- PAGE 5 — SAMPLE PAGE -->
 <section class="page">
-  <div class="runner"><span>The Elliman Way to AI</span><span>The Partnership</span></div>
+  <div class="runner"><span>The Elliman Way to AI</span><span>Sample Page</span></div>
+
+  <h2>A Page from the Book</h2>
+  <p>Every chapter follows the same pattern: a prompt that works in any AI, the Elliman standard, and the step into Elli.</p>
+  <div class="sample-frame">
+    <div class="sample-head"><span>Chapter 4 · Listings</span><span>The Elliman Way to AI</span></div>
+    <div class="sample-title">The Listing Appointment Brief</div>
+    <div class="sample-sub">Walk into every listing appointment prepared in ten minutes, not two hours.</div>
+    <div class="prompt">
+      <div class="pl">Copy this into ChatGPT, Claude, Gemini or Grok</div>
+      You are my listing presentation strategist. I am a Douglas Elliman agent meeting a seller at [ADDRESS] in [NEIGHBORHOOD] on [DATE]. The home has [BEDS / BATHS / SQUARE FEET / KEY FEATURES]. Here are recent comparable sales: [PASTE 3–5 COMPS]. Give me:
+      <ol>
+        <li>Three reasons this home will sell, based on its features and the comps.</li>
+        <li>The two objections this seller is most likely to raise, and how I answer each.</li>
+        <li>A plain-language pricing conversation I can have at the kitchen table.</li>
+        <li>A 90-second opening I can say out loud.</li>
+      </ol>
+      Keep the tone confident, warm and professional. Describe the neighborhood by its homes, amenities and location only.
+    </div>
+    <div class="tips">
+      <div class="tip std"><div class="tl">The Elliman standard</div>Never paste a seller's financial details, ID numbers or contract into a public AI. Describe places, never the people who live there.</div>
+      <div class="tip elli"><div class="tl">Take it into Elli</div>Ask Elli for a branded market report and pricing strategy for the address. Bring both to the appointment.</div>
+      <div class="tip try"><div class="tl">Try it now</div>Run it before your next appointment. Aim to finish in under ten minutes.</div>
+    </div>
+  </div>
+  <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>5</span></div>
+</section>
+
+<!-- PAGE 6 — PRESENTATION SERIES -->
+<section class="page">
+  <div class="runner"><span>The Elliman Way to AI</span><span>The Presentation Series</span></div>
+
+  <h2>The Presentation Series</h2>
+  <p class="lead">Four 60-minute sessions that put the book to work. Agents bring their phones, run the prompts live and leave with results.</p>
+  <table class="sessions">
+    <tr><th>#</th><th>Session</th><th>Agents leave with</th></tr>
+    <tr><td>1</td><td><div class="st">The Elliman Way to AI</div>What changed in AI this year and the five prompts every agent needs.</td><td>Five prompts working on their own phone.</td></tr>
+    <tr><td>2</td><td><div class="st">Win the Listing</div>CMAs, pricing and listing presentations, then into Elli for the branded report.</td><td>A listing brief for their next appointment.</td></tr>
+    <tr><td>3</td><td><div class="st">Never Lose a Lead</div>Follow-up, client email, market updates and social content in the Elliman voice.</td><td>A 30-day follow-up plan for their database.</td></tr>
+    <tr><td>4</td><td><div class="st">Build Your AI Assistant</div>Skills and commands that make AI work the same way every time, plus Elius.</td><td>Their own reusable AI assistant, set up.</td></tr>
+  </table>
+  <div class="formats">
+    <div class="fmt"><div class="fl">In person</div><div class="ft">Office sessions</div><div class="fd">Hands-on in Elliman's Florida offices, office by office.</div></div>
+    <div class="fmt"><div class="fl">On Zoom</div><div class="ft">Live for every agent</div><div class="fd">One live session per topic, open to all Florida agents.</div></div>
+    <div class="fmt"><div class="fl">On demand</div><div class="ft">Recorded</div><div class="fd">Each session recorded for agents who miss it and for new hires.</div></div>
+  </div>
+  <p>The book is the course material. Every agent in the room has a copy, so every session starts on the same page.</p>
+  <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>6</span></div>
+</section>
+
+<!-- PAGE 7 — OFFER -->
+<section class="page">
+  <div class="runner"><span>The Elliman Way to AI</span><span>The Offer</span></div>
 
   <div class="section">
-    <h2>What Elliman Gets</h2>
+    <h2>The Offer</h2>
     <ul>
-      <li><strong>A branded piece that sets Elliman apart.</strong> Compass has an app. Elliman agents get a playbook with the Elliman name on every prompt, in any AI they use.</li>
-      <li><strong>A path into Elli and Elius</strong>, the training layer that turns tool investment into daily use.</li>
-      <li><strong>Written standards</strong> for client data, Fair Housing and brand voice when agents use AI.</li>
-      <li><strong>A recruiting and retention piece</strong>: proof that Elliman teaches its agents to win with AI.</li>
-      <li><strong>Little cost and fast delivery</strong>: no engineering, no integration, no multi-year rollout.</li>
+      <li><strong>The book</strong> is published on Amazon. Elliman orders one copy for each agent, at a bulk rate.</li>
+      <li><strong>The presentation series</strong> comes with the book order: four sessions, in person and on Zoom, recorded.</li>
+      <li><strong>The Elliman name</strong> goes on the title and cover with Elliman's approval of the manuscript. No logo without separate written approval, and the name comes off if Elliman ever asks.</li>
     </ul>
   </div>
 
   <div class="two">
     <div class="section">
-      <h3>What I Get</h3>
-      <p>Visibility with Elliman agents across Florida. Agents who want to go further than the book can work with me as a coach. That is what makes this worth building.</p>
+      <h3>What Elliman Gets</h3>
+      <ul>
+        <li>A branded AI program that sets Elliman apart from Compass and every other firm.</li>
+        <li>A path into Elli and Elius that agents will actually follow.</li>
+        <li>Written standards for client data and Fair Housing in AI.</li>
+        <li>A recruiting and retention piece.</li>
+      </ul>
     </div>
     <div class="section">
-      <h3>What I'm Asking For</h3>
-      <ul>
-        <li>Permission to use the Elliman name in the title and on the cover.</li>
-        <li>Elliman review and approval of the manuscript.</li>
-        <li>An introduction to Florida agents: office meetings or a training session.</li>
-      </ul>
+      <h3>What I Get</h3>
+      <p>Visibility with Elliman agents across Florida. Agents who want to go further than the book and series can work with me as a coach. That is what makes this worth building.</p>
     </div>
   </div>
 
-  <div class="box"><p>No Elliman logo without separate written approval. The name comes off if Elliman ever asks.</p></div>
+  <div class="section">
+    <h3>Why Me</h3>
+    <p>An Elliman broker associate in South Florida and author of <em>Prompt to Close: The AI Playbook for Real Estate Professionals</em> (Amazon). I teach AI to agents every week through a mastermind and a Facebook group of nearly 20,000 real estate professionals, and I founded the AI consulting firm Bogen.ai.</p>
+  </div>
 
   <div class="section">
     <h3>Next Steps</h3>
     <ol>
       <li>A 30-minute conversation in October.</li>
-      <li>Agree on scope and the use of the Elliman name, with Elliman legal.</li>
-      <li>Launch with Florida agents, then offer it nationally.</li>
+      <li>Agree on the book order, the session calendar and the use of the Elliman name, with Elliman legal.</li>
+      <li>Launch Session 1 in Florida, then offer the program nationally.</li>
     </ol>
     <a class="cta" href="mailto:edmund@bogenhomes.com?subject=The%20Elliman%20Way%20to%20AI">Let's Talk</a>
   </div>
 
   <div class="section" style="margin-bottom:0">
-    <h3 style="margin-top:6px">Sources</h3>
+    <h3 style="margin-top:4px">Sources</h3>
     <ol class="sources">
-      <li><a href="https://newsroom.accenture.com/news/2016/accenture-survey-finds-evolving-role-of-digital-is-reshaping-sales-organizations-in-the-quest-for-the-ultimate-customer-experience">Accenture, sales tools survey</a>, April 2016 · <a href="https://news.microsoft.com/source/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">Microsoft &amp; LinkedIn, 2024 Work Trend Index</a></li>
-      <li><a href="https://www.gartner.com/en/documents/6298915">Gartner, 2024 Digital Worker Survey</a> · <a href="https://www.gartner.com/en/newsroom/press-releases/2024-10-22-gartner-survey-reveals-that-only-48-percent-of-digital-initiatives-meet-or-exceed-their-business-outcome-targets">Gartner, digital initiatives</a>, October 2024</li>
-      <li><a href="https://www.walkme.com/the-state-of-digital-adoption-2025/">WalkMe, State of Digital Adoption 2025</a> (WalkMe sells adoption software) · <a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf">MIT NANDA, The GenAI Divide 2025</a></li>
-      <li><a href="https://fortune.com/2026/09/23/compass-ai-assistant-real-estate-agents/">Fortune, Compass and its 83,000 agents</a>, September 23, 2026 (18% calculated from its figures) · <a href="https://www.realtrends.com/blog/2022/04/21/inside-keller-williamss-revolutionary-app/">RealTrends, Keller Williams Command</a>, April 2022</li>
+      <li><a href="https://news.microsoft.com/source/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">Microsoft &amp; LinkedIn, 2024 Work Trend Index</a> · <a href="https://www.walkme.com/the-state-of-digital-adoption-2025/">WalkMe, State of Digital Adoption 2025</a> (WalkMe sells adoption software)</li>
+      <li><a href="https://newsroom.accenture.com/news/2016/accenture-survey-finds-evolving-role-of-digital-is-reshaping-sales-organizations-in-the-quest-for-the-ultimate-customer-experience">Accenture, sales tools survey</a>, April 2016 · <a href="https://fortune.com/2026/09/23/compass-ai-assistant-real-estate-agents/">Fortune, Compass and its 83,000 agents</a>, September 23, 2026 (18% calculated from its figures)</li>
       <li><a href="https://openai.com/index/morgan-stanley/">OpenAI, Morgan Stanley case study</a> · <a href="https://www.prnewswire.com/news-releases/douglas-elliman-launches-elli-ai-assistant-302577199.html">Elli AI launch</a>, October 2025 · <a href="https://www.prnewswire.com/news-releases/douglas-elliman-launches-ai-transformation-built-with-google-clouds-technology-unveils-new-intelligence-company-and-announces-drive-to-reset-cost-structure-302820714.html">Elius and Google Cloud</a>, July 2026</li>
     </ol>
   </div>
-
-  <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>5</span></div>
+  <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>7</span></div>
 </section>
 
 </body>
