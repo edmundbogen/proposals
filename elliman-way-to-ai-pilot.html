@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Elliman Way to AI — Florida Pilot Proposal</title>
+<meta name="description" content="A Florida pilot proposal from Edmund Bogen to Jay Phillip Parker for an Elliman AI education program.">
+<style>
+  @font-face { font-family: 'EBMontserrat'; src: url('assets/fonts/montserrat-300.ttf') format('truetype'); font-weight: 300; font-style: normal; }
+  @font-face { font-family: 'EBMontserrat'; src: url('assets/fonts/montserrat-400.ttf') format('truetype'); font-weight: 400; font-style: normal; }
+  @font-face { font-family: 'EBMontserrat'; src: url('assets/fonts/montserrat-500.ttf') format('truetype'); font-weight: 500; font-style: normal; }
+  @font-face { font-family: 'EBMontserrat'; src: url('assets/fonts/montserrat-600.ttf') format('truetype'); font-weight: 600; font-style: normal; }
+  @font-face { font-family: 'EBMontserrat'; src: url('assets/fonts/montserrat-700.ttf') format('truetype'); font-weight: 700; font-style: normal; }
+  @font-face { font-family: 'EBMontserrat'; src: url('assets/fonts/montserrat-400-italic.ttf') format('truetype'); font-weight: 300 700; font-style: italic; }
+
+  :root {
+    --navy: #1a3e5c;
+    --cyan: #00a8e1;
+    --text: #333333;
+    --muted: #5b6770;
+    --gray: #f4f4f4;
+    --line: #e2e6ea;
+  }
+
+  @page { size: 8.5in 11in; margin: 0; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'EBMontserrat', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text);
+    background: #ffffff;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    padding: 0.75in 0.8in 0.9in;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  /* Cover */
+  .cover {
+    background: var(--navy);
+    color: #ffffff;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cover-top { padding: 0.8in 0.8in 0; }
+  .cover-top img { width: 1.1in; }
+  .cover-mid { padding: 0 0.8in; }
+  .cover .kicker {
+    font-size: 9pt; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--cyan); margin-bottom: 18px;
+  }
+  .cover h1 {
+    font-size: 40pt; font-weight: 300; letter-spacing: 0.08em;
+    text-transform: uppercase; line-height: 1.15;
+    border-left: 5px solid var(--cyan); padding-left: 22px;
+  }
+  .cover .sub {
+    font-size: 14pt; font-weight: 400; margin-top: 26px; max-width: 5.6in; line-height: 1.5;
+  }
+  .cover .byline {
+    font-size: 10pt; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 18px; color: #cfe6f2;
+  }
+  .cover-bottom {
+    padding: 0.5in 0.8in 0.7in;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    display: flex; justify-content: space-between; align-items: flex-end;
+    font-size: 9.5pt; line-height: 1.6;
+  }
+  .cover-bottom .label {
+    font-size: 7.5pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cyan);
+  }
+  .cover-bottom strong { font-weight: 600; }
+
+  /* Interior */
+  .runner {
+    position: absolute; top: 0.38in; left: 0.8in; right: 0.8in;
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  }
+  .footer {
+    position: absolute; bottom: 0.4in; left: 0.8in; right: 0.8in;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 7.5pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px;
+  }
+  .footer img { height: 20px; }
+
+  h2 {
+    font-size: 18pt; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--navy); border-left: 4px solid var(--cyan); padding-left: 14px;
+    margin: 0 0 12px; line-height: 1.25;
+  }
+  h3 {
+    font-size: 11.5pt; font-weight: 600; color: var(--navy); margin: 16px 0 6px; letter-spacing: 0.02em;
+  }
+  p { margin-bottom: 9px; }
+  .lead { font-size: 12pt; line-height: 1.55; color: var(--navy); font-weight: 500; margin-bottom: 14px; }
+  ul, ol { margin: 4px 0 10px 18px; }
+  li { margin-bottom: 5px; }
+  li strong, p strong { color: var(--navy); font-weight: 600; }
+  a { color: var(--cyan); text-decoration: none; }
+  .section { margin-bottom: 20px; }
+
+  /* Letter */
+  .letter { font-size: 11pt; line-height: 1.7; max-width: 6.4in; }
+  .letter p { margin-bottom: 12px; }
+  .letter .sig { margin-top: 18px; color: var(--navy); }
+  .letter .sig strong { display: block; font-size: 12pt; }
+  .letter .sig span { font-size: 9pt; color: var(--muted); }
+
+  .stats { display: flex; gap: 12px; margin: 22px 0 0; }
+  .stat { flex: 1; background: var(--navy); color: #fff; padding: 14px 14px 12px; }
+  .stat .num { font-size: 26pt; font-weight: 300; color: var(--cyan); line-height: 1.1; }
+  .stat .txt { font-size: 8.5pt; line-height: 1.45; margin-top: 6px; }
+  .stat .src { font-size: 7pt; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin-top: 8px; }
+
+  .two { display: flex; gap: 22px; }
+  .two > div { flex: 1; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 8px 0 12px; }
+  th {
+    background: var(--navy); color: #fff; text-align: left; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; font-size: 7.5pt; padding: 7px 9px;
+  }
+  td { padding: 7px 9px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.45; }
+  tr:nth-child(even) td { background: #fafbfc; }
+  td.src { width: 30%; font-weight: 600; color: var(--navy); }
+  td.yr { width: 8%; color: var(--muted); }
+
+  .quote {
+    border-left: 3px solid var(--cyan); padding: 4px 0 4px 14px; margin: 8px 0 12px;
+    font-size: 11pt; color: var(--navy); font-weight: 500;
+  }
+  .quote span { display: block; font-size: 8pt; font-weight: 400; color: var(--muted); margin-top: 3px; }
+
+  /* Flow */
+  .flow { display: flex; align-items: stretch; gap: 0; margin: 12px 0 8px; }
+  .step { flex: 1; padding: 14px 14px 12px; border: 1px solid var(--line); background: var(--gray); }
+  .step.mid { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .step .n { font-size: 7.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); font-weight: 600; }
+  .step .t { font-size: 11.5pt; font-weight: 600; color: var(--navy); margin: 4px 0 4px; line-height: 1.3; }
+  .step.mid .t { color: #fff; }
+  .step .d { font-size: 8.5pt; line-height: 1.45; }
+  .arrow { width: 26px; display: flex; align-items: center; justify-content: center; color: var(--cyan); font-size: 18pt; font-weight: 300; }
+
+  .box { background: var(--gray); border-left: 5px solid var(--cyan); padding: 12px 18px; margin: 4px 0 14px; }
+  .box p { margin: 0; }
+
+  .sources { font-size: 7.6pt; line-height: 1.45; color: var(--muted); margin-left: 16px; }
+  .sources li { margin-bottom: 1px; }
+
+  .cta {
+    display: inline-block; background: var(--cyan); color: #fff; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase; font-size: 8.5pt; padding: 10px 22px; margin-top: 4px;
+  }
+
+  @media screen {
+    body { background: #d9dee3; }
+    .page { margin: 24px auto; box-shadow: 0 4px 24px rgba(0,0,0,0.15); background: #fff; }
+    .cover { background: var(--navy); }
+  }
+  @media screen and (max-width: 860px) {
+    .page { width: 100%; height: auto; padding: 48px 16px 72px; margin: 0; }
+    .cover-top, .cover-mid, .cover-bottom { padding-left: 16px; padding-right: 16px; }
+    .cover { min-height: 90vh; }
+    .cover h1 { font-size: 28pt; }
+    .stats, .two, .flow, .cover-bottom { flex-direction: column; }
+    .arrow { width: auto; transform: rotate(90deg); }
+    .runner, .footer { left: 16px; right: 16px; }
+  }
+
+  /* Stat grid (light research) */
+  .grid4 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
+  .grid4 .stat { padding: 16px 18px 14px; }
+
+  /* Sample page */
+  .sample-frame { border: 1px solid var(--line); border-top: 4px solid var(--navy); padding: 26px 30px 22px; margin-top: 6px; }
+  .sample-head { display: flex; justify-content: space-between; font-size: 7.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 14px; }
+  .sample-title { font-size: 15pt; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); margin-bottom: 4px; }
+  .sample-sub { font-size: 9.5pt; color: var(--muted); margin-bottom: 12px; }
+  .prompt { background: #0f2a40; color: #e8f4fb; font-size: 8.8pt; line-height: 1.55; padding: 14px 16px; border-left: 4px solid var(--cyan); margin: 8px 0 12px; }
+  .prompt .pl { font-size: 7pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); margin-bottom: 6px; font-weight: 600; }
+  .prompt ol { margin: 4px 0 4px 16px; }
+  .prompt li { margin-bottom: 2px; }
+  .tips { display: flex; gap: 12px; }
+  .tip { flex: 1; padding: 10px 12px; font-size: 8.6pt; line-height: 1.45; }
+  .tip .tl { font-size: 7pt; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+  .tip.std { background: var(--gray); border-top: 3px solid var(--navy); }
+  .tip.std .tl { color: var(--navy); }
+  .tip.elli { background: #eaf7fd; border-top: 3px solid var(--cyan); }
+  .tip.elli .tl { color: var(--cyan); }
+  .tip.try { background: var(--gray); border-top: 3px solid var(--muted); }
+  .tip.try .tl { color: var(--muted); }
+
+  /* Sessions */
+  .sessions td:first-child { width: 7%; font-size: 16pt; font-weight: 300; color: var(--cyan); text-align: center; vertical-align: middle; }
+  .sessions td .st { font-weight: 600; color: var(--navy); font-size: 10pt; }
+  .formats { display: flex; gap: 12px; margin: 6px 0 14px; }
+  .fmt { flex: 1; background: var(--navy); color: #fff; padding: 12px 14px; }
+  .fmt .fl { font-size: 7pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); font-weight: 600; }
+  .fmt .ft { font-size: 10.5pt; font-weight: 600; margin: 3px 0 3px; }
+  .fmt .fd { font-size: 8.5pt; line-height: 1.45; }
+  @media screen and (max-width: 860px) {
+    .grid4 { grid-template-columns: 1fr; }
+    .tips, .formats { flex-direction: column; }
+  }
+
+  /* At a glance */
+  .glance { width: 100%; border-collapse: collapse; margin: 6px 0 16px; font-size: 9.8pt; }
+  .glance td { padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
+  .glance tr:nth-child(even) td { background: #ffffff; }
+  .glance td.k { width: 22%; font-size: 7.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); font-weight: 600; padding-top: 11px; }
+  .glance td strong { color: var(--navy); }
+
+  .note { background: var(--gray); border-left: 5px solid var(--cyan); padding: 14px 18px; margin: 0 0 18px; font-size: 10.5pt; line-height: 1.6; }
+  .note p { margin: 0 0 6px; }
+  .note .who { font-size: 9pt; color: var(--navy); font-weight: 600; margin: 0; }
+  .rows { width: 100%; border-collapse: collapse; margin: 4px 0 14px; font-size: 9.8pt; }
+  .rows td { padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
+  .rows tr:nth-child(even) td { background: #ffffff; }
+  .rows td.k { width: 23%; font-size: 7.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); font-weight: 600; padding-top: 11px; }
+  .ask { background: var(--navy); color: #fff; padding: 14px 18px; margin: 4px 0 10px; }
+  .ask .label { font-size: 7.5pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cyan); font-weight: 600; }
+  .ask p { font-size: 12pt; font-weight: 500; margin: 4px 0 0; line-height: 1.45; }
+  .muted { font-size: 9pt; color: var(--muted); }
+  .ev { border-left: 3px solid var(--line); padding: 2px 0 2px 14px; margin: 0 0 14px; }
+  .ev .src { font-size: 7.5pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); font-weight: 600; }
+  .ev p { margin: 3px 0 0; }
+  .chain { display: flex; gap: 0; margin: 10px 0 6px; }
+  .chain .c { flex: 1; background: var(--gray); border-top: 3px solid var(--cyan); padding: 10px 10px; font-size: 8.6pt; line-height: 1.4; color: var(--navy); font-weight: 500; }
+  .chain .c:nth-child(odd) { background: #eaf2f7; }
+  .chain .c .n { display: block; font-size: 16pt; font-weight: 300; color: var(--cyan); line-height: 1; margin-bottom: 4px; }
+  .chain .ar { width: 16px; display: flex; align-items: center; justify-content: center; color: var(--cyan); font-size: 14pt; }
+  .caption { font-size: 8.5pt; color: var(--muted); font-style: italic; }
+  .terms td:first-child { width: 28%; font-weight: 600; color: var(--navy); }
+  .tips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tip { padding: 10px 12px; font-size: 8.6pt; line-height: 1.45; }
+  .tip .tl { font-size: 7pt; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+  .tip.std { background: var(--gray); border-top: 3px solid var(--navy); } .tip.std .tl { color: var(--navy); }
+  .tip.ver { background: var(--gray); border-top: 3px solid var(--muted); } .tip.ver .tl { color: var(--muted); }
+  .tip.fh { background: var(--gray); border-top: 3px solid var(--navy); } .tip.fh .tl { color: var(--navy); }
+  .tip.elli { background: #eaf7fd; border-top: 3px solid var(--cyan); } .tip.elli .tl { color: var(--cyan); }
+  .sample-frame { border: 1px solid var(--line); border-top: 4px solid var(--navy); padding: 22px 26px 18px; margin-top: 6px; }
+  .sample-head { display: flex; justify-content: space-between; font-size: 7.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 12px; }
+  .sample-title { font-size: 15pt; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); margin-bottom: 3px; }
+  .sample-sub { font-size: 9.5pt; color: var(--muted); margin-bottom: 10px; }
+  .prompt { background: #0f2a40; color: #e8f4fb; font-size: 8.7pt; line-height: 1.55; padding: 13px 16px; border-left: 4px solid var(--cyan); margin: 6px 0 12px; }
+  .prompt .pl { font-size: 7pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); margin-bottom: 6px; font-weight: 600; }
+  .prompt ol { margin: 4px 0 4px 16px; } .prompt li { margin-bottom: 2px; } .prompt p { margin: 0 0 6px; }
+  .sessions td:first-child { width: 6%; font-size: 15pt; font-weight: 300; color: var(--cyan); text-align: center; vertical-align: middle; }
+  .sessions td .st { font-weight: 600; color: var(--navy); }
+  @media screen and (max-width: 860px) { .chain { flex-direction: column; } .chain .ar { transform: rotate(90deg); width: auto; } .tips { grid-template-columns: 1fr; } }
+  .grid4 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0 12px; }
+  .grid4 .stat { padding: 12px 16px 10px; }
+  .grid4 .num { font-size: 24pt; }
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<section class="page cover">
+  <div class="cover-top"><img src="assets/eb-logo-white-circuit.png" alt="EB"></div>
+  <div class="cover-mid">
+    <div class="kicker">A Florida pilot proposal · September 2026</div>
+    <h1>The Elliman<br>Way to AI</h1>
+    <p class="sub">A Florida pilot that teaches agents to use AI well in the tools they already use, to Elliman's standards, and shows them when Elli is the better tool.</p>
+    <p class="byline">By Edmund Bogen</p>
+  </div>
+  <div class="cover-bottom">
+    <div>
+      <div class="label">Prepared for</div>
+      <strong>Jay Phillip Parker</strong><br>CEO of Brokerage, Florida Region<br>Douglas Elliman Real Estate
+    </div>
+    <div style="text-align:right">
+      <div class="label">Prepared by</div>
+      <strong>Edmund Bogen</strong><br>Broker Associate, Douglas Elliman Real Estate<br>edmund@bogenhomes.com
+    </div>
+  </div>
+</section>
+
+<!-- 2 DECISION -->
+<section class="page">
+  <div class="runner"><span>The Elliman Way to AI · Florida Pilot</span><span>The Decision</span></div>
+
+  <h2>The Decision</h2>
+  <div class="note">
+    <p>Jay, Elliman is investing in AI with Elli and Elius. The harder part is getting agents to use AI well, and consistently. I'm proposing a small Florida pilot to test a practical way to do that before any larger commitment.</p>
+    <p class="who">Edmund Bogen</p>
+  </div>
+  <table class="rows">
+    <tr><td class="k">The challenge</td><td>Agents already use AI, mostly their own tools. In Microsoft's 2024 survey, 78% of people who use AI at work bring their own, and only 39% have been trained by their company. That use sits outside Elliman's standards for brand, client information and Fair Housing, and outside Elli.</td></tr>
+    <tr><td class="k">The pilot</td><td>A hands-on program for agents in selected Florida offices and on Zoom, with a preview of the book's core material. Agents learn in the AI they already use, apply Elliman's standards, and see when Elli is the right tool.</td></tr>
+    <tr><td class="k">What we learn</td><td>Whether agents attend, finish the work, keep using it, and move tasks into Elli, measured against a baseline we agree on before the first session.</td></tr>
+    <tr><td class="k">After the pilot</td><td>A short written report and a decision: expand, adjust or stop. Expansion could include the book, <em>The Elliman Way to AI</em>, and a wider Florida rollout.</td></tr>
+  </table>
+  <div class="ask">
+    <div class="label">Requested now</div>
+    <p>A 30-minute working meeting in October to agree on pilot scope, offices, dates and decision owners.</p>
+  </div>
+  <p class="muted">Not requested now: a book order, use of the Elliman name, or any commitment beyond Florida.</p>
+  <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>2</span></div>
+</section>
+
+<!-- 3 WHY -->
+<section class="page">
+  <div class="runner"><span>The Elliman Way to AI · Florida Pilot</span><span>Why This Approach</span></div>
+
+  <h2>Why Start With Familiar Tools</h2>
+  <p class="lead">Agents will keep using the AI they know. The opportunity is to shape how they use it, and to show them when Elliman's own tools do the job better.</p>
+  <div class="grid4">
+    <div class="stat"><div class="num">78%</div><div class="txt">of people who use AI at work bring their own tools.</div><div class="src">Microsoft &amp; LinkedIn · 2024 · 31,000 people</div></div>
+    <div class="stat"><div class="num">39%</div><div class="txt">of them have received AI training from their company.</div><div class="src">Microsoft &amp; LinkedIn · 2024</div></div>
+    <div class="stat"><div class="num">15,000</div><div class="txt">of Compass's 83,000 agents used its new AI Assistant in the first weeks after launch, despite a CEO roadshow.</div><div class="src">Fortune · September 2026</div></div>
+    <div class="stat"><div class="num">13%</div><div class="txt">of salespeople used their CRM's full capabilities, though 80% of companies had one. The pattern predates AI.</div><div class="src">Accenture · 2016</div></div>
+  </div>
+  <div class="quote">"It takes a lot of work to get agents to actually adopt these tools."<span>Rory Golod, President of Growth, Compass · Fortune, September 2026</span></div>
+  <div class="ev">
+    <div class="src">Douglas Elliman · October 7, 2025 and July 2026 announcements</div>
+    <p>Elli launched in Florida first, with a national rollout planned for 2026. Elliman describes it as natural-language MLS search, branded reports, and property description, pitch and pricing-strategy language. Elius, announced in July 2026, is described as in development.</p>
+  </div>
+  <p class="caption">These are signals from other settings, not proof this program will work. The pilot is how we find out.</p>
+
+  <h3 style="margin-top:14px">How the pilot is meant to work</h3>
+  <div class="chain">
+    <div class="c"><span class="n">1</span>Train agents in AI tools they already use</div><div class="ar">&rsaquo;</div>
+    <div class="c"><span class="n">2</span>Agents finish useful work in the session</div><div class="ar">&rsaquo;</div>
+    <div class="c"><span class="n">3</span>Consistent brand and client-data practices</div><div class="ar">&rsaquo;</div>
+    <div class="c"><span class="n">4</span>Agents learn when to use Elli or Elius</div><div class="ar">&rsaquo;</div>
+    <div class="c"><span class="n">5</span>Elliman evaluates adoption and value</div>
+  </div>
+  <p class="caption">Intended outcomes to test, not guaranteed results.</p>
+  <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>3</span></div>
+</section>
+
+<!-- 4 PILOT DESIGN -->
+<section class="page">
+  <div class="runner"><span>The Elliman Way to AI · Florida Pilot</span><span>Pilot Design</span></div>
+
+  <h2>Pilot Design</h2>
+  <table class="rows">
+    <tr><td class="k">Audience</td><td>Agents in selected Florida offices, plus a Zoom group. Offices and group size to agree.</td></tr>
+    <tr><td class="k">Delivery</td><td>Hands-on sessions in person and on Zoom. Agents bring a laptop or phone and work on real tasks.</td></tr>
+    <tr><td class="k">Materials</td><td>A draft preview of the book's core chapters and prompt library.</td></tr>
+    <tr><td class="k">Schedule</td><td>Dates, session count and cadence to agree with Elliman.</td></tr>
+  </table>
+  <h3>Proposed curriculum</h3>
+  <table class="sessions">
+    <tr><th>#</th><th>Session</th><th>What agents produce</th></tr>
+    <tr><td>1</td><td><div class="st">AI Foundations, the Elliman Way</div>What AI does well, where it fails, and Elliman's rules for client information and Fair Housing.</td><td>A starter set of prompts for their own daily tasks.</td></tr>
+    <tr><td>2</td><td><div class="st">Win the Listing</div>Preparing for a listing appointment with AI, verified against the MLS.</td><td>A listing appointment brief (see the sample page).</td></tr>
+    <tr><td>3</td><td><div class="st">Never Lose a Lead</div>Follow-up and client email in the Elliman voice.</td><td>A follow-up workflow for their database.</td></tr>
+    <tr><td>4</td><td><div class="st">Build a Reusable Assistant</div>Saved instructions that make AI work the same way every time, and where Elli fits.</td><td>A reusable assistant or instruction set.</td></tr>
+  </table>
+  <p class="muted">All exercises follow Elliman's technology and compliance policies.</p>
+  <div class="two">
+    <div>
+      <h3>Edmund provides</h3>
+      <ul>
+        <li>Curriculum, preview material and delivery</li>
+        <li>Baseline and follow-up surveys</li>
+        <li>The pilot report</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Elliman provides</h3>
+      <ul>
+        <li>Participating offices and a sponsor</li>
+        <li>Agent invitations and rooms</li>
+        <li>Confirmation of AI, data and Fair Housing policies</li>
+        <li>Elli and Elius usage data, where suitable</li>
+        <li>A named decision owner</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>4</span></div>
+</section>
+
+<!-- 5 SAMPLE -->
+<section class="page">
+  <div class="runner"><span>The Elliman Way to AI · Florida Pilot</span><span>Sample Page</span></div>
+
+  <h2>Sample Page (Draft)</h2>
+  <p>A draft of the pattern each chapter and session will follow. The example property is fictional.</p>
+  <div class="sample-frame">
+    <div class="sample-head"><span>Draft sample · Listings</span><span>The Elliman Way to AI</span></div>
+    <div class="sample-title">The Listing Appointment Brief</div>
+    <div class="sample-sub">Prepare for a listing appointment in less time, with every number checked.</div>
+    <div class="prompt">
+      <div class="pl">Works in ChatGPT, Claude, Gemini or Grok</div>
+      <p>Act as my listing presentation coach. I'm preparing for a listing appointment. The property is a four-bedroom, three-bath single-family pool home of about 2,800 square feet, built in 1998, in a gated community in Boca Raton, with an updated kitchen and a lake view. Below are recent comparable sales from the MLS, with addresses removed: [PASTE: beds, baths, square feet, sale price, sale date, key features].</p>
+      Give me:
+      <ol>
+        <li>Three strengths to emphasize, based only on the home's features and these comps.</li>
+        <li>Two pricing questions the seller is likely to ask, and a plain-language way to walk through the comps.</li>
+        <li>A 60-second opening for the appointment.</li>
+      </ol>
+      <p style="margin:6px 0 0">Describe the property and its features only, never the people who live nearby or who should buy it. If the comps don't support a point, say so.</p>
+    </div>
+    <div class="tips">
+      <div class="tip std"><div class="tl">The Elliman standard</div>Leave out names, contact details, finances and anything from a signed agreement. Share only MLS data you are permitted to use, with addresses removed.</div>
+      <div class="tip ver"><div class="tl">Verify before you use</div>AI can be wrong. Check every comp, number and claim against the MLS and public records. The pricing opinion is yours, not the AI's.</div>
+      <div class="tip fh"><div class="tl">Fair Housing</div>Describe the home, not people. Avoid phrases such as "perfect for families," "safe neighborhood" or "ideal for young professionals."</div>
+      <div class="tip elli"><div class="tl">Where Elli fits</div>Where Elli is available to you, use it for the Elliman-branded report you share with the seller.</div>
+    </div>
+  </div>
+  <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>5</span></div>
+</section>
+
+<!-- 6 MEASUREMENT -->
+<section class="page">
+  <div class="runner"><span>The Elliman Way to AI · Florida Pilot</span><span>Measurement and Expansion</span></div>
+
+  <h2>Measuring the Pilot</h2>
+  <p class="lead">We record a baseline before the first session and report against it at the end. Success criteria are agreed with Elliman before the pilot starts; none are assumed here.</p>
+  <table>
+    <tr><th>Measure</th><th>How it's captured</th><th>Source</th></tr>
+    <tr><td class="src">Reach</td><td>Invitations sent and registrations</td><td>Elliman invite lists, registration form</td></tr>
+    <tr><td class="src">Attendance</td><td>By session, in person and on Zoom</td><td>Sign-in sheets, Zoom reports</td></tr>
+    <tr><td class="src">Completion</td><td>Exercises finished: prompts, brief, workflow, assistant</td><td>Session check-in</td></tr>
+    <tr><td class="src">Agent feedback</td><td>Usefulness and confidence, before and after</td><td>Short surveys</td></tr>
+    <tr><td class="src">Repeat use</td><td>Still using the workflows about 30 days later</td><td>Follow-up survey</td></tr>
+    <tr><td class="src">Elli and Elius use</td><td>Activity before and after, if Elliman can share it</td><td>Elliman data</td></tr>
+  </table>
+
+  <h2 style="margin-top:22px">If the Pilot Works</h2>
+  <p>The pilot ends with a short written report and a decision meeting: expand, adjust or stop. If Elliman chooses to expand, Phase 2 could include:</p>
+  <ul>
+    <li><strong>The book</strong>, <em>The Elliman Way to AI</em>, as the course material for every participating agent.</li>
+    <li><strong>A wider Florida rollout</strong> of the program to more offices.</li>
+    <li><strong>An annual option</strong> to add copies, offices or regions beyond Florida, at Elliman's decision.</li>
+  </ul>
+  <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>6</span></div>
+</section>
+
+<!-- 7 TERMS -->
+<section class="page">
+  <div class="runner"><span>The Elliman Way to AI · Florida Pilot</span><span>Terms for Discussion</span></div>
+
+  <h2>Phase 2 Proposal, for Discussion</h2>
+  <p>Conditional on pilot results, manuscript and brand approval, and final terms.</p>
+  <table class="rows">
+    <tr><td class="k">The book</td><td><em>The Elliman Way to AI</em>, by Edmund Bogen. Not yet written. Target publication in early 2027 on Amazon, at $19.95 retail.</td></tr>
+    <tr><td class="k">Proposed order</td><td>1,000 copies for $20,000, covering the books and the education program for those agents.</td></tr>
+    <tr><td class="k">Program term</td><td>One four-session cycle for each participating group. Any ongoing schedule, such as recurring monthly cycles, and its length to agree.</td></tr>
+  </table>
+  <div class="box" style="background:var(--gray);border-left:5px solid var(--cyan);padding:12px 16px;margin:4px 0 14px">
+    <p style="margin:0"><strong>Brand approval.</strong> Use of the Elliman name, any logo, a branded cover and publication all require Elliman's prior written approval. Printed and digital copies can't be recalled once distributed, so manuscript review, revisions, distribution and withdrawal are settled with Elliman's legal and brand teams before publication.</p>
+  </div>
+  <h3>Terms to agree</h3>
+  <table class="terms">
+    <tr><th>Item</th><th>To settle</th></tr>
+    <tr><td>Pilot fee</td><td>Whether the pilot is paid, and how</td></tr>
+    <tr><td>Books</td><td>Print, shipping and delivery to offices</td></tr>
+    <tr><td>In-person sessions</td><td>Travel and room arrangements</td></tr>
+    <tr><td>Recordings</td><td>Whether sessions are recorded, and who may use them</td></tr>
+    <tr><td>Updates</td><td>How the material stays current as AI tools change</td></tr>
+    <tr><td>Ownership</td><td>Rights to the book and prompt library, and Elliman's use of them</td></tr>
+  </table>
+  <p class="muted" style="margin-top:10px"><strong>Disclosure.</strong> I run a separate, paid AI mastermind (from $70 a month) open to agents at any brokerage. It is not part of this proposal or a condition of it. If Elliman is interested in optional advanced coaching later, that would be a separate conversation, subject to Elliman's approval.</p>
+  <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>7</span></div>
+</section>
+
+<!-- 8 WHY EDMUND -->
+<section class="page">
+  <div class="runner"><span>The Elliman Way to AI · Florida Pilot</span><span>Why Edmund</span></div>
+
+  <h2>Why Edmund Bogen</h2>
+  <ul>
+    <li><strong>An Elliman agent for more than a dozen years</strong>, now a broker associate in South Florida. I care about this brand and want it to lead on AI.</li>
+    <li><strong>An active AI educator.</strong> I run an AI mastermind on Zoom six times a month, with 20 to 50 people in each session. Past sessions are on the Video tab at <a href="https://www.bogen.ai/video-archive">bogen.ai/video-archive</a>.</li>
+    <li><strong>Author of <em>Prompt to Close: The AI Playbook for Real Estate Professionals</em></strong>, on Amazon.</li>
+  </ul>
+  <div class="ask" style="margin-top:22px">
+    <div class="label">Next step</div>
+    <p>A 30-minute working meeting in October to agree on the pilot scope and decision owners.</p>
+  </div>
+  <a class="cta" href="mailto:edmund@bogenhomes.com?subject=The%20Elliman%20Way%20to%20AI%20pilot">Schedule the meeting</a>
+
+  <div class="section" style="margin-top:26px">
+    <h3>Sources</h3>
+    <ol class="sources">
+      <li><a href="https://news.microsoft.com/source/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/">Microsoft &amp; LinkedIn, 2024 Work Trend Index</a>, May 8, 2024</li>
+      <li><a href="https://fortune.com/2026/09/23/compass-ai-assistant-real-estate-agents/">Fortune, How brokerage Compass sold its 83,000 real estate agents to use more AI</a>, September 23, 2026</li>
+      <li><a href="https://newsroom.accenture.com/news/2016/accenture-survey-finds-evolving-role-of-digital-is-reshaping-sales-organizations-in-the-quest-for-the-ultimate-customer-experience">Accenture, sales tools survey with CSO Insights</a>, April 2016</li>
+      <li><a href="https://www.elliman.com/media/FINAL_Press_Release_Elli_AI_App_Launch_10_07_25_3d8dfd5a68.pdf">Douglas Elliman, Elli AI launch release</a>, October 7, 2025</li>
+      <li><a href="https://www.elliman.com/insider/douglas-elliman-launches-elius-ai-transformation-google-cloud-technology">Douglas Elliman, Elius announcement</a>, July 2026</li>
+    </ol>
+  </div>
+  <div class="footer"><img src="assets/eb-logo-navy-circuit-transparent.png" alt="EB"><span>Edmund Bogen · The Edmund Bogen Team at Douglas Elliman Real Estate</span><span>8</span></div>
+</section>
+
+</body>
+</html>
